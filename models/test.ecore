@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="test" nsURI="http://test/1.0" nsPrefix="test">
+  <eClassifiers xsi:type="ecore:EClass" name="EClass0"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EClass1">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//EClass2"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference1" eType="#//EClass0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EClass2">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//EClass3"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference1" eType="#//EClass0" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EClass3">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//EClass4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EClass4"/>
+</ecore:EPackage>

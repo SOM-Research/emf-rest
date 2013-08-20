@@ -1,0 +1,11 @@
+operation String toLowerFirst() : String{
+ return ((self.charAt(0)+"").toLowerCase())+self.subString(1,self.length);
+}
+
+operation String toLowerFirst() : String{
+ return ((self.charAt(0)+"").toLowerCase())+self.subString(1,self.length);
+}
+
+operation String toUpperFirst() : String{
+ return ((self.charAt(0)+"").toUpperCase())+self.subString(1,self.length);
+}

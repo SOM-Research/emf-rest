@@ -1,0 +1,13 @@
+[%
+ import "lib/StringUtils.eol"; 
+ import "lib/EcoreUtils.eol"; 
+%]
+
+
+[%
+    for (c in EClass.all.clone()->select(c:EClass | c.isSuperClass())) {    
+     var inheritanceContainer : Template = TemplateFactory.load("serialization/inheritanceContainer.egl");
+     inheritanceContainer.populate("clazz", c);
+     inheritanceContainer.generate("webmapi/service/container/" + c.inheritanceContainerName() + ".java");
+    }
+%]

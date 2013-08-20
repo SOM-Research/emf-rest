@@ -1,0 +1,10 @@
+[%
+ import "lib/StringUtils.eol"; 
+ import "lib/EcoreUtils.eol"; 
+%]
+
+
+[%
+    var modelWriter : Template = TemplateFactory.load("serialization/modelWriter.egl");
+    modelWriter.generate("webmapi/service/ModelWriter.java");
+%]

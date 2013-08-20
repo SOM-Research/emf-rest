@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="Families" nsURI="http://families/4.0" nsPrefix="Families">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Family">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastName" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="father" ordered="false"
+        lowerBound="1" eType="#//Father" containment="true" eOpposite="#//Father/family"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mother" ordered="false"
+        lowerBound="1" eType="#//Mother" containment="true" eOpposite="#//Mother/family"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sons" upperBound="-1" eType="#//Son"
+        containment="true" eOpposite="#//Son/family"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="daughters" ordered="false"
+        upperBound="-1" eType="#//Daughter" containment="true" eOpposite="#//Daughter/family"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pets" upperBound="-1" eType="#//Pet"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="dogs" upperBound="-1" eType="#//Dog"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="LongName"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="LongName" value="firstName > 10"/>
+    </eAnnotations>
+    <eOperations name="getName"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" ordered="false"
+        unique="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Father" eSuperTypes="#//Member">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="family" ordered="false"
+        lowerBound="1" eType="#//Family" eOpposite="#//Family/father"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mother" eSuperTypes="#//Member">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="family" ordered="false"
+        lowerBound="1" eType="#//Family" eOpposite="#//Family/mother"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Son" eSuperTypes="#//Member">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="family" ordered="false"
+        lowerBound="1" eType="#//Family" eOpposite="#//Family/sons"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//EClass0"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Daughter" eSuperTypes="#//Member">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="family" ordered="false"
+        lowerBound="1" eType="#//Family" eOpposite="#//Family/daughters"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inner" upperBound="-1"
+        eType="#//Inner" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="other" upperBound="-1"
+        eType="#//Son"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Inner">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//kk"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AlsoStand"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EClass0">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Family"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pet" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="RFID" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="race" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="kk">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="EReference0" eType="#//Family"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Dog" eSuperTypes="#//Pet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Cat" eSuperTypes="#//Pet"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RaceDog" eSuperTypes="#//Dog"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EClass1" eSuperTypes="#//RaceDog #//Pet"/>
+</ecore:EPackage>

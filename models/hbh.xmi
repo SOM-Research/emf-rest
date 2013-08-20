@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="ASCII"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="ATL" nsURI="http://www.eclipse.org/gmt/2005/ATL" nsPrefix="atl">
+  <eClassifiers xsi:type="ecore:EClass" name="LocatedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="location" ordered="false" unique="false">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/String"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commentsBefore" unique="false" upperBound="-1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/String"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="commentsAfter" unique="false" upperBound="-1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/String"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Unit" eSuperTypes="//LocatedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" ordered="false" upperBound="-1" eType="//LibraryRef" containment="true" eOpposite="//LibraryRef/unit"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/String"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="//Unit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="helpers" upperBound="-1" eType="//Helper" containment="true" eOpposite="//Helper/library"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Query" eSuperTypes="//Unit">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclExpression"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="helpers" upperBound="-1" eType="//Helper" containment="true" eOpposite="//Helper/query"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Module" eSuperTypes="//Unit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRefining" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/Boolean"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inModels" lowerBound="1" upperBound="-1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclModel"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outModels" ordered="false" lowerBound="1" upperBound="-1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclModel"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1" eType="//ModuleElement" containment="true" eOpposite="//ModuleElement/module"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModuleElement" abstract="true" eSuperTypes="//LocatedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="module" ordered="false" lowerBound="1" eType="//Module" eOpposite="//Module/elements"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Helper" eSuperTypes="//ModuleElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="query" ordered="false" eType="//Query" eOpposite="//Query/helpers"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="library" ordered="false" eType="//Library" eOpposite="//Library/helpers"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="definition" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclFeatureDefinition"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rule" abstract="true" eSuperTypes="//ModuleElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outPattern" ordered="false" eType="//OutPattern" containment="true" eOpposite="//OutPattern/rule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="actionBlock" ordered="false" eType="//ActionBlock" containment="true" eOpposite="//ActionBlock/rule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1" eType="//RuleVariableDeclaration" containment="true" eOpposite="//RuleVariableDeclaration/rule"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/String"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MatchedRule" eSuperTypes="//Rule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inPattern" ordered="false" eType="//InPattern" containment="true" eOpposite="//InPattern/rule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" ordered="false" upperBound="-1" eType="//MatchedRule" eOpposite="//MatchedRule/superRule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="superRule" ordered="false" eType="//MatchedRule" eOpposite="//MatchedRule/children"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAbstract" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/Boolean"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRefining" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/Boolean"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isNoDefault" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/Boolean"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LazyMatchedRule" eSuperTypes="//MatchedRule">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isUnique" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/Boolean"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CalledRule" eSuperTypes="//Rule">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" ordered="false" upperBound="-1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/Parameter"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isEntrypoint" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/Boolean"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isEndpoint" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/Boolean"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InPattern" eSuperTypes="//LocatedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" ordered="false" lowerBound="1" upperBound="-1" eType="//InPatternElement" containment="true" eOpposite="//InPatternElement/inPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" ordered="false" lowerBound="1" eType="//MatchedRule" eOpposite="//MatchedRule/inPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="filter" ordered="false" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclExpression"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutPattern" eSuperTypes="//LocatedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" ordered="false" lowerBound="1" eType="//Rule" eOpposite="//Rule/outPattern"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1" upperBound="-1" eType="//OutPatternElement" containment="true" eOpposite="//OutPatternElement/outPattern"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PatternElement" abstract="true">
+    <eSuperTypes href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/VariableDeclaration"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InPatternElement" abstract="true" eSuperTypes="//PatternElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mapsTo" ordered="false" lowerBound="1" eType="//OutPatternElement" eOpposite="//OutPatternElement/sourceElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inPattern" ordered="false" lowerBound="1" eType="//InPattern" eOpposite="//InPattern/elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="models" ordered="false" upperBound="-1">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclModel"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleInPatternElement" eSuperTypes="//InPatternElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OutPatternElement" abstract="true" eSuperTypes="//PatternElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outPattern" ordered="false" lowerBound="1" eType="//OutPattern" eOpposite="//OutPattern/elements"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sourceElement" ordered="false" eType="//InPatternElement" eOpposite="//InPatternElement/mapsTo"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="bindings" upperBound="-1" eType="//Binding" containment="true" eOpposite="//Binding/outPatternElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" ordered="false">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclModel"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleOutPatternElement" eSuperTypes="//OutPatternElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="reverseBindings" upperBound="-1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclExpression"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ForEachOutPatternElement" eSuperTypes="//OutPatternElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="collection" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclExpression"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="iterator" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/Iterator"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Binding" eSuperTypes="//LocatedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclExpression"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outPatternElement" ordered="false" lowerBound="1" eType="//OutPatternElement" eOpposite="//OutPatternElement/bindings"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyName" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/String"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAssignment" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/Boolean"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RuleVariableDeclaration">
+    <eSuperTypes href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/VariableDeclaration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" ordered="false" lowerBound="1" eType="//Rule" eOpposite="//Rule/variables"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="LibraryRef" eSuperTypes="//LocatedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="unit" ordered="false" lowerBound="1" eType="//Unit" eOpposite="//Unit/libraries"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/String"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ActionBlock" eSuperTypes="//LocatedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rule" ordered="false" lowerBound="1" eType="//Rule" eOpposite="//Rule/actionBlock"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1" eType="//Statement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Statement" abstract="true" eSuperTypes="//LocatedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionStat" eSuperTypes="//Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expression" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclExpression"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BindingStat" eSuperTypes="//Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclExpression"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="propertyName" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/String"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAssignment" ordered="false" unique="false" lowerBound="1">
+      <eType xsi:type="ecore:EDataType" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/1/Boolean"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclExpression"/>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="IfStat" eSuperTypes="//Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclExpression"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="thenStatements" upperBound="-1" eType="//Statement" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elseStatements" upperBound="-1" eType="//Statement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ForStat" eSuperTypes="//Statement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="iterator" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/Iterator"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="collection" ordered="false" lowerBound="1" containment="true">
+      <eType xsi:type="ecore:EClass" href="file:/Users/cadmilo/Documents/runtime-MTCProject-new/web-api/models/atl.ecore#/0/OclExpression"/>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="statements" upperBound="-1" eType="//Statement" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

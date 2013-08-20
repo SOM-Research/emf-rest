@@ -1,0 +1,29 @@
+[% import "lib/StringUtils.eol"; %]
+[% import "lib/EcoreUtils.eol"; %]
+
+[%
+    var classService : Template = TemplateFactory.load("config/modelEnvironmentManager.egl");
+    classService.generate("webmapi/service/configuration/ModelEnvironmentManager.java");
+
+    var classService : Template = TemplateFactory.load("config/applicationConfiguration.egl");
+    classService.generate("webmapi/service/configuration/ApplicationConfiguration.java");
+
+    var classService : Template = TemplateFactory.load("webservice/webService.egl"); 
+    classService.generate("webmapi/service/" + "WebApiService.java");
+
+    var classService : Template = TemplateFactory.load("config/identificationResolver.egl"); 
+    classService.generate("webmapi/service/" + "IdentificationResolver.java");
+
+
+for (c in EClass.all.clone()) {
+   -- var f = new Native("org.eclipse.epsilon.egl.formatter.language.JavaFormatter");
+   var classService : Template = TemplateFactory.load("webservice/resource/resource.egl"); 
+   classService.populate("clazz", c);  
+   classService.generate(c.packagePath()+"service/" + c.rscClassName() + ".java"); 
+   if(c.isSuperClass()){
+    var compoundClassService : Template = TemplateFactory.load("webservice/resource/compoundResource.egl"); 
+    compoundClassService.populate("clazz", c);  
+    compoundClassService.generate(c.packagePath()+"service/" + c.compoundResourceClassName() + ".java");
+   }
+  }
+%]

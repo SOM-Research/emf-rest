@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.mtcflow.model:MTC xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.mtcflow.model="http://com.mtcflow.mtc/1.0" validateConformance="false">
+  <files name="API &lt;-> Serializers"/>
+  <files name="REST Services"/>
+  <files name="JSON + Webservice Libraries"/>
+  <files name="? Documentation"/>
+  <files name="JavaScript API"/>
+  <files name="Reader/Writer"/>
+  <files name="Containers"/>
+  <metamodels name="Structural" alias="STR"/>
+  <metamodels name="ECORE" URI="http://www.eclipse.org/emf/2002/Ecore" alias=""/>
+  <metamodels name="Navigation" alias="NAV"/>
+  <models name="Structural DSL" metamodel="//@metamodels.0"/>
+  <models name="Structural Description" metamodel="//@metamodels.0"/>
+  <models name="Ecore Metamodel" metamodel="//@metamodels.1"/>
+  <models name="Navigation Description" metamodel="//@metamodels.2"/>
+  <models name="Navigation DSL" metamodel="//@metamodels.2"/>
+  <models name="Ecore Fully Annotated" file="${ecore_file}" metamodel="//@metamodels.1"/>
+  <models name="Ecore ST Annotated" metamodel="//@metamodels.1"/>
+  <inputModels model="//@models.0" transformation="//@transformations.0"/>
+  <inputModels model="//@models.4" transformation="//@transformations.1"/>
+  <inputModels model="//@models.3" alias="NV" transformation="//@transformations.5"/>
+  <inputModels model="//@models.1" alias="ST" transformation="//@transformations.2"/>
+  <inputModels model="//@models.2" alias="MM" transformation="//@transformations.2"/>
+  <inputModels model="//@models.5" alias="INSer" transformation="//@transformations.4"/>
+  <inputModels model="//@models.5" transformation="//@transformations.3"/>
+  <inputModels model="//@models.6" alias="MM" transformation="//@transformations.5"/>
+  <inputModels model="//@models.5" transformation="//@transformations.9"/>
+  <inputModels model="//@models.5" transformation="//@transformations.10"/>
+  <transformations xsi:type="com.mtcflow.model:T2MTransformation" name="Structural DSL -> Model" URI="" technology=""/>
+  <transformations xsi:type="com.mtcflow.model:T2MTransformation" name="Navigation DSL -> Model"/>
+  <transformations xsi:type="com.mtcflow.model:M2MTransformation" name="Ecore -> Structural Annotated Ecore" referencedResources="//@referencedResources.0"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Serializer" file="generateSerializer.egl" description="" technology="" outputFiles="//@files.0" target="${output}"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Services" file="generateWebMApi.egl" description="" technology="" implementationClass="" outputFiles="//@files.1" target="${output}">
+    <templatesName>generateService</templatesName>
+  </transformations>
+  <transformations xsi:type="com.mtcflow.model:M2MTransformation" name="Ecore -> Navigation Annotated Ecore" referencedResources="//@referencedResources.1" technology=""/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Copy Libraries" file="aaa.kkk" technology="" outputFiles="//@files.2" target="/src-gen"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Rest Api Doc" file="dummy.egll" technology="" outputFiles="//@files.3" target="/src-gen"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> JavaScript API" file="dummy.egll" outputFiles="//@files.4" target="/src-gen"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Reader/Writer" file="generateReader-Writer.egl" outputFiles="//@files.5" target="${output}"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore-> REST- Container" file="generateContainer.egl" outputFiles="//@files.6" target="${output}"/>
+  <outputModels model="//@models.1" transformation="//@transformations.0"/>
+  <outputModels model="//@models.3" transformation="//@transformations.1"/>
+  <outputModels model="//@models.5" transformation="//@transformations.5"/>
+  <outputModels model="//@models.6" transformation="//@transformations.2"/>
+  <configurations>
+    <variables name="output" defaultValue="/Users/cadmilo/NetBeansProjects/web-java-model/src/java/" description=""/>
+    <variables name="ecore_file" defaultValue="java.ecore" description=""/>
+  </configurations>
+  <referencedResources name="Structural Comparator"/>
+  <referencedResources name="Navigation Comparator" description=""/>
+</com.mtcflow.model:MTC>

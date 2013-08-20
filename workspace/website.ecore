@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="website"
+    nsURI="website" nsPrefix="website">
+  <eClassifiers xsi:type="ecore:EClass" name="WebSite" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="siteMap" eType="#//Index"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="template" eType="#//TemplateTheme"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainMenu" eType="#//Menu"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Page" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" upperBound="-1"
+        eType="#//Section" containment="true" eOpposite="#//Section/page"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentIndex" eType="#//Index"
+        eOpposite="#//Index/pages"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Section" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="contents" upperBound="-1"
+        eType="#//Content" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="page" eType="#//Page" eOpposite="#//Page/sections"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Content" abstract="true" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="order" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="informationSource" eType="#//InformationSource"
+        containment="true" eOpposite="#//InformationSource/content"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="section" eType="#//Section"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InformationSource" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//InformationSourceType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="withPresentation" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="content" eType="#//Content"
+        eOpposite="#//Content/informationSource"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="InformationSourceType">
+    <eLiterals name="Spreadsheet"/>
+    <eLiterals name="WordProcessing" value="1"/>
+    <eLiterals name="WebService" value="2"/>
+    <eLiterals name="Static" value="3"/>
+    <eLiterals name="Database" value="4"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="List" abstract="true" eSuperTypes="#//Content">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//ListItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OrderedList" eSuperTypes="#//List"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnorderedList" eSuperTypes="#//List"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ListItem" eSuperTypes="#//Content">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="list" eType="#//List"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Table" eSuperTypes="#//Content">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rowNum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="columnNum" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="headers" upperBound="-1"
+        eType="#//TableHeader" containment="true" eOpposite="#//TableHeader/table"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cells" upperBound="-1"
+        eType="#//Cell" containment="true" eOpposite="#//Cell/table"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableHeader" eSuperTypes="#//Content">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="row" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="#//Table"
+        eOpposite="#//Table/headers"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Cell" eSuperTypes="#//Content">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alignment" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="row" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="column" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="table" eType="#//Table"
+        eOpposite="#//Table/cells"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Content"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WebService" eSuperTypes="#//Content">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameters" upperBound="-1"
+        eType="#//WebserviceParameter" containment="true" eOpposite="#//WebserviceParameter/webservice"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Index">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subIndexes" upperBound="-1"
+        eType="#//Index" containment="true" eOpposite="#//Index/parentIndex"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pages" upperBound="-1"
+        eType="#//Page" containment="true" eOpposite="#//Page/parentIndex"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parentIndex" eType="#//Index"
+        eOpposite="#//Index/subIndexes"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedElement" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WebserviceParameter" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//WebserviceParamType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="webservice" eType="#//WebService"
+        eOpposite="#//WebService/parameters"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="WebserviceParamType">
+    <eLiterals name="string"/>
+    <eLiterals name="number" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="TemplateTheme">
+    <eLiterals name="arctic_dokuwikitemplate"/>
+    <eLiterals name="default_dokuwikitemplate" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Link" eSuperTypes="#//Content">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="url" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//LinkType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Menu" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="menuItems" upperBound="-1"
+        eType="#//MenuItem" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MenuItem" eSuperTypes="#//NamedElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="page" eType="#//Page"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="LinkType">
+    <eLiterals name="image"/>
+    <eLiterals name="text" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="WebsiteContainer">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="websites" upperBound="-1"
+        eType="#//WebSite" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>

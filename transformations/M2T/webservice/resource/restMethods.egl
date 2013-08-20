@@ -1,0 +1,98 @@
+[%
+function EReference generateGenericResource() {
+  if(self.eType.isSuperClass()){%]
+   [* GENERATE A METHOD TO RETURN THE COMPUND RESOURCE *]
+   @Path("[%=self.name%]")
+   public [%=self.eType.qualifiedCompoundResourceClassName()%] getResource[%=self.name.toUpperFirst()%]()
+   {
+      return new [%=self.eType.qualifiedCompoundResourceClassName()%](instance.get[%=self.name.toUpperFirst()%]());   
+   }  
+     
+  [%} else {
+  if(self.isMany()){%]
+   [* GENERATE A METHOD TO SELECT BY ID *]
+   @Path("[%=self.name%]/{id}")
+   public [%=self.eType.qualifiedRscClassName()%] getResource[%=self.name.toUpperFirst()%]
+   (@PathParam("id") String id)
+   {
+      return new [%=self.eType.qualifiedRscClassName()%](webmapi.service.IdentificationResolver.find[%=self.eType.name%]ById(instance.get[%=self.name.toUpperFirst()%](),id));   
+   }  
+  [%} else{%]
+   [* GENERATE A METHOD TO SELECT REFERENCES OF SINGLE VALUE *]  
+   @Path("[%=self.name%]")
+   public [%=self.eType.qualifiedRscClassName()%] getResource[%=self.name.toUpperFirst()%]()
+   {
+      return new [%=self.eType.qualifiedRscClassName()%](instance.get[%=self.name.toUpperFirst()%]());
+   }    
+  [%}}
+}
+%]
+
+[%
+function EReference generateGET() {
+  if(self.isMany()){%]
+   [* GENERATE A METHOD TO GET THE LIST OR AN ELEMENT BY THEIR POSITION IN THE LIST*]
+   @GET
+   @Path("[%=self.name%]")
+   public java.util.List<[%=self.eType.qualifiedName()%]> get[%=self.name.toUpperFirst()%]()
+   {
+     return instance.[%=self.getMethod()%]();
+   }
+   [% if(self.ordered){%]
+   @GET
+   @Path("[%=self.name%]")
+   public [%=self.eType.qualifiedRscClassName()%] get[%=self.name.toUpperFirst()%](@QueryParam("index") int index)
+   {
+       return new [%=self.eType.qualifiedRscClassName()%](instance.get[%=self.name.toUpperFirst()%]().get(index));
+   }
+   [%}%]
+   
+  [%} 
+}
+%]
+
+[%
+function EReference generatePOST() {
+  if(self.containment and self.isMany()){%]
+   @POST
+   @Path("[%=self.name%]")
+   [%--%]
+   public void [% if(self.isMany()) {out.print("add");} else {out.print("set");}%][%=self.name.toUpperFirst()%]
+   ([%=self.eType.qualifiedName()%] obj
+    [%
+    if(self.ordered){
+    %]
+      , @DefaultValue("-1") @QueryParam("index") int index
+    [%
+    }
+    %]
+   )
+   {
+     instance.get[%=self.name.toUpperFirst()%]().add(obj);
+   }
+  [%}
+}
+%]
+
+[%
+function EReference generatePUT() {
+  if(self.isMany()){%]
+   @POST
+   @Path("[%=self.name%]")
+   [%--%]
+   public void set[%=self.name.toUpperFirst()%]
+   ([%=self.eType.name%] obj
+    [%
+    if(self.ordered){
+    %]
+      , @DefaultValue("-1") @QueryParam("index") int index
+    [%
+    }
+    %]
+   )
+   {
+     //TODO
+   }
+  [%}
+}
+%]

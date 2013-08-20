@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Families:Family
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:Families="http://families/4.0"
+    xsi:schemaLocation="http://families/4.0 file:/Users/cadmilo/git/webmapi/web-api/models/Families.ecore"
+    lastName="alvarez">
+  <father firstName="Jose"/>
+  <mother firstName="Maria"/>
+  <sons firstName="Jesus"/>
+  <sons firstName="Pedro Pepe"/>
+  <pets xsi:type="Families:Cat"
+      RFID="szd4545xzc45x"
+      name="Tommy"
+      race="cartoon"/>
+  <pets xsi:type="Families:EClass1"
+      RFID="abcvde"
+      name="Another"
+      race="La Race"/>
+  <dogs RFID="dfhdh"
+      name="Dog1"/>
+  <dogs RFID="sdfsdfsdf"
+      name="Dog2"/>
+  <dogs xsi:type="Families:RaceDog"
+      RFID="56456a4f"
+      name="Race Dog 1"
+      race=""/>
+</Families:Family>
