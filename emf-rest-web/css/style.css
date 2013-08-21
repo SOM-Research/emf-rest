@@ -1,0 +1,12 @@
+/*!
+ * Changing things to our style
+ *
+ * Contributor: Javier Canovas (me@jlcanovas.es);
+ */
+.jumbotron h1 {
+  font-family: 'Roboto', sans-serif;
+}
+
+.jumbotron h2 {
+  font-family: 'Roboto', sans-serif;
+}
