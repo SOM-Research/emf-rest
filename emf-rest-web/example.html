@@ -19,17 +19,19 @@
 
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
-  		<div class="navbar-header">
-    		<a class="navbar-brand" href="index.html">EMF-REST</a>
-    	</div>
-    	<div class="collapse navbar-collapse navbar-ex1-collapse">
-    		<ul class="nav navbar-nav">
-      			<li><a href="index.html">Home</a></li>
-      			<li><a href="example.html">Example</a></li>
-      			<li><a href="demo.html">Live Demo</a></li>
-      			<li><a href="https://github.com/jlcanovas/emf-rest" target="_blank">View on GitHub</a></li>
-      		</ul>
-      	</div>
+  	  <div class="navbar-header">
+  		<img style="float: left; padding-right: 10px; padding-top: 10px;" src="img/emf-restIcon-bw.png"/>
+    	<a class="navbar-brand" href="index.html">EMF-REST</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+    	<ul class="nav navbar-nav">
+      	  <li><a href="index.html">Home</a></li>
+      	  <li><a href="example.html">Example</a></li>
+      	  <li><a href="demo.html">Live Demo</a></li>
+      	  <li><a href="documentation.html">Documentation</a></li>
+      	  <li><a href="https://github.com/jlcanovas/emf-rest" target="_blank">View on GitHub</a></li>
+      	</ul>
+      </div>
     </div>
     </nav>
 
@@ -41,7 +43,7 @@
 	<p>To illustrate EMF-REST we will use a simple example to represent families and we will use the Simpsons family (everyone knows the Simpsons!) as instance to play with.</p>
 
 	<h4>The Family model</h4>
-	<p>We will use a simple <abbr title="Metamodeling language in EMF">Ecore</abbr> model to represent families. The main concepts of our Ecore model are shown in the following figure:</p>
+	<p>We will use a simple <abbr title="The metamodeling language in EMF">Ecore</abbr> model to represent families. The main concepts of our Ecore model are shown in the following figure:</p>
 
 	<img class="img-rounded" src="data:image/png;base64," data-src="holder.js/600x300" alt="Family Model">
 
@@ -58,6 +60,8 @@
 	<p>In this example we will use the Simpsons family to illustrate how to use the generated API. For the sake of simplicity, let's imagine that the Simpson family is already in the server, so we will first perform read calls to the API (we will show how to modify its elements afterwards). The following figure shows the Simpsons family model which is accessible and modifiable by the generated REST API:</p>
 
 	<img class="img-rounded" src="data:image/png;base64," data-src="holder.js/600x300" alt="Simpsons Model">
+
+	<p>The generated API allows us to navigate through the Simpsons family model by using REST calls whose format mimics the structure of the model. </p>
 
 	<p>Using the generated API we can query the model by means of calls such as:</p>
 
@@ -77,9 +81,16 @@
 		</button>
 	</div> <!-- /.col-md-3 -->
 
-	</div>
-	</div>
+	</div> <!-- row -->
+	</div> <!-- container -->
 
+	<!--<footer>
+	<div class="container">
+	<p class="text-center"><small>EMF-REST is a tool that allows the generation of Truly RESTFul APIs from Ecore models</small> </p>
+
+	<p class="text-center"><small>Code licensed under the <a href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</small></p>
+	</div>
+	</footer>-->
 
   	<script type="text/javascript">
      	try {

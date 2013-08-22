@@ -27,3 +27,14 @@
 	margin-top: 10px;
 	margin-bottom: 20px;
 }
+
+footer {
+	margin-top: 60px;
+	padding-top: 10px;
+	padding-bottom: 120px;
+	background-color:  #eeeeee;
+}
+
+footer p {
+	margin-bottom: 0px;
+}
