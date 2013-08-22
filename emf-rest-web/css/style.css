@@ -10,3 +10,20 @@
 .jumbotron h2 {
   font-family: 'Roboto', sans-serif;
 }
+
+.marketing {
+	padding-top: 30px;
+}
+
+.marketing .col-md-4 {
+	text-align: center;
+}
+
+.marketing .col-md-4 p {
+	text-align: left;
+}
+
+.example img {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}

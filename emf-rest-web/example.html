@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EFM-REST Example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:700' rel='stylesheet' type='text/css'>
+  </head>
+  <!-- The embedded style is for fixing spaces with navbar -->
+  <body style="padding-top: 50px;">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- For thumbnails (remove in production-->
+    <script src="js/holder.js"></script>
+
+	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="container">
+  		<div class="navbar-header">
+    		<a class="navbar-brand" href="index.html">EMF-REST</a>
+    	</div>
+    	<div class="collapse navbar-collapse navbar-ex1-collapse">
+    		<ul class="nav navbar-nav">
+      			<li><a href="index.html">Home</a></li>
+      			<li><a href="example.html">Example</a></li>
+      			<li><a href="demo.html">Live Demo</a></li>
+      			<li><a href="https://github.com/jlcanovas/emf-rest" target="_blank">View on GitHub</a></li>
+      		</ul>
+      	</div>
+    </div>
+    </nav>
+
+	<div class="container example">
+	<div class="row">
+	<div class="col-md-9">
+
+	<h3>Example</h3>
+	<p>To illustrate EMF-REST we will use a simple example to represent families and we will use the Simpsons family (everyone knows the Simpsons!) as instance to play with.</p>
+
+	<h4>The Family model</h4>
+	<p>We will use a simple <abbr title="Metamodeling language in EMF">Ecore</abbr> model to represent families. The main concepts of our Ecore model are shown in the following figure:</p>
+
+	<img class="img-rounded" src="data:image/png;base64," data-src="holder.js/600x300" alt="Family Model">
+
+	<p>As you can see, the <code>Family</code> concept has only one attribute to represent the address of the family and four references for the parents, sons and daughters included as member of the family. The members of the family are represented by the corresponding concepts, that is, <code>Parent</code>s, <code>Son</code>s and <code>Daughter</code>s.</p>
+
+	<p>To play a bit with hierarchies, a family can also include some pets, represented by the <code>Pet</code> concept, which include <code>Dog</code>s and/or <code>Cat</code>s. Furthermore, a dog can also be a <code>RaceDog</code> or a <code>HuntingDog</code>. The following figure shows these concepts.</p>
+
+	<img class="img-rounded" src="data:image/png;base64," data-src="holder.js/600x300" alt="Pets Model">
+
+	<p>Using the previous model as input, EMF-REST is able to generate the REST API for creating and managing instances of its concepts. </p>
+
+	<h4>The Simpsons family model</h4>
+
+	<p>In this example we will use the Simpsons family to illustrate how to use the generated API. For the sake of simplicity, let's imagine that the Simpson family is already in the server, so we will first perform read calls to the API (we will show how to modify its elements afterwards). The following figure shows the Simpsons family model which is accessible and modifiable by the generated REST API:</p>
+
+	<img class="img-rounded" src="data:image/png;base64," data-src="holder.js/600x300" alt="Simpsons Model">
+
+	<p>Using the generated API we can query the model by means of calls such as:</p>
+
+	<pre>http://&lt;server&gt;/app/Family/21</pre>
+
+	Which will return us a JSON including all the elements of our model
+
+	</div>
+	
+	<div class="col-md-3">
+	<h2>&nbsp;</h2>
+		<button type="button" class="btn btn-default btn-lg btn-block" onClick="location.href='https://github.com/jlcanovas/emf-rest'">
+	  		Download Plugin
+		</button>
+		<button type="button" class="btn btn-primary btn-lg btn-block" onClick="location.href='https://github.com/jlcanovas/emf-rest'">
+  			Download Update File
+		</button>
+	</div> <!-- /.col-md-3 -->
+
+	</div>
+	</div>
+
+
+  	<script type="text/javascript">
+     	try {
+        	var pageTracker = _gat._getTracker("UA-43282342-2");
+            pageTracker._trackPageview();
+        } catch(err) {}
+    </script>
+	</body>
+</html>

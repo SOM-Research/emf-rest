@@ -14,17 +14,19 @@
     <script src="js/jquery-1.10.2.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
+    <!-- For thumbnails (remove in production-->
+    <script src="js/holder.js"></script>
 	
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
   		<div class="navbar-header">
-    		<a class="navbar-brand" href="#">EMF-REST</a>
+    		<a class="navbar-brand" href="index.html">EMF-REST</a>
     	</div>
     	<div class="collapse navbar-collapse navbar-ex1-collapse">
     		<ul class="nav navbar-nav">
-      			<li><a href="#">Home</a></li>
-      			<li><a href="#example">Example</a></li>
-      			<li><a href="http://demo.emf-res.com" target="_blank">Live Demo</a></li>
+      			<li><a href="index.html">Home</a></li>
+      			<li><a href="example.html">Example</a></li>
+      			<li><a href="demo.html">Live Demo</a></li>
       			<li><a href="https://github.com/jlcanovas/emf-rest" target="_blank">View on GitHub</a></li>
       		</ul>
       	</div>
@@ -42,61 +44,57 @@
 
 	<div class="container">
 	<div class="row">
-	<div class="col-md-9">
 
+	<div class="col-md-9">
 	<h3>What is EMF-REST?</h3>
 	<p>EMF-REST is a tool that allows the <strong>generation of Truly RESTFul APIs from Ecore models</strong>. It enables web developers to generate JSON-based Web APIs for their applications. </p>
 
 	<p>EMF-REST complements the existing API generation facilities that the <a href="http://www.eclipse.org/modeling/emf/">Eclipse Modeling Framework (EMF)</a> already provides, which are limited to Java, and extends them to be used on the Web.</p>
 
-	<p>EMF-REST has been developed as an Eclipse plugin, whose features currently implemented are:</p>
+	<!--<p>EMF-REST has been developed as an Eclipse plugin, whose features currently implemented are:</p>
 
 	<ul>
   		<li>Generation of REST services based on the Java JAX-RS specification.</li>
   		<li>Generation of serializers for JSON.</li>
   		<li>Generation of a JavaScript API to work with models as Javascript Objects in the client-side.</li>
-	</ul>
+	</ul>-->
 
-	<p>The tool is under heavy development but you can give it a try by using the update site file, installing the plugin by hand or downloading the source code from <a href="https://github.com/jlcanovas/emf-rest">the GIT repository</a>.</p>
 
-	<h3 id="example">Give me an example!</h3>
-	<p>To illustrate EMF-REST we will use a simple EMF model to represent families and we will use the Simpsons family as family instance to play (everyone knows the Simpsons!).</p>
-
-	<p>The EMF model used in this example is shown in the following figure:</p>
-
-	<img src="putHereTheLink" alt="Family model" class="img-rounded">
-
-	<p>As you can see, the <code>Family</code> concept has only one attribute to represent the address of the family and four references which collect the parents, the son and the daughter included in the family. The members of the family are represented by the corresponding concepts, that is, <code>Parent</code>s, <code>Son</code>s and <code>Daughter</code>s.</p>
-
-	<p>Given the previous model, EMF-REST is able to generate the REST API for creating and manading instances of the previously presented concepts. </p>
-
-	<p>In this example we will use the Simpsons family to illustrate how to use the generated API. For the sake of simplicity, let's imagine that the Simpson family is already in the server. Therefore the following figure shows the model which is accesible and modifiable by the REST API:</p>
-
-	<img src="putHereTheLink" alt="Simpson model" class="img-rounded">
-
-	<p>Blah.. blah...</p>
-
-	<h3>Can I play with it now?</h3>
-
-	<p>Of course you can! We have deployed a demo example in our servers to allow you to play with the generated API. Visit ...</p>
-
-	<h3>Contact</h3>
-
-	</div>
+	<!--<p>The tool is under heavy development but you can give it a try by using the update site file, installing the plugin by hand or downloading the source code from <a href="https://github.com/jlcanovas/emf-rest">the GIT repository</a>.</p>-->
+	</div> <!-- /.col-md-9 -->
 
 	<div class="col-md-3">
-	<!--<div class="btn-group-vertical">-->
+	<h3>&nbsp;</h3>
 		<button type="button" class="btn btn-default btn-lg btn-block" onClick="location.href='https://github.com/jlcanovas/emf-rest'">
-	  		Eclipse Plugin
+	  		Download Plugin
 		</button>
 		<button type="button" class="btn btn-primary btn-lg btn-block" onClick="location.href='https://github.com/jlcanovas/emf-rest'">
-  			Eclipse Update File
+  			Download Update File
 		</button>
-	<!--</div>-->
-	</div>
-	</div>
-  
-  	</div>
+	</div> <!-- /.col-md-3 -->
+
+	</div> <!-- /.row -->
+  	</div> <!-- /.container -->
+
+  	<div class="container marketing">
+  		<div class="row">
+        <div class="col-md-4">
+          <img class="img-rounded" src="data:image/png;base64," data-src="holder.js/250x250" alt="REST Service">
+          <h3>REST-ful Services</h3>
+          <p>EMF-REST automatically creates a set of REST services conforming to the JAX-RC specification which you can deploy in your application server. Once deployed, you will have a REST API ready to work with.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-md-4">
+          <img class="img-rounded" src="data:image/png;base64," data-src="holder.js/250x250" alt="JSON Serialization">
+          <h3>JSON Serialization</h3>
+          <p>You API clients can easily interact with your services since all the communication is done via JSON objects, they do not have to realize that they are dealing with models behind your service.</p>
+        </div><!-- /.col-lg-4 -->
+        <div class="col-md-4">
+          <img class="img-rounded" src="data:image/png;base64," data-src="holder.js/250x250" alt="JavaScript API">
+          <h3>JavaScript API</h3>
+          <p>For those of you thinking of integrating the API in your Web applications, we also generate a JavaScript library which will do all the job to communicate with the generate API.</p>
+        </div><!-- /.col-lg-4 -->
+      	</div><!-- /.row -->
+    </div>
 
   	<script type="text/javascript">
      	try {
