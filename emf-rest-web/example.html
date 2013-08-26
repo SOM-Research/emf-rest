@@ -20,7 +20,7 @@
 	<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 	<div class="container">
   	  <div class="navbar-header">
-  		<img style="float: left; padding-right: 10px; padding-top: 10px;" src="img/emf-restIcon-bw.png"/>
+  		<img style="float: left; padding-right: 10px; padding-top: 10px;" src="img/emf-restIconSmall.png"/>
     	<a class="navbar-brand" href="index.html">EMF-REST</a>
       </div>
       <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -45,29 +45,47 @@
 	<h4>The Family model</h4>
 	<p>We will use a simple <abbr title="The metamodeling language in EMF">Ecore</abbr> model to represent families. The main concepts of our Ecore model are shown in the following figure:</p>
 
-	<img class="img-rounded" src="data:image/png;base64," data-src="holder.js/600x300" alt="Family Model">
+	<img class="img-thumbnail" src="img/familyMetamodel.png" alt="Family Model">
 
-	<p>As you can see, the <code>Family</code> concept has only one attribute to represent the address of the family and four references for the parents, sons and daughters included as member of the family. The members of the family are represented by the corresponding concepts, that is, <code>Parent</code>s, <code>Son</code>s and <code>Daughter</code>s.</p>
+	<p>As you can see, the <code>Family</code> concept has only one attribute (i.e., <code>address</code>) to represent the address of the family and references for the members (i.e., <code>Member</code> concept), including parents, sons and daughters; and pets (i.e., <code>Pet</code> concept) of the family. The members of the family are represented by the corresponding concepts, that is, <code>Parent</code>s, <code>Son</code>s and <code>Daughter</code>s.</p>
 
-	<p>To play a bit with hierarchies, a family can also include some pets, represented by the <code>Pet</code> concept, which include <code>Dog</code>s and/or <code>Cat</code>s. Furthermore, a dog can also be a <code>RaceDog</code> or a <code>HuntingDog</code>. The following figure shows these concepts.</p>
+	<p>To play a bit with hierarchies, we allow for different types of pets,  which include <code>Dog</code>s and/or <code>Cat</code>s. Furthermore, a dog can also be a <code>RaceDog</code> or a <code>HuntingDog</code>. The following figure shows these concepts.</p>
 
-	<img class="img-rounded" src="data:image/png;base64," data-src="holder.js/600x300" alt="Pets Model">
+	<img class="img-thumbnail" src="img/petMetamodel.png" alt="Pets Model">
 
 	<p>Using the previous model as input, EMF-REST is able to generate the REST API for creating and managing instances of its concepts. </p>
 
-	<h4>The Simpsons family model</h4>
+	<h4>The Simpsons family</h4>
 
-	<p>In this example we will use the Simpsons family to illustrate how to use the generated API. For the sake of simplicity, let's imagine that the Simpson family is already in the server, so we will first perform read calls to the API (we will show how to modify its elements afterwards). The following figure shows the Simpsons family model which is accessible and modifiable by the generated REST API:</p>
+	<p>In this example we will use the Simpsons family to illustrate how to use the generated API. The following figure shows the Simpsons family which is accessible and modifiable by the generated REST API:</p>
 
-	<img class="img-rounded" src="data:image/png;base64," data-src="holder.js/600x300" alt="Simpsons Model">
+	<img class="img-thumbnail" src="img/simpsonsModel.png" alt="Simpsons Model">
 
-	<p>The generated API allows us to navigate through the Simpsons family model by using REST calls whose format mimics the structure of the model. </p>
+	<p>The generated API allows us to navigate through the Simpsons family elements by using REST calls whose format mimics the structure of the family model. For the sake of simplicity, let's imagine that the Simpson family is already in the server, so we will first perform read calls to the API (we will show how to modify its elements afterwards).  </p>
 
 	<p>Using the generated API we can query the model by means of calls such as:</p>
 
-	<pre>http://&lt;server&gt;/app/Family/21</pre>
+	<pre>GET http://&lt;server&gt;/app/Family/21</pre>
 
-	Which will return us a JSON including all the elements of our model
+	<p>Which will return us the following JSON including all the elements of our model: </p>
+
+	<pre>Test test test</pre>
+
+	<p>We can also set the level of detail of the returned JSON by using the <code>depth</code> parameter. For instance, the call: </p>
+
+	<pre>GET http://&lt;server&gt;/app/Family/21</pre>
+
+	<p>will return the following JSON:</p>
+
+	<pre>Test test test</pre>
+
+	<p>If we want to get only a set of particular elements of the family model we can modify the API call. For instance, if we want to get only the parents of the family we can use the following call: </p>
+
+	<pre>GET http://&lt;server&gt;/app/Family/21/Parents</pre>
+
+	<p>Which will return:</p>
+
+	<pre>Test test test</pre>
 
 	</div>
 	
