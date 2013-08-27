@@ -65,11 +65,15 @@
 
 	<p>Using the generated API we can query the model by means of calls such as:</p>
 
-	<pre>GET http://&lt;server&gt;/app/Family/21</pre>
+	<pre>GET http://&lt;server&gt;/&lt;project&gt;/app/Family/Simpsons</pre>
 
 	<p>Which will return us the following JSON including all the elements of our model: </p>
 
-	<pre>Test test test</pre>
+	<pre>
+{
+  "address": "742 Evergreen Terrace"
+}
+</pre>
 
 	<p>We can also set the level of detail of the returned JSON by using the <code>depth</code> parameter. For instance, the call: </p>
 
@@ -77,25 +81,68 @@
 
 	<p>will return the following JSON:</p>
 
-	<pre>Test test test</pre>
+	<pre>
+{
+  "address": "742 Evergreen Terrace",
+  "parents": [
+    {
+      "firstName": "Homer",
+      "lastName": "Simpson"
+    },
+    {
+      "firstName": "Marge",
+      "lastName": "Bouvier"
+    }
+  ],
+  "sons": [
+    {
+      "firstName": "Bart",
+      "lastName": "Simpson"
+    }
+  ],
+  "daughters": [
+    {
+      "firstName": "Lisa",
+      "lastName": "Simpson"
+    }
+  ],
+  "pets": {
+    "Dog": [
+      
+    ],
+    "Cat": [
+      {
+        "name": "Snowball II",
+        "breed": "Unknown"
+      }
+    ],
+    "RaceDog": [
+      {
+        "name": "Santa's Little Helper",
+        "breed": "Greyhound"
+      }
+    ],
+    "HuntingDog": [
+      
+    ]
+  }
+}
+</pre>
 
-	<p>If we want to get only a set of particular elements of the family model we can modify the API call. For instance, if we want to get only the parents of the family we can use the following call: </p>
+<!--	<p>If we want to get only a set of particular elements of the family model we can modify the API call. For instance, if we want to get only the parents of the family we can use the following call: </p>
 
 	<pre>GET http://&lt;server&gt;/app/Family/21/Parents</pre>
 
 	<p>Which will return:</p>
 
-	<pre>Test test test</pre>
+	<pre>Test test test</pre>-->
 
 	</div>
 	
 	<div class="col-md-3">
 	<h2>&nbsp;</h2>
 		<button type="button" class="btn btn-default btn-lg btn-block" onClick="location.href='https://github.com/jlcanovas/emf-rest'">
-	  		Download Plugin
-		</button>
-		<button type="button" class="btn btn-primary btn-lg btn-block" onClick="location.href='https://github.com/jlcanovas/emf-rest'">
-  			Download Update File
+	  		Download EMF-REST
 		</button>
 	</div> <!-- /.col-md-3 -->
 
