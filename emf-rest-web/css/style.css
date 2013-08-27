@@ -29,6 +29,10 @@
 	padding: 15px;
 }
 
+.about .col-md-2 {
+	text-align: center;
+}
+
 footer {
 	margin-top: 60px;
 	padding-top: 10px;
