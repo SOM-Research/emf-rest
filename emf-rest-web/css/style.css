@@ -29,6 +29,12 @@
 	padding: 15px;
 }
 
+.installation img {
+	margin-top: 10px;
+	margin-bottom: 20px;
+	padding: 15px;
+}
+
 .about .col-md-2 {
 	text-align: center;
 }
@@ -46,4 +52,8 @@ footer p {
 
 .twitter-follow-button {
 	margin-top: 13px;
+}
+
+h5 {
+	font-weight: bold;
 }

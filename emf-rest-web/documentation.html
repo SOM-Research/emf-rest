@@ -28,7 +28,7 @@
           <li><a href="example.html">Example</a></li>
           <li><a href="demo.html">Live Demo</a></li>
           <li><a href="documentation.html">Documentation</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact us</a></li>
           <li><a href="https://github.com/jlcanovas/emf-rest" target="_blank">View on GitHub</a></li>
         </ul>
         <ul class="pull-right">
@@ -56,7 +56,7 @@
 
   	<h3>Documentation</h3>
   	
-    <h4>The generated API</h4>
+    <h4 id="api">The generated API</h4>
 
     <p>EMF-REST generates a web application which is called as your Eclipse project. Inside the application, a servlet mapping called <code>app</code> is created which interprets the rest of the call. For instance, in our example the project is called <code>Demo</code> so the application will have the prefix <code>http://&lt;server&gt;/Demo/app/&lt;rest of the call&gt;</code>.</p>
 
@@ -64,15 +64,19 @@
 
     <p>With the previous entrypoint call, you can nagivate through your model using the reference names. For instance, the concept <code>Family</code> has the reference <code>sons</code> so we can call <code>http://&lt;server&gt;/Demo/app/Family/Simpsons/sons</code> to get the list of sons of the Simpsons family. Other example would be <code>http://&lt;server&gt;/Demo/app/Family/Simpsons/parents</code>, which returns the set of parents of the Simpsons family.</p>
 
-    <h4>JSON structure</h4>
+    <h4 id="json">JSON structure</h4>
 
     <p>The elements of your model are automatically translated into a JSON object. A model elements is therefore represented by a JSON object which includes a set of name/value pairs representing its attributes/references. Attributes are represented as primitive-typed name/value pairs wheres as references are translated into a name/value pair where the value is an array of objects.</p>
 
     <p>One important point is the inheritance...</p>
 
-    <h4>The generated Javascript API</h4>
+    <h4 id="javascript">The generated Javascript API</h4>
 
     <p>For those of you that do not want to play with URLs and so on, EMF-REST also generates a Javascript file including a set of helper functions which helps you to do all the work to interact with the API.</p>
+
+    <h4>Do you have questions?</h4>
+
+    <p>Because nobody is perfect, for sure we have forgotten to document something that it is important to you for undestand how EMF-REST works. No problem, just <a href="contact.html">contact us</a>.
 
   	</div>
 

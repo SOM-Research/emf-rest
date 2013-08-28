@@ -28,7 +28,7 @@
           <li><a href="example.html">Example</a></li>
           <li><a href="demo.html">Live Demo</a></li>
           <li><a href="documentation.html">Documentation</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact us</a></li>
           <li><a href="https://github.com/jlcanovas/emf-rest" target="_blank">View on GitHub</a></li>
         </ul>
         <ul class="pull-right">
@@ -76,7 +76,9 @@
 
 	<img class="img-thumbnail" src="img/simpsonsModel.png" alt="Simpsons Model">
 
-	<p>The generated API allows us to navigate through the Simpsons family elements by using REST calls whose format mimics the structure of the family model. For the sake of simplicity, let's imagine that the Simpson family is already in the server, so we will first perform read calls to the API (we will show how to modify its elements afterwards).  </p>
+  <h5>The REST API</h5>
+
+	<p>The generated REST API allows us to navigate through the Simpsons family elements by using REST calls whose format mimics the structure of the family model. For the sake of simplicity, let's imagine that the Simpson family is already in the server, so we will first perform read calls to the API (we will show how to modify its elements afterwards).  </p>
 
 	<p>Using the generated API we can query the model by means of calls such as:</p>
 
@@ -90,9 +92,9 @@
 }
 </pre>
 
-	<p>We can also set the level of detail of the returned JSON by using the <code>depth</code> parameter. For instance, the call: </p>
+	<p>We can also set the level of detail of the returned JSON by using the <code>depth</code> parameter, which allows setting the number of containment references of our model (e.g., the <code>parents</code> or the <code>pets</code> references). For instance, the call: </p>
 
-	<pre>GET http://&lt;server&gt;/app/Family/21</pre>
+	<pre>GET http://&lt;server&gt;/app/Family/Simpsons?depth=1</pre>
 
 	<p>will return the following JSON:</p>
 
@@ -144,6 +146,8 @@
 }
 </pre>
 
+  <p>You can find more details about the REST API in the <a href="documentation.html#api">Documentation</a>.
+
 <!--	<p>If we want to get only a set of particular elements of the family model we can modify the API call. For instance, if we want to get only the parents of the family we can use the following call: </p>
 
 	<pre>GET http://&lt;server&gt;/app/Family/21/Parents</pre>
@@ -151,6 +155,23 @@
 	<p>Which will return:</p>
 
 	<pre>Test test test</pre>-->
+
+  <h5>The JavaScript API</h5>
+
+  <p>REST-EMF also generates a JavaScript library including a set of functions helping you to call the REST API. For instance, to get the previous JSON we can do:</p>
+
+  <pre>
+var family = new Family('http://&lt;server&gt;/app/Family', 'Simpsons');
+var myCallBack = new function(data) {
+  // Do whatever you need with the data
+};
+var myFailCallback = new function(problem) {
+  // Deal with the error
+};
+RestApi.callGet(family, myCallBack, 1, myFailCallback);
+  </pre>
+
+  <p>You can find more details about the JavaScript API in the <a href="documentation.html#javascript">Documentation</a>.
 
 	</div>
 	
