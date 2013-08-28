@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+ <extension point="org.eclipse.ui.menus">
+    <menuContribution locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+      <menu
+            commandId="com.emf.rest.eclipse.generateEMF"
+            icon="icons/logo_emf_rest.png"
+            label="EMF-REST">
+            <command
+               commandId="com.emf.rest.eclipse.generateEMF"
+               label="Generate All + Copy Libraries"
+               style="push">
+            <visibleWhen>
+               <with
+                     variable="selection">
+                  <iterate
+                        ifEmpty="false">
+                     <and>
+                        <instanceof
+                              value="org.eclipse.core.resources.IResource">
+                        </instanceof>
+                        <test
+                              property="org.eclipse.core.resources.name"
+                              value="*.ecore">
+                        </test>
+                     </and>
+                  </iterate>
+               </with>
+            </visibleWhen>
+            <parameter
+                  name="emf-rest.copyLibraries"
+                  value="true">
+            </parameter>
+         </command>
+            <command
+                  commandId="com.emf.rest.eclipse.generateEMF"
+                  label="Generate All"
+                  style="push">
+               <visibleWhen>
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IResource">
+                           </instanceof>
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.ecore">
+                           </test>
+                        </and>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+            </command>
+            <command
+                  commandId="com.emf.rest.eclipse.generateEMF"
+                  label="Generate EMF Model"
+                  style="push">
+               <visibleWhen>
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IResource">
+                           </instanceof>
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.ecore">
+                           </test>
+                        </and>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+               <parameter
+                     name="emf-rest.tagParameter"
+                     value="genModel">
+               </parameter>
+            </command>
+            <command
+                  commandId="com.emf.rest.eclipse.generateEMF"
+                  label="Generate Serializers"
+                  style="push">
+               <visibleWhen>
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IResource">
+                           </instanceof>
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.ecore">
+                           </test>
+                        </and>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+               <parameter
+                     name="emf-rest.tagParameter"
+                     value="serializer">
+               </parameter>
+            </command>
+            <command
+                  commandId="com.emf.rest.eclipse.generateEMF"
+                  label="Generate Services"
+                  style="push">
+               <visibleWhen>
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IResource">
+                           </instanceof>
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.ecore">
+                           </test>
+                        </and>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+               <parameter
+                     name="emf-rest.tagParameter"
+                     value="services">
+               </parameter>
+            </command>
+            <command
+                  commandId="com.emf.rest.eclipse.generateEMF"
+                  label="Generate Javascript API"
+                  style="push">
+               <visibleWhen>
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IResource">
+                           </instanceof>
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.ecore">
+                           </test>
+                        </and>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+               <parameter
+                     name="emf-rest.tagParameter"
+                     value="javascript">
+               </parameter>
+            </command>
+            <command
+                  commandId="com.emf.rest.eclipse.generateEMF"
+                  label="Copy Libraries"
+                  style="push">
+               <visibleWhen>
+                  <with
+                        variable="selection">
+                     <iterate
+                           ifEmpty="false">
+                        <and>
+                           <instanceof
+                                 value="org.eclipse.core.resources.IResource">
+                           </instanceof>
+                           <test
+                                 property="org.eclipse.core.resources.name"
+                                 value="*.ecore">
+                           </test>
+                        </and>
+                     </iterate>
+                  </with>
+               </visibleWhen>
+               <parameter
+                     name="emf-rest.copyLibraries"
+                     value="true">
+               </parameter>
+               <parameter
+                     name="emf-rest.tagParameter"
+                     value="None">
+               </parameter>
+            </command>
+         <visibleWhen>
+            <with
+                  variable="selection">
+               <iterate
+                     ifEmpty="false">
+                  <and>
+                     <instanceof
+                           value="org.eclipse.core.resources.IResource">
+                     </instanceof>
+                     <test
+                           property="org.eclipse.core.resources.name"
+                           value="*.ecore">
+                     </test>
+                  </and>
+               </iterate>
+            </with>
+         </visibleWhen>
+      </menu>
+    </menuContribution>
+  </extension>
+ <extension
+       point="org.eclipse.ui.commands">
+    <command
+          defaultHandler="com.emf.rest.eclipse.GenerateRestEMFCommand"
+          id="com.emf.rest.eclipse.generateEMF"
+          name="com.emf.rest.eclipse.generateEMF">
+       <commandParameter
+             id="emf-rest.copyLibraries"
+             name="copyLibraries"
+             optional="true">
+       </commandParameter>
+       <commandParameter
+             id="emf-rest.tagParameter"
+             name="tagParameter"
+             optional="true">
+       </commandParameter>
+          
+    </command>
+ </extension>  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</plugin>

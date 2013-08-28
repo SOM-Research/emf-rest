@@ -1,0 +1,72 @@
+[*******************************************************************************
+ * Copyright (c) 2013 EMF-REST.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Camilo Alvarez (cadorca@gmail.com)  - initial API and implementation
+ ******************************************************************************]
+[% import "../lib/EcoreUtils.eol"; %]
+
+package webmapi.service;
+
+[%for (cls in EClass.all) { %]
+import [%=cls.qualifiedName()%];
+[%}%]
+
+public class IdentificationResolver {
+	
+	[%for (cls in EClass.all) { %]
+ 	public static String get[%=cls.name%]Id([%=cls.qualifiedName()%] obj){
+ 	    if(obj==null)
+ 	     return null;
+ 	    [% var getById = false;
+ 	    var getByName = false;
+ 	    var getByUnique = false;
+ 	    var uniqueAttName = "";
+ 	    var idFieldName = null;
+ 	    for (attr in cls.eAllAttributes) {
+		   if (attr.name=='id'){ 
+		      getById = true;
+		      break;
+		   } else if (attr.name=='name'){ 
+		      getByName = true;
+		      break;
+		   } else if (attr.unique){ 
+		      getByUnique = true;
+		      uniqueAttName = attr.name;
+		   }
+	    }
+	    if(getById){
+	     idFieldName = "Id";
+	    } else if(getByName){
+	     idFieldName = "Name"; 
+	    } else if(getByUnique){
+	     idFieldName = uniqueAttName.toUpperFirst(); 
+	    } else if(cls.eAllAttributes.size()>0){
+	     idFieldName = cls.eAllAttributes.first().name.toUpperFirst(); 
+	    }
+	    
+	    %] 
+	    [%if (idFieldName == null){%]
+	    return "";
+	    [%}else{%]
+		return obj.get[%=idFieldName%]();
+		[%}%]
+ 	}
+	[%}%]
+	
+	[%for (cls in EClass.all) { %]
+ 	public static [%=cls.qualifiedName()%] find[%=cls.name%]ById(java.util.List<[%=cls.qualifiedName()%]> list, String id){
+ 	    for ([%=cls.name%] obji : list) {
+			if (get[%=cls.name%]Id(obji).equals(id))
+				return obji;
+		}
+		return null;
+	}
+	
+	[%}%]
+	
+}
