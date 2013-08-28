@@ -56,11 +56,23 @@
 
   	<h3>Documentation</h3>
   	
-    <div class="well">
-    <p>We are working hard to create a nice documentation of EMF-REST. </p>
+    <h4>The generated API</h4>
 
-    <p>Please, grant us a couple of days to publish it!</p>
-    </div>
+    <p>EMF-REST generates a web application which is called as your Eclipse project. Inside the application, a servlet mapping called <code>app</code> is created which interprets the rest of the call. For instance, in our example the project is called <code>Demo</code> so the application will have the prefix <code>http://&lt;server&gt;/Demo/app/&lt;rest of the call&gt;</code>.</p>
+
+    <p>The servlet takes the url to navigate through the models and their elements. Thus, the next element in the call is the name of the model (e.g., <code>Family</code> in our example, i.e., <code>http://&lt;server&gt;/Demo/app/&lt;Family&gt;</code>). Once the model name has been indicated, you can ask for a particular model, e.g., the Simpsons family by adding at the end of the call (e.g,. <code>http://&lt;server&gt;/Demo/app/Family/Simpsons</code>). This last call can be seen as the entrypoint for your model and will return the data of the root element of your model.</p>
+
+    <p>With the previous entrypoint call, you can nagivate through your model using the reference names. For instance, the concept <code>Family</code> has the reference <code>sons</code> so we can call <code>http://&lt;server&gt;/Demo/app/Family/Simpsons/sons</code> to get the list of sons of the Simpsons family. Other example would be <code>http://&lt;server&gt;/Demo/app/Family/Simpsons/parents</code>, which returns the set of parents of the Simpsons family.</p>
+
+    <h4>JSON structure</h4>
+
+    <p>The elements of your model are automatically translated into a JSON object. A model elements is therefore represented by a JSON object which includes a set of name/value pairs representing its attributes/references. Attributes are represented as primitive-typed name/value pairs wheres as references are translated into a name/value pair where the value is an array of objects.</p>
+
+    <p>One important point is the inheritance...</p>
+
+    <h4>The generated Javascript API</h4>
+
+    <p>For those of you that do not want to play with URLs and so on, EMF-REST also generates a Javascript file including a set of helper functions which helps you to do all the work to interact with the API.</p>
 
   	</div>
 
