@@ -16,6 +16,8 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.core.Context;
+import javax.servlet.http.HttpServletRequest;
 
 [%for (pkg in EPackage.all) {%]
 import [%=pkg.name%].*;
@@ -25,7 +27,18 @@ import [%=pkg.name%].service.*;
 @Path("")
 public class WebApiService{
 
-  private webmapi.storage.IModelStorage storage = new webmapi.storage.MemoryStorage();
+  	@Context
+	private HttpServletRequest request;
+
+	private webmapi.storage.IModelStorage storage;
+
+	private void initStorage() {
+		if (storage == null) {
+			String modelsPath = request.getServletContext().getRealPath("models");
+			storage = new webmapi.storage.MemoryStorage(modelsPath);
+		}
+	}
+
 
   [%for (pkg in EPackage.all) {
      for (class in pkg.eClassifiers) { 
@@ -43,6 +56,7 @@ function EClass generatePOST() {
    @Path("[%=self.name%]/{id}")
    public [%=self.rscClassName()%] handle[%=self.name%](@PathParam("id") String id)
    {
+     initStorage();
      return new [%=self.rscClassName()%](([%=self.name%])storage.get("[%=self.qualifiedName()%]",id));
    }
 
@@ -50,6 +64,7 @@ function EClass generatePOST() {
    @Path("[%=self.name%]")
    public void create[%=self.name%]([%=self.name%] obj)
    {
+     initStorage();
      String id = IdentificationResolver.get[%=self.name%]Id(obj);
      storage.put("[%=self.qualifiedName()%]",id, obj);
    }
@@ -58,6 +73,7 @@ function EClass generatePOST() {
    @Path("[%=self.name%]/{id}")
    public void delete[%=self.name%](@PathParam("id") String id)
    {
+     initStorage();
      storage.remove("[%=self.qualifiedName()%]",id);
    }   
 [%

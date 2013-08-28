@@ -1,0 +1,19 @@
+[%
+ import "lib/StringUtils.eol"; 
+ import "lib/EcoreUtils.eol"; 
+%]
+[%
+    for (clazz in EClass.all) {
+     var modelSerializer : Template = TemplateFactory.load("serialization/modelSerializer.egl");
+     modelSerializer.populate("clazz", clazz);
+     modelSerializer.generate("webmapi/service/"+clazz.name()+"Serializer.java");
+    }
+    
+    for (clazz in EClass.all->select(c:EClass | c.isSuperClass())) { 
+     var modelSerializer : Template = TemplateFactory.load("serialization/containerSerializer.egl");
+     modelSerializer.populate("clazz", clazz);
+     modelSerializer.generate("webmapi/service/"+clazz.inheritanceContainerName()+"Serializer.java");
+    }
+    
+    
+%]

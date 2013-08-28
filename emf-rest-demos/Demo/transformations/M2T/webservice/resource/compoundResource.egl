@@ -1,0 +1,97 @@
+[%
+ import "restMethods.egl"; 
+ import "../../lib/StringUtils.eol"; 
+ import "../../lib/EcoreUtils.eol"; 
+%]
+
+[% var pckName = clazz.package(); %]
+package [%=pckName%].service;
+
+import java.util.ArrayList;
+
+import javax.ws.rs.*;
+
+import [%=pckName%].*;
+
+[%
+  var inheritList = clazz.getAllConcreteClasses();
+%]
+public class [%=clazz.compoundResourceClassName()%]{
+
+    private java.util.List<[%=clazz.name%]> listInstance;
+	[%for (cls in inheritList) { %]
+	private	java.util.List<[%=cls.qualifiedName()%]> [%=cls.listVarName()%] = new ArrayList<[%=cls.qualifiedName()%]>();
+	[%}%]
+	private webmapi.service.container.[%=clazz.inheritanceContainerName()%] instance;
+    
+    public [%=clazz.compoundResourceClassName()%]([%=clazz.name%] instance){
+        ArrayList list = new ArrayList();
+        list.add(instance);
+        initialize(list);
+    }
+    
+    public [%=clazz.compoundResourceClassName()%](java.util.List<[%=clazz.name%]> listInstance){
+         initialize(listInstance);
+    }
+    
+    private void initialize(java.util.List<[%=clazz.name%]> listInstance){
+    	this.listInstance = listInstance;
+		[%
+		 var orderedInheritList = inheritList->sortBy(c : EClass | c.getAllConcreteClasses()->size() );
+		%]
+		for([%=clazz.name()%] element: listInstance){
+		[% var i = 0 ;%]
+		[%for (cls in orderedInheritList) { %]
+		    [%if(i>0){%] else [%}%]
+		    if(element instanceof [%=cls.qualifiedName()%]){
+		    	[%=cls.listVarName()%].add(([%=cls.qualifiedName()%])element);
+		    } 
+		    [% i = i+1;%]
+		[%}%]
+     	}	
+     	instance = new webmapi.service.container.[%=clazz.inheritanceContainerName()%](
+		[% var i = 0; %]
+		[%for (cls in inheritList) { %]
+			[%if(i>0){%] , [%}%][%=cls.listVarName()%]  
+			[% i = i+1; %] 
+		[%}%]
+		);	    	
+    }
+
+	@GET
+	public webmapi.service.container.[%=clazz.inheritanceContainerName()%] get[%=clazz.name%]Container(){
+		return instance; 
+	}
+	
+		
+	@PUT
+	public void update[%=clazz.name%]([%=clazz.name%] [%=clazz.name.toLowerFirst()%]){
+		
+	}
+
+	[%for (cls in inheritList) { 
+		 var vRef = new EReference;
+		 vRef.upperBound=-1;
+		 vRef.name=cls.name;
+		 vRef.ordered=false;
+		 var ePkg = new EPackage;
+		 ePkg.name = cls.package();
+		 var vClass = new EClass;
+		 vClass.name = cls.name;
+		 ePkg.eClassifiers.add(vClass);
+		 vRef.eType=vClass;
+		 vRef.generateGenericResource();
+		 vRef.generateGET();
+		 vRef.generatePUT();
+		 vRef.generatePOST();
+		 delete vClass;
+	}
+	%]
+	
+}
+
+[%
+function EClass idParam() : String{
+ return self.name+"Id";
+}
+%]

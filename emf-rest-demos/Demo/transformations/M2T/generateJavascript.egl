@@ -1,0 +1,10 @@
+[%
+ import "lib/StringUtils.eol"; 
+ import "lib/EcoreUtils.eol"; 
+%]
+
+
+[%    
+     var inheritanceContainer : Template = TemplateFactory.load("javascript\\apiCaller.egl");
+     inheritanceContainer.generate("api.js");
+%]

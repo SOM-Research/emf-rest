@@ -19,20 +19,15 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 
-
-import org.eclipse.emf.common.util.URI;
-import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-
 public class MemoryStorage implements IModelStorage {
 
 	private final static HashMap store = new HashMap();
-	private final static String modelsPath = "[%=modelDirectory%]";
+	private String modelsPath;
 
-	public MemoryStorage() {
+	public MemoryStorage(String modelsPath) {
+		this.modelsPath = modelsPath;
 	}
-
+	
 	@Override
 	public Object get(String type, String id) {
 		String composedId = type + "/" + id;

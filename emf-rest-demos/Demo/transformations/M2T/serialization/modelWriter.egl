@@ -1,0 +1,103 @@
+[%
+ import "../lib/StringUtils.eol"; 
+ import "../lib/EcoreUtils.eol"; 
+%]
+
+package webmapi.service;
+
+import java.io.IOException;
+import java.io.OutputStream;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.ParameterizedType;	
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.List; 
+
+import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
+import javax.ws.rs.ext.MessageBodyWriter;
+import javax.ws.rs.ext.Provider;
+
+@Provider
+public class ModelWriter implements MessageBodyWriter<Object> {
+
+	@Context
+	private HttpServletRequest request;
+
+	private final static HashMap<String, Integer> entityRegistry;
+
+	static {
+		entityRegistry = new HashMap<String, Integer>();
+		[% var i = 0; %]
+		[%for (clazz in EClass.all) { %]
+		   entityRegistry.put("[%=clazz.name%]", [%=i%]);
+		[%i=i+1;
+		}%]
+	    entityRegistry.put("List", [%=i%]);
+	    [%for (clazz in EClass.all->select(c:EClass | c.isSuperClass())) {%]
+	     [%i=i+1;%]
+	     entityRegistry.put("[%=clazz.inheritanceContainerName()%]", [%=i%]);
+	    [%}%]
+	}
+
+	
+	public long getSize(Object obj, Class<?> arg1, Type arg2, Annotation[] arg3, MediaType arg4) {
+		return -1;
+	}
+
+	
+	public boolean isWriteable(Class<?> clazz, Type arg1, Annotation[] arg2, MediaType arg3) {
+		if (entityRegistry.get(clazz.getSimpleName()) != null) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+	
+	public void writeTo(Object obj, Class<?> clazz, Type type, Annotation[] arg3, MediaType arg4, MultivaluedMap<String, Object> arg5, OutputStream output) throws IOException {
+		String sDepth = request.getParameter("depth");
+		int depth = -1;
+		if (sDepth != null && !sDepth.isEmpty()) {
+			depth = new Integer(sDepth);
+		}
+		System.out.println("Creating the resource");
+		int position = entityRegistry.get(clazz.getSimpleName());
+		switch (position) {
+		[* Switch to locate all classes writer*]
+		[% var i = 0; %]
+		[%for (clazz in EClass.all) { %]
+		case [%=i%]:
+			[%=clazz.serializerName()%].serialize(([%=clazz.qualifiedName()%])obj, depth, output);	
+			break;
+		[%i=i+1;
+		}%]
+		[* Switch to locate all list writers *]
+		case [%=i%]:
+	    System.out.println(type.toString());
+        Class cls = (Class) ((ParameterizedType) type).getActualTypeArguments()[0];
+        System.out.println(cls);
+        position = entityRegistry.get(cls.getSimpleName());
+		switch (position) {
+		[% i = 0; %]
+		[%for (clazz in EClass.all) { %]
+		case [%=i%]:
+			[%=clazz.serializerName()%].serialize[%=clazz.name()%]List((List)obj, depth, output);	
+			break;
+		[%i=i+1;
+		}%]
+		}
+		break;
+		[* Switch to locate all inheritance container writers *]
+        [%for (clazz in EClass.all->select(c:EClass | c.isSuperClass())) {%]
+	     [%i=i+1;%]
+	     case [%=i%]:
+	     [%=clazz.containerSerializerName()%].serialize((webmapi.service.container.[%=clazz.inheritanceContainerName()%]) obj, depth, output);
+	     break;
+	    [%}%]
+		}
+	}
+
+}

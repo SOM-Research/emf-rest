@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: emf-rest
 Bundle-SymbolicName: emf-rest;singleton:=true
-Bundle-Version: 1.0.2
+Bundle-Version: 1.0.3.qualifier
 Bundle-ClassPath: .,
  lib/com.mtcflow.engine_1.0.0.201308281412.jar,
  lib/com.mtcflow.engine.core_1.0.0.201308281412.jar,

@@ -1,0 +1,53 @@
+[%
+ import "restMethods.egl"; 
+ import "../../lib/StringUtils.eol"; 
+ import "../../lib/EcoreUtils.eol"; 
+%]
+
+[% var pckName = clazz.package(); %]
+package [%=pckName%].service;
+
+import java.util.List;
+
+import javax.ws.rs.*;
+
+import [%=pckName%].*;
+
+public class [%=clazz.rscClassName()%]{
+
+    private [%=clazz.qualifiedName()%] instance;
+    
+    public [%=clazz.rscClassName()%]([%=clazz.qualifiedName()%] instance){
+    	this.instance = instance;
+    }
+
+	@GET
+	public [%=clazz.qualifiedName()%] get[%=clazz.name%](){
+		return instance;
+	}
+		
+	@PUT
+	public void update[%=clazz.name%]([%=clazz.qualifiedName()%] object){
+		
+	}
+
+	[%
+		for(ref in clazz.eAllReferences){ %]
+		 [% ref.generateGenericResource(); %]
+		 [%if( not ref.eType.abstract){%]
+		 // REF [%=ref.name %]
+		 [%if(not ref.eType.isSuperClass()){%]
+		 [% ref.generateGET(); %]
+		 [% ref.generatePOST(); %]
+		 [%}} else {%]
+		 [* Look for all the concrete classses of the abstract reference *]
+		[%}}
+	%]
+	
+}
+
+[%
+function EClass idParam() : String{
+ return self.name+"Id";
+}
+%]
