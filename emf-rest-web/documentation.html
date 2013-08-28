@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>EFM-REST Documentation</title>
+    <title>EMF-REST Documentation</title>   
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/bootstrap.css" rel="stylesheet" media="screen">
     <link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
@@ -56,11 +56,80 @@
   	
     <h4 id="api">The generated API</h4>
 
-    <p>EMF-REST generates a web application which is called as your Eclipse project. Inside the application, a servlet mapping called <code>app</code> is created which interprets the rest of the call. For instance, in our example the project is called <code>Demo</code> so the application will have the prefix <code>http://&lt;server&gt;/Demo/app/&lt;rest of the call&gt;</code>.</p>
+    <h5>The entrypoint</h5>
 
-    <p>The servlet takes the url to navigate through the models and their elements. Thus, the next element in the call is the name of the model (e.g., <code>Family</code> in our example, i.e., <code>http://&lt;server&gt;/Demo/app/&lt;Family&gt;</code>). Once the model name has been indicated, you can ask for a particular model, e.g., the Simpsons family by adding at the end of the call (e.g,. <code>http://&lt;server&gt;/Demo/app/Family/Simpsons</code>). This last call can be seen as the entrypoint for your model and will return the data of the root element of your model.</p>
+    <p>EMF-REST generates a web application which is called as your Eclipse project. Inside the application, a servlet mapping called <code>app</code> is created which interprets the rest of the URL. For instance, in our example the project is called <code>Demo</code> so the application will have the prefix <code>http://&lt;server&gt;/Demo/app/...</code>.</p>
 
-    <p>With the previous entrypoint call, you can nagivate through your model using the reference names. For instance, the concept <code>Family</code> has the reference <code>sons</code> so we can call <code>http://&lt;server&gt;/Demo/app/Family/Simpsons/sons</code> to get the list of sons of the Simpsons family. Other example would be <code>http://&lt;server&gt;/Demo/app/Family/Simpsons/parents</code>, which returns the set of parents of the Simpsons family.</p>
+    <p>The servlet takes the URL to navigate through the models and their elements. Thus, the next element in the URL is the name of the model (e.g., <code>Family</code> in our example, i.e., <code>http://&lt;server&gt;/Demo/app/&lt;Family&gt;</code>). Once the model name has been indicated, you can ask for a particular model, e.g., the Simpsons family by adding at the end of the call (e.g,. <code>http://&lt;server&gt;/Demo/app/Family/Simpsons</code>). This last URL can be seen as the entrypoint for your particular family model and will return the data of the root element.</p>
+
+    <h5>The format of the URLs</h5>
+
+    <p>Once you know how to access to the root of your model, you can navigate through your model using the reference names. For instance, the concept <code>Family</code> has the reference <code>sons</code> so we can call <code>http://&lt;server&gt;/Demo/app/Family/Simpsons/sons</code> to get the list of sons of the Simpsons family. Other example would be <code>http://&lt;server&gt;/Demo/app/Family/Simpsons/parents</code>, which returns the set of parents of the Simpsons family.</p>
+
+    <p>If you want to access to a particular element contained in a reference you can use the identifier of the element. By default, EMF-REST look for an attributes called <code>name</code>name> or <code>id</code>, although this behaviour can be changed in the generated code. For instance, the call <code>http://&lt;server&gt;/Demo/app/Family/Simpsons/daughters/Lisa</code> will return only the element representing Lisa.
+
+    <h5>Parameters in the URLs</h5>
+
+    <p>Your REST API calls can include the parameter <code>depth</code> to specify the level of depth to be shown when navigating through references. Here you can see two examples using our Simpsons family model:
+
+    <p>
+    <div class="row">
+    <div class="col-md-6">
+    <pre>http://&lt;server&gt;/Demo/app/Family/Simpsons?depth=0</pre>  
+    <pre>{"address":"742 Evergreen Terrace"}</pre>
+    </div>
+    <div class="col-md-6">
+    <pre>http://&lt;server&gt;/Demo/app/Family/Simpsons?depth=1</pre>  
+    <pre>
+{
+  "address": "742 Evergreen Terrace",
+  "parents": [
+    {
+      "firstName": "Homer",
+      "lastName": "Simpson"
+    },
+    {
+      "firstName": "Marge",
+      "lastName": "Bouvier"
+    }
+  ],
+  "sons": [
+    {
+      "firstName": "Bart",
+      "lastName": "Simpson"
+    }
+  ],
+  "daughters": [
+    {
+      "firstName": "Lisa",
+      "lastName": "Simpson"
+    }
+  ],
+  "pets": {
+    "Dog": [
+      
+    ],
+    "Cat": [
+      {
+        "name": "Snowball II",
+        "breed": "Unknown"
+      }
+    ],
+    "RaceDog": [
+      {
+        "name": "Santa's Little Helper",
+        "breed": "Greyhound"
+      }
+    ],
+    "HuntingDog": [
+      
+    ]
+  }
+}
+    </pre>      
+    </div>
+    </div>
+    </p>
 
     <h4 id="json">JSON structure</h4>
 
@@ -71,6 +140,21 @@
     <h4 id="javascript">The generated Javascript API</h4>
 
     <p>For those of you that do not want to play with URLs and so on, EMF-REST also generates a Javascript file including a set of helper functions which helps you to do all the work to interact with the API.</p>
+
+    <h5>The RestAPI variable</h5>
+
+    <p>A <code>RestAPI</code> variable is always generated from which you can make REST calls to your API. You can use the following functions:</p>
+
+    <ul>
+      <li><code>callGet(url, doneCallBack, depth, failCallBack)</code></li>
+      <li><code>callPut(url, data,  doneCallBack, depth, failCallBack)</code></li>
+      <li><code>callPost(url, data, doneCallBack, depth, failCallBack)</code></li>
+      <li><code>callDelete(url, doneCallBack, depth, failCallBack)</code></li>
+    </ul>
+
+    <h5>Functions for your model elements</h5>
+
+    <p>Each element in your model...</p>
 
     <h4>Do you have questions?</h4>
 
