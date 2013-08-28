@@ -56,12 +56,6 @@
 
   	<h3>Live Demo</h3>
   	
-    <div class="well">
-    <p>We are working hard to enable this component and let you play with EMF-REST. </p>
-
-    <p>Please, grant us a couple of days to do it!</p>
-    </div>
-
     <p>Here you can try the example with our server</p>
 
     <form role="form">
@@ -69,20 +63,35 @@
       <div class="row">
       <div class="col-md-10">
         <div class="input-group">
-          <span class="input-group-addon">http://demo.emf-rest.com/apps/Family/21/</span>
-          <input type="text" class="form-control" placeholder="sons" disabled="disabled">
+          <span class="input-group-addon">http://emf-rest.com:8080/Demo/app/Family/Simpsons/</span>
+          <input id="call" type="text" class="form-control" placeholder="sons">
         </div> <!-- input-group>-->
       </div> <!-- col-md-10 -->
 
       <div class="col-md-2">
-      <button type="submit" class="btn btn-default btn-block" disabled="disabled">Launch</button>
+        <button type="submit" class="btn btn-default btn-block" onClick="callGET('http://emf-rest.com:8080/Demo/app/Family/Simpsons/' + document.getElementById('call').value);">Launch</button>
+        <script language="javascript" type="text/javascript">
+          function callGET(urlCall) {
+            $.ajax({
+              url: urlCall,
+              type: 'GET',
+              beforeSend : function(xhr) {
+                xhr.overrideMimeType("application/json; charset=x-user-defined");
+              } 
+            }).done(function(data) {
+              alert('Completed ' + data); document.getElementById('resultBox').value = data;
+            }).fail(function(xhr, status) {
+              alert('Fail ' + status); document.getElementById('resultBox').value = status;
+            })
+          };
+        </script>
       </div> <!-- col-md-2 -->
       </div>
     </div> <!-- form-group -->
     </form>
 
     <div class="form-group">
-      <textarea class="form-control" rows="5" disabled="disabled"></textarea>
+      <textarea id="resultBox" class="form-control" rows="10"></textarea>
     </div> <!-- form-group -->
 
 
