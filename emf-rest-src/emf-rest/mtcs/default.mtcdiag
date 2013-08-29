@@ -103,32 +103,32 @@
   <children xmi:type="notation:Shape" xmi:id="_o_tl4L4nEeK4Md5t_hpK4w" type="2030" fontName="Lucida Grande">
     <children xmi:type="notation:DecorationNode" xmi:id="_o_uM8L4nEeK4Md5t_hpK4w" type="5037"/>
     <element xmi:type="com.mtcflow.model:M2TTransformation" href="default.mtc#//@transformations.6"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_o_tl4b4nEeK4Md5t_hpK4w" x="1392" y="688"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_o_tl4b4nEeK4Md5t_hpK4w" x="1392" y="560"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_sOWFEL4nEeK4Md5t_hpK4w" type="2038" fontName="Lucida Grande">
     <children xmi:type="notation:DecorationNode" xmi:id="_sOWFEr4nEeK4Md5t_hpK4w" type="5051"/>
     <element xmi:type="com.mtcflow.model:File" href="default.mtc#//@files.2"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sOWFEb4nEeK4Md5t_hpK4w" x="1601" y="672" width="89"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_sOWFEb4nEeK4Md5t_hpK4w" x="1601" y="544" width="89"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_C5xoQL41EeK4Md5t_hpK4w" type="2030" fontName="Lucida Grande">
     <children xmi:type="notation:DecorationNode" xmi:id="_C5xoQr41EeK4Md5t_hpK4w" type="5037"/>
     <element xmi:type="com.mtcflow.model:M2TTransformation" href="default.mtc#//@transformations.7"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C5xoQb41EeK4Md5t_hpK4w" x="1389" y="820" width="93"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_C5xoQb41EeK4Md5t_hpK4w" x="1389" y="692" width="93"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_JkOHAL41EeK4Md5t_hpK4w" type="2038" fontName="Lucida Grande">
     <children xmi:type="notation:DecorationNode" xmi:id="_JkOuEL41EeK4Md5t_hpK4w" type="5051"/>
     <element xmi:type="com.mtcflow.model:File" href="default.mtc#//@files.3"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JkOHAb41EeK4Md5t_hpK4w" x="1600" y="788" width="93"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JkOHAb41EeK4Md5t_hpK4w" x="1600" y="660" width="93"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_JkTvMM6fEeKkmI2JyX1ZGQ" type="2030" fontName="Lucida Grande">
     <children xmi:type="notation:DecorationNode" xmi:id="_JkU9UM6fEeKkmI2JyX1ZGQ" type="5037"/>
     <element xmi:type="com.mtcflow.model:M2TTransformation" href="default.mtc#//@transformations.8"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JkTvMc6fEeKkmI2JyX1ZGQ" x="1388" y="920" width="93"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_JkTvMc6fEeKkmI2JyX1ZGQ" x="1388" y="792" width="93"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_MpVmcM6fEeKkmI2JyX1ZGQ" type="2038" fontName="Lucida Grande">
     <children xmi:type="notation:DecorationNode" xmi:id="_MpWNgM6fEeKkmI2JyX1ZGQ" type="5051"/>
     <element xmi:type="com.mtcflow.model:File" href="default.mtc#//@files.4"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MpVmcc6fEeKkmI2JyX1ZGQ" x="1612" y="912"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MpVmcc6fEeKkmI2JyX1ZGQ" x="1612" y="784"/>
   </children>
   <children xmi:type="notation:Shape" xmi:id="_L3WBkOMTEeK-D_Vp0Ea3Hg" type="2037" fontName="Lucida Grande">
     <children xmi:type="notation:DecorationNode" xmi:id="_L3WooOMTEeK-D_Vp0Ea3Hg" type="5049"/>
@@ -152,21 +152,6 @@
         <children xmi:type="notation:DecorationNode" xmi:id="_cN7LAAq-EeOFqMZmQPYuCA" type="5046"/>
         <element xmi:type="com.mtcflow.model:Variable" href="default.mtc#//@configurations/@variables.3"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cN6j8Qq-EeOFqMZmQPYuCA"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_uZsaMBCYEeO2rdRYoR9sNw" type="3010" fontName="Lucida Grande">
-        <children xmi:type="notation:DecorationNode" xmi:id="_uZtBQBCYEeO2rdRYoR9sNw" type="5046"/>
-        <element xmi:type="com.mtcflow.model:Variable" href="default.mtc#//@configurations/@variables.4"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_uZsaMRCYEeO2rdRYoR9sNw"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_0zXSABCYEeO2rdRYoR9sNw" type="3010" fontName="Lucida Grande">
-        <children xmi:type="notation:DecorationNode" xmi:id="_0zX5EBCYEeO2rdRYoR9sNw" type="5046"/>
-        <element xmi:type="com.mtcflow.model:Variable" href="default.mtc#//@configurations/@variables.5"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0zXSARCYEeO2rdRYoR9sNw"/>
-      </children>
-      <children xmi:type="notation:Shape" xmi:id="_HjyrIBCZEeO2rdRYoR9sNw" type="3010" fontName="Lucida Grande">
-        <children xmi:type="notation:DecorationNode" xmi:id="_HjyrIhCZEeO2rdRYoR9sNw" type="5046"/>
-        <element xmi:type="com.mtcflow.model:Variable" href="default.mtc#//@configurations/@variables.6"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HjyrIRCZEeO2rdRYoR9sNw"/>
       </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_L3WoouMTEeK-D_Vp0Ea3Hg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_L3Woo-MTEeK-D_Vp0Ea3Hg"/>
@@ -255,16 +240,6 @@
     <children xmi:type="notation:DecorationNode" xmi:id="_VqCnsApEEeOFqMZmQPYuCA" type="5039"/>
     <element xmi:type="com.mtcflow.model:Metamodel" href="default.mtc#//@metamodels.3"/>
     <layoutConstraint xmi:type="notation:Bounds" xmi:id="_VqCAoQpEEeOFqMZmQPYuCA" x="1592" y="-264"/>
-  </children>
-  <children xmi:type="notation:Shape" xmi:id="_WQhbwBCNEeO2rdRYoR9sNw" type="2030" fontName="Lucida Grande">
-    <children xmi:type="notation:DecorationNode" xmi:id="_WQip4BCNEeO2rdRYoR9sNw" type="5037"/>
-    <element xmi:type="com.mtcflow.model:M2TTransformation" href="default.mtc#//@transformations.13"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_WQhbwRCNEeO2rdRYoR9sNw" x="1402" y="555"/>
-  </children>
-  <children xmi:type="notation:Shape" xmi:id="_bDsP0BCNEeO2rdRYoR9sNw" type="2038" fontName="Lucida Grande">
-    <children xmi:type="notation:DecorationNode" xmi:id="_bDs24BCNEeO2rdRYoR9sNw" type="5051"/>
-    <element xmi:type="com.mtcflow.model:File" href="default.mtc#//@files.8"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_bDsP0RCNEeO2rdRYoR9sNw" x="1600" y="536"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_9_vEAaZ2EeKYgPnAW3YxqQ"/>
   <element xmi:type="com.mtcflow.model:MTC" href="default.mtc#/"/>
@@ -563,7 +538,7 @@
     <styles xmi:type="notation:RoutingStyle" xmi:id="_8RQ80QT5EeOaWa46TIHuwQ" routing="Rectilinear"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_8RQ80gT5EeOaWa46TIHuwQ" fontName="Lucida Grande"/>
     <element xmi:type="com.mtcflow.model:InputModel" href="default.mtc#//@inputModels.10"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8RQ80wT5EeOaWa46TIHuwQ" points="[-23, 0, -125, -491]$[-23, 466, -125, -25]$[97, 466, -5, -25]"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_8RQ80wT5EeOaWa46TIHuwQ" points="[0, 0, -102, -363]$[97, 364, -5, 1]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8RWcYAT5EeOaWa46TIHuwQ" id="(0.6296296296296297,1.0)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_8RWcYQT5EeOaWa46TIHuwQ" id="(0.053763440860215055,0.7066666666666667)"/>
   </edges>
@@ -635,27 +610,5 @@
     <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_tOxNgw2KEeOWWdld2bCK8A" points="[7, -6, -563, 430]$[568, -422, -2, 14]"/>
     <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tO1e8A2KEeOWWdld2bCK8A" id="(0.9156626506024096,0.26666666666666666)"/>
     <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_tO1e8Q2KEeOWWdld2bCK8A" id="(0.425,0.8771929824561403)"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_ZweUcBCNEeO2rdRYoR9sNw" type="4027" source="_OcuSoKnfEeKMcYG64sNkPQ" target="_WQhbwBCNEeO2rdRYoR9sNw">
-    <children xmi:type="notation:DecorationNode" xmi:id="_Zwe7gBCNEeO2rdRYoR9sNw" type="6018">
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_Zwe7gRCNEeO2rdRYoR9sNw" x="10" y="-7"/>
-    </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_ZweUcRCNEeO2rdRYoR9sNw" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_ZweUchCNEeO2rdRYoR9sNw" fontName="Lucida Grande"/>
-    <element xmi:type="com.mtcflow.model:InputModel" href="default.mtc#//@inputModels.13"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_ZweUcxCNEeO2rdRYoR9sNw" points="[-41, 18, -136, -130]$[-41, 128, -136, -20]$[81, 128, -14, -20]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZxHNoBCNEeO2rdRYoR9sNw" id="(1.0,0.8421052631578947)"/>
-    <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_ZxHNoRCNEeO2rdRYoR9sNw" id="(0.17073170731707318,0.76)"/>
-  </edges>
-  <edges xmi:type="notation:Edge" xmi:id="_clh2ABCNEeO2rdRYoR9sNw" type="4034" source="_WQhbwBCNEeO2rdRYoR9sNw" target="_bDsP0BCNEeO2rdRYoR9sNw">
-    <children xmi:type="notation:DecorationNode" xmi:id="_clidExCNEeO2rdRYoR9sNw" type="6025">
-      <styles xmi:type="notation:DescriptionStyle" xmi:id="_clidFBCNEeO2rdRYoR9sNw"/>
-      <layoutConstraint xmi:type="notation:Location" xmi:id="_clidFRCNEeO2rdRYoR9sNw" x="-31" y="-16"/>
-    </children>
-    <styles xmi:type="notation:RoutingStyle" xmi:id="_clidEBCNEeO2rdRYoR9sNw" routing="Rectilinear"/>
-    <styles xmi:type="notation:FontStyle" xmi:id="_clidERCNEeO2rdRYoR9sNw" fontName="Lucida Grande"/>
-    <element xsi:nil="true"/>
-    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_clidEhCNEeO2rdRYoR9sNw" points="[0, -1, -156, -6]$[155, -52, -1, -57]"/>
-    <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_clnVkBCNEeO2rdRYoR9sNw" id="(1.0,0.44)"/>
   </edges>
 </notation:Diagram>

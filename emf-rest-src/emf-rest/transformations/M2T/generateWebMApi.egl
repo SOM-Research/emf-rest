@@ -30,9 +30,6 @@
     var modelStorage : Template = TemplateFactory.load("storage/modelStorage.egl"); 
     modelStorage.generate("webmapi/storage/" + "MemoryStorage.java");
 
-    var modelStorage : Template = TemplateFactory.load("index.egl"); 
-    modelStorage.generate("webmapi/storage/" + "Index.html");
-
 
 for (c in EClass.all.clone()) {
    -- var f = new Native("org.eclipse.epsilon.egl.formatter.language.JavaFormatter");

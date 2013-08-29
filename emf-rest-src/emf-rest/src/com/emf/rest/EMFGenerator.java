@@ -24,7 +24,7 @@ import com.mtcflow.engine.transformation.IExecutionInformation;
 import com.mtcflow.engine.transformation.TransformationExecutor;
 import com.mtcflow.model.mtc.File;
 
-public class EMFGenerator extends TransformationExecutor implements com.mtcflow.engine.transformation.ITransformationExecutor {
+public class EMFGenerator extends TransformationExecutor {
 
 	public void executeTransformation(IExecutionInformation executionInformation) throws Exception {
 		ResourceSet resourceSet = new ResourceSetImpl();

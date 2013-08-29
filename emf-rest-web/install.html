@@ -27,23 +27,14 @@
           <li><a href="demo.html">Live Demo</a></li>
           <li><a href="documentation.html">Documentation</a></li>
           <li><a href="contact.html">Contact us</a></li>
-          <li><a href="https://github.com/jlcanovas/emf-rest" target="_blank">View on GitHub</a></li>
         </ul>
-        <!--<ul class="pull-right">
-          <li><a href="https://twitter.com/softmodeling" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @softmodeling</a>
-            <script>
-              !function(d,s,id) {
-                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) { 
-                  js = d.createElement(s);
-                  js.id = id;
-                  js.src = p+'://platform.twitter.com/widgets.js';
-                  fjs.parentNode.insertBefore(js,fjs);
-                }
-              }(document, 'script', 'twitter-wjs');
-            </script>
-          </li>   
-        </ul>-->
+        <ul class="pull-right">
+          <li>
+            <button type="button" class="btn btn-default btn-sm" onClick="location.href='https://github.com/jlcanovas/emf-rest'">
+              <img src="img/glyphicons_social_21_github.png"> View on Github
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
     </nav>
@@ -78,7 +69,7 @@
     <li>Create a new folder in the project, e.g., called <em>model</em> and copy your EMF model (the file with extension <code>.ecore</code>) there </li>
     <li>Right click on the model and select the menu entrance <em>EMF-REST / Generate All + Copy Libraries</em></li>
     <li>The generator will create all the needed infrastructure (REST API, JSON serializers and JavaScript library) in your project folder</li>
-    <li>Edit the variable called <code>modelsPath</code> of the class <code>webmapi.storage.MemoryStorage</code> to specify the folder where you would like to store your data (i.e. the instances of the classes in the model)</li>
+    <li>By default the generated code will search for your data (i.e. the instances of the classes in the model) in the <code>WebContent/models</code> folder. You should copy your data to this location. If you want to change this location, edit the variable called <code>modelsPath</code> of the class <code>webmapi.storage.MemoryStorage</code> to specify the folder where you would like to store your data</li>
     <li>The project is ready to be deployed into your application server</li>
     </ol>
 
