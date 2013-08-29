@@ -53,36 +53,36 @@
 	<div class="col-md-9">
 
 	<h3>Example</h3>
-	<p>To illustrate EMF-REST we will use a simple example to represent families and we will use the Simpsons family (everyone knows the Simpsons!) as instance to play with.</p>
+	<p>To illustrate EMF-REST we will use as simple example a <em>Family </em> model (with the typical classes: Parent, Son, Daughter,...) together with the most famous family ever: the Simpsons! as family instantiation to play with.</p>
 
 	<h4>The Family model</h4>
-	<p>We will use a simple <abbr title="The metamodeling language in EMF">Ecore</abbr> model to represent families. The main concepts of our Ecore model are shown in the following figure:</p>
+	<p> Let's first take a look at our Family Model.</p>
 
 	<img class="img-thumbnail" src="img/familyMetamodel.png" alt="Family Model">
 
-	<p>As you can see, the <code>Family</code> concept has only one attribute (i.e., <code>address</code>) to represent the address of the family and references for the members (i.e., <code>Member</code> concept), including parents, sons and daughters; and pets (i.e., <code>Pet</code> concept) of the family. The members of the family are represented by the corresponding concepts, that is, <code>Parent</code>s, <code>Son</code>s and <code>Daughter</code>s.</p>
+	<p>As you can see, the <code>Family</code> concept has only one attribute (i.e., <code>address</code>) to represent the address of the family and references for the members (i.e., <code>Member</code> concept), including parents, sons and daughters; and pets (i.e., <code>Pet</code> concept) of the family. </p>
 
 	<p>To play a bit with hierarchies, we allow for different types of pets,  which include <code>Dog</code>s and/or <code>Cat</code>s. Furthermore, a dog can also be a <code>RaceDog</code> or a <code>HuntingDog</code>. The following figure shows these concepts.</p>
 
 	<img class="img-thumbnail" src="img/petMetamodel.png" alt="Pets Model">
 
-	<p>Using the previous model as input, EMF-REST is able to generate the REST API for creating and managing instances of its concepts. </p>
+	<p>Using the previous model as input, EMF-REST is able to generate the REST API for creating new families and querying family members, their names, their pets,... . </p>
 
 	<h4>The Simpsons family</h4>
 
-	<p>In this example we will use the Simpsons family to illustrate how to use the generated API. The following figure shows the Simpsons family which is accessible and modifiable by the generated REST API:</p>
+	<p>In the rest of the example we are going to assume that you have already created a first Family (either through a sequence of PUT calls to the Family RESTful API or by uploading directly this predefined Simpsons file). The following figure shows our view of the Simpsons family </p>
 
 	<img class="img-thumbnail" src="img/simpsonsModel.png" alt="Simpsons Model">
 
-  <h5>The REST API</h5>
+  <h5>Navigating the Simpsons Family with our REST API</h5>
 
-	<p>The generated REST API allows us to navigate through the Simpsons family elements by using REST calls whose format mimics the structure of the family model. For the sake of simplicity, let's imagine that the Simpson family is already in the server, so we will first perform read calls to the API (we will show how to modify its elements afterwards).  </p>
+	<p>The generated REST API provides a set of services you can use to get all the info you want about the Simpsons. The way to write the calls to those services mimics the structure of the Family model. </p>
 
-	<p>Using the generated API we can query the model by means of calls such as:</p>
+	<p>See some examples:</p>
 
 	<pre>GET http://&lt;server&gt;/&lt;project&gt;/app/Family/Simpsons</pre>
 
-	<p>Which will return us the following JSON including all the elements of our model: </p>
+	<p>Which will return us the following JSON with the root information of the Simpsons family: </p>
 
 	<pre>
 {
@@ -90,7 +90,7 @@
 }
 </pre>
 
-	<p>We can also set the level of detail of the returned JSON by using the <code>depth</code> parameter, which allows setting the number of containment references of our model (e.g., the <code>parents</code> or the <code>pets</code> references). For instance, the call: </p>
+	<p>We can also set the level of detail in the returned JSON by using the <code>depth</code> parameter. Depth=1 would return all the objects direclty connected with the element we are querying, depth=2 all the objects connected to the directly connectes ones, and so forth. For instance, the call: </p>
 
 	<pre>GET http://&lt;server&gt;/app/Family/Simpsons?depth=1</pre>
 
