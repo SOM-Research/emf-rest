@@ -114,6 +114,16 @@ public class GenerateRestEMFCommand implements IHandler {
 		variables.put("usedGenPackages", usedGenPackages);
 		variables.put("pluginName", ecoreResource.getProject().getName());
 		variables.put("foreignModel", ecoreResource.getName());
+		
+		File webContentModelsPath = new File(ecoreResource.getProject().findMember("WebContent/models").getLocation().toOSString());
+		String modelName = "";
+		for(File file : webContentModelsPath.listFiles()) {
+			if(file.getName().endsWith(".xmi")) {
+				modelName = file.getName().substring(0, file.getName().lastIndexOf("."));
+			}
+		}
+		variables.put("modelName", modelName);
+		
 		MTCChoreographer choreographer = MTCStandaloneUtils.startMTC(ecoreResource.getProject(),"emf-rest", "default.mtc", variables, (tag == null ? null : Collections.singletonList(tag)));
 		ArrayList<IResource> resourceToRefresh = new ArrayList<IResource>();
 		resourceToRefresh.add(ecoreResource.getProject());
