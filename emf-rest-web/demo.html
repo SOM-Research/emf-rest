@@ -51,14 +51,14 @@
     </div>
     </nav>
 
-  	<div class="container">
-  	<div class="row">
-  	<div class="col-md-9">
+    <div class="container">
+    <div class="row">
+    <div class="col-md-9">
 
-  	<h3>Live Demo</h3>
+    <h3>Live Demo</h3>
 
     <h4>The REST API for the Simpsons family</h4>
-  	
+    
     <p>Here you can try the REST API generated for the  <a href="Example.html">Simpsons example</a>. These are some examples:</p>
 
     <ul>
@@ -74,13 +74,13 @@
       <div class="row">
       <div class="col-md-10">
         <div class="input-group">
-          <span class="input-group-addon">http://emf-rest.com:8080/Demo/app/Family/Simpsons/</span>
-          <input id="call" type="text" class="form-control" placeholder="sons">
+          <span class="input-group-addon">http://demo.emf-rest.com/Demo/app/Family/Simpsons/</span>
+          <input id="call" type="text" class="form-control">
         </div> <!-- input-group>-->
       </div> <!-- col-md-10 -->
 
       <div class="col-md-2">
-        <button class="btn btn-default btn-block" onclick="RestApi.callGet('http://emf-rest.com:8080/Demo/app/Family/Simpsons/' + document.getElementById('call').value,callResponse); return false;">Launch</button>
+        <button class="btn btn-default btn-block" onclick="RestApi.callGet('http://demo.emf-rest.com/Demo/app/Family/Simpsons/' + document.getElementById('call').value,callResponse); return false;">Launch</button>
       </div> <!-- col-md-2 -->
       </div>
     </div> <!-- form-group -->
@@ -90,7 +90,7 @@
     <div class="form-group">
       <textarea id="resultBox" class="form-control" rows="10"></textarea>
     </div> 
-  	
+ a  
     <h4>The JavaScript API</h4>
 
     <p>If you prefer to play with the JavaScript API generated for the <a href="Example.html">Simpsons example</a>, here you are a first example accessing the root element of the Simpsons family. Feel free to edit the code and see what happens!</p>
@@ -100,7 +100,7 @@
       <div class="row">
       <div class="col-md-10">
         <textarea id="inputJS" class="form-control" rows="9">
-var family = new Family('http://demo.emf-rest.com/Demo/app/s', 'Simpsons');
+var family = new Family('http://demo.emf-rest.com/Demo/app', 'Simpsons');
 var myFailCallback = function(problem) {
   alert('Error executing the request');
 };
@@ -112,7 +112,7 @@ RestApi.callGet(family.url, printResponse, 1, myFailCallback);
       </div> <!-- col-md-10 -->
 
       <div class="col-md-2">
-        <button class="btn btn-default btn-block" onclick="eval(document.getElementById('inputJS').value)">Launch</button>
+        <button class="btn btn-default btn-block" onclick="eval(document.getElementById('inputJS').value); return false; ">Launch</button>
       </div> <!-- col-md-2 -->
       </div>
     </div> <!-- form-group -->
@@ -127,15 +127,15 @@ RestApi.callGet(family.url, printResponse, 1, myFailCallback);
 
 
 
-  	<div class="col-md-3">
+    <div class="col-md-3">
     <h2>&nbsp;</h2>
     <button type="button" class="btn btn-default btn-lg btn-block" onClick="location.href='install.html'">
         Install EMF-REST
     </button>
     </div> <!-- /.col-md-3 -->
 
-  	</div>
-  	</div>
+    </div>
+    </div>
 
     <!--<footer>
     <div class="container">
@@ -144,12 +144,12 @@ RestApi.callGet(family.url, printResponse, 1, myFailCallback);
     <p class="text-center"><small>Code licensed under the <a href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</small></p>
     </div>
     </footer>-->
-	
-  	<script type="text/javascript">
-     	try {
-        	var pageTracker = _gat._getTracker("UA-43282342-2");
+  
+    <script type="text/javascript">
+      try {
+          var pageTracker = _gat._getTracker("UA-43282342-2");
             pageTracker._trackPageview();
         } catch(err) {}
     </script>
-	</body>
+  </body>
 </html>
