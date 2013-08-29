@@ -52,7 +52,7 @@
 		<div class="container">
 			<img style="float: left; padding-right: 30px;" src="img/emf-restIcon.png"/>
 			<h1>EMF-REST</h1>
-        	<h2>REST-ful APIs out of your EMF models</h2>
+        	<h2>Model -> RESTful APIs + JSON Serializers + JavaScript library </h2>
 		</div>
 	</div>
 
@@ -62,20 +62,10 @@
 
 	<div class="col-md-9">
 	<h3>What is EMF-REST?</h3>
-	<p>EMF-REST is a tool that allows the <strong>generation of Truly RESTFul APIs from Ecore models</strong>. It enables web developers to generate JSON-based Web APIs for their applications. </p>
+	<p>EMF-REST <strong>generates a Truly RESTful APIs for your <a href="http://www.eclipse.org/modeling/emf/">EMF</a> models</strong>. EMF-REST complements the existing (Java-based) API generation facilities EMF already provides and extends them to the Web. </p>
 
-	<p>EMF-REST complements the existing API generation facilities that the <a href="http://www.eclipse.org/modeling/emf/">Eclipse Modeling Framework (EMF)</a> already provides, which are limited to Java, and extends them to be used on the Web.</p>
+	<p>Thanks to EMF-REST, web developers can quickly get a JSON-based RESTful API derived from their models plus a JavaScript library to simplify the interaction with the API. </p>
 
-	<!--<p>EMF-REST has been developed as an Eclipse plugin, whose features currently implemented are:</p>
-
-	<ul>
-  		<li>Generation of REST services based on the Java JAX-RS specification.</li>
-  		<li>Generation of serializers for JSON.</li>
-  		<li>Generation of a JavaScript API to work with models as Javascript Objects in the client-side.</li>
-	</ul>-->
-
-
-	<!--<p>The tool is under heavy development but you can give it a try by using the update site file, installing the plugin by hand or downloading the source code from <a href="https://github.com/jlcanovas/emf-rest">the GIT repository</a>.</p>-->
 	</div> <!-- /.col-md-9 -->
 
 	<div class="col-md-3">
@@ -92,25 +82,25 @@
   		<div class="row">
         <div class="col-md-4">
           <img class="img-thumbnail" src="img/restful-snippet.png" alt="REST Service">
-          <h3>REST-ful Services</h3>
-          <p>EMF-REST automatically creates a set of REST services conforming to the JAX-RC specification which you can deploy in your application server. Once deployed, you will have a REST API ready to work with.</p>
+          <h3>RESTful API</h3>
+          <p>EMF-REST automatically creates a RESTful API conforming to the JAX-RS specification that can be automatically deployed in your application server. </p>
         </div><!-- /.col-lg-4 -->
         <div class="col-md-4">
           <img class="img-thumbnail" src="img/jsonSnippet.png" alt="JSON Serialization">
           <h3>JSON Serialization</h3>
-          <p>You API clients can easily interact with your services since all the communication is done via JSON objects, they do not have to realize that they are dealing with models behind your service.</p>
+          <p>All the communication with the API is done via JSON objects. Currently, these objects are then stored as XML files in the server. </p>
         </div><!-- /.col-lg-4 -->
         <div class="col-md-4">
           <img class="img-thumbnail" src="img/javascriptSnippet.png" alt="JavaScript API">
-          <h3>JavaScript API</h3>
-          <p>For those of you thinking of integrating the API in your Web applications, we also generate a JavaScript library which will do all the job to communicate with the generate API.</p>
+          <h3>JavaScript library</h3>
+          <p>EMF-REST also generates a JavaScript library to facilitate the management of the API on the client-side (e.g. use of the dot notation for navigation).</p>
         </div><!-- /.col-lg-4 -->
       	</div><!-- /.row -->
     </div>
 
 	<footer>
 	<div class="container">
-	<p class="text-center"><small>EMF-REST is a tool that allows the generation of Truly RESTFul APIs from Ecore models</small> </p>
+	<p class="text-center"><small>EMF-REST enables the generation of Truly RESTful APIs from Ecore models</small> </p>
 
 	<p class="text-center"><small>Code licensed under the <a href="http://www.eclipse.org/legal/epl-v10.html">Eclipse Public License</a>. Documentation licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</small></p>
 	</div>
