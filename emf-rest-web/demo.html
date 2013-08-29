@@ -12,15 +12,21 @@
       var jsonPretty = JSON.stringify(data,null,2);  
       $('#resultBox').val(jsonPretty);
     }
+
+    var printResponse = function(data){
+      var jsonPretty = JSON.stringify(data,null,2);  
+      $('#resultBoxJS').val(jsonPretty);
+    }
     </script>
   </head>
   <!-- The embedded style is for fixing spaces with navbar -->
   <body style="padding-top: 50px;">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="js/jquery-1.10.2.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
     <script src="http://emf-rest.com:8080/Demo/scripts/api.js"></script>
+
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -33,23 +39,14 @@
           <li><a href="demo.html">Live Demo</a></li>
           <li><a href="documentation.html">Documentation</a></li>
           <li><a href="contact.html">Contact us</a></li>
-          <li><a href="https://github.com/jlcanovas/emf-rest" target="_blank">View on GitHub</a></li>
         </ul>
-        <!--<ul class="pull-right">
-          <li><a href="https://twitter.com/softmodeling" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @softmodeling</a>
-            <script>
-              !function(d,s,id) {
-                var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
-                if (!d.getElementById(id)) { 
-                  js = d.createElement(s);
-                  js.id = id;
-                  js.src = p+'://platform.twitter.com/widgets.js';
-                  fjs.parentNode.insertBefore(js,fjs);
-                }
-              }(document, 'script', 'twitter-wjs');
-            </script>
-          </li>   
-        </ul>-->
+        <ul class="pull-right">
+          <li>
+            <button type="button" class="btn btn-default btn-sm" onClick="location.href='https://github.com/jlcanovas/emf-rest'">
+              <img src="img/glyphicons_social_21_github.png"> View on Github
+            </button>
+          </li>
+        </ul>
       </div>
     </div>
     </nav>
@@ -59,8 +56,18 @@
   	<div class="col-md-9">
 
   	<h3>Live Demo</h3>
+
+    <h4>The REST API for the Simpsons family</h4>
   	
-    <p>Here you can try the example with our server</p>
+    <p>Here you can try the REST API generated for the  <a href="Example.html">Simpsons example</a>. These are some examples:</p>
+
+    <ul>
+      <li>http://emf-rest.com:8080/Demo/app/Family/Simpsons</li>
+      <li>http://emf-rest.com:8080/Demo/app/Family/Simpsons/sons</li>
+      <li>http://emf-rest.com:8080/Demo/app/Family/Simpsons/pets</li>
+    </ul>
+
+    <p>Complete the text box and click on <em>Launch</em> to see what happens! </p>
 
     <form role="form">
     <div class="form-group">
@@ -79,12 +86,46 @@
     </div> <!-- form-group -->
     </form>
 
+    <h5>Result:</h5>
     <div class="form-group">
-      <textarea id="resultBox" class="form-control" rows="18"></textarea>
+      <textarea id="resultBox" class="form-control" rows="10"></textarea>
+    </div> 
+  	
+    <h4>The JavaScript API</h4>
+
+    <p>If you prefer to play with the JavaScript API generated for the <a href="Example.html">Simpsons example</a>, here you are a first example accessing the root element of the Simpsons family. Feel free to edit the code and see what happens!</p>
+
+    <form role="form">
+    <div class="form-group">
+      <div class="row">
+      <div class="col-md-10">
+        <textarea id="inputJS" class="form-control" rows="9">
+var family = new Family('http://demo.emf-rest.com/Demo/app/s', 'Simpsons');
+var myFailCallback = function(problem) {
+  alert('Error executing the request');
+};
+
+// Use the function callback called 'printResponse' to show the result 
+// int the box below
+RestApi.callGet(family.url, printResponse, 1, myFailCallback);
+        </textarea>
+      </div> <!-- col-md-10 -->
+
+      <div class="col-md-2">
+        <button class="btn btn-default btn-block" onclick="eval(document.getElementById('inputJS').value)">Launch</button>
+      </div> <!-- col-md-2 -->
+      </div>
     </div> <!-- form-group -->
+    </form>
+
+    <h5>Result:</h5>
+    <div class="form-group">
+      <textarea id="resultBoxJS" class="form-control" rows="10"></textarea>
+    </div> 
+
+    </div>
 
 
-  	</div>
 
   	<div class="col-md-3">
     <h2>&nbsp;</h2>

@@ -57,3 +57,7 @@ footer p {
 h5 {
 	font-weight: bold;
 }
+
+.navbar button {
+	margin-top: 6px;
+}
