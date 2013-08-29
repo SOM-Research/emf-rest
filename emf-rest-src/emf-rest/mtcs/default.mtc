@@ -63,6 +63,7 @@
     <variables name="pluginName" defaultValue="emf-rest"/>
     <variables name="foreignModel" defaultValue=""/>
     <variables name="usedGenPackages"/>
+    <variables name="modelName" defaultValue="Simpsons"/>
     <tags name="genModel"/>
     <tags name="serializer"/>
     <tags name="services"/>

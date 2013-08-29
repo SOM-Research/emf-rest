@@ -168,6 +168,11 @@
         <element xmi:type="com.mtcflow.model:Variable" href="default.mtc#//@configurations/@variables.6"/>
         <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HjyrIRCZEeO2rdRYoR9sNw"/>
       </children>
+      <children xmi:type="notation:Shape" xmi:id="_7d1xsBCzEeO7DMiAP1gIpg" type="3010" fontName="Segoe UI">
+        <children xmi:type="notation:DecorationNode" xmi:id="_7d2YwBCzEeO7DMiAP1gIpg" type="5046"/>
+        <element xmi:type="com.mtcflow.model:Variable" href="default.mtc#//@configurations/@variables.7"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_7d1xsRCzEeO7DMiAP1gIpg"/>
+      </children>
       <styles xmi:type="notation:SortingStyle" xmi:id="_L3WoouMTEeK-D_Vp0Ea3Hg"/>
       <styles xmi:type="notation:FilteringStyle" xmi:id="_L3Woo-MTEeK-D_Vp0Ea3Hg"/>
     </children>
