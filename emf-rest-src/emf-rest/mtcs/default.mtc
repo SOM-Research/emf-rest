@@ -8,6 +8,7 @@
   <files name="Reader/Writer"/>
   <files name="Containers"/>
   <files name="EMF Code"/>
+  <files name="index.html"/>
   <metamodels name="Structural" alias="STR"/>
   <metamodels name="ECORE" URI="http://www.eclipse.org/emf/2002/Ecore" alias=""/>
   <metamodels name="Navigation" alias="NAV"/>
@@ -33,6 +34,7 @@
   <inputModels model="//@models.5" transformation="//@transformations.8"/>
   <inputModels model="//@models.5" alias="Ecore" transformation="//@transformations.12"/>
   <inputModels model="//@models.7" transformation="//@transformations.11"/>
+  <inputModels model="//@models.5" transformation="//@transformations.13"/>
   <transformations xsi:type="com.mtcflow.model:T2MTransformation" name="Structural DSL -> Model" URI="" technology=""/>
   <transformations xsi:type="com.mtcflow.model:T2MTransformation" name="Navigation DSL -> Model"/>
   <transformations xsi:type="com.mtcflow.model:M2MTransformation" name="Ecore -> Structural Annotated Ecore" referencedResources="//@referencedResources.0"/>
@@ -48,15 +50,19 @@
   <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore-> REST- Container" file="generateContainer.egl" tags="//@configurations/@tags.1 //@configurations/@tags.2" outputFiles="//@files.6" target="${output}"/>
   <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="GenerateEMF" tags="//@configurations/@tags.0 //@configurations/@tags.2" implementationClass="com.emf.rest.EMFGenerator" outputFiles="//@files.7"/>
   <transformations xsi:type="com.mtcflow.model:M2MTransformation" name="Ecore->Genmodel" file="Ecore2GenModel.etl" tags="//@configurations/@tags.0 //@configurations/@tags.2"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Default Index" file="generateIndex.egl" outputFiles="//@files.8" target="WebContent"/>
   <outputModels model="//@models.1" transformation="//@transformations.0"/>
   <outputModels model="//@models.3" transformation="//@transformations.1"/>
   <outputModels model="//@models.6" transformation="//@transformations.2"/>
   <outputModels alias="GenModel" model="//@models.7" transformation="//@transformations.12"/>
   <configurations>
     <variables name="output" defaultValue="src-gen/" description=""/>
-    <variables name="ecore_file" defaultValue="Families.ecore" description=""/>
+    <variables name="ecore_file" defaultValue="Example.ecore" description=""/>
     <variables name="genModel_file" defaultValue="Families.genmodel"/>
     <variables name="output_js" defaultValue="/WebContent/scripts"/>
+    <variables name="pluginName" defaultValue="emf-rest"/>
+    <variables name="foreignModel" defaultValue=""/>
+    <variables name="usedGenPackages"/>
     <tags name="genModel"/>
     <tags name="serializer"/>
     <tags name="services"/>

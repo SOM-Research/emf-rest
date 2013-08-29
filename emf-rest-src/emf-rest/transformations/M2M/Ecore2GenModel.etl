@@ -1,6 +1,7 @@
 pre {
 	var genModel = new GenModel!GenModel;
 	var topEPackage = Ecore!EPackage.all.first();
+	var usedGenPackages = new Map;
 	genModel.complianceLevel = topEPackage.getEnumerationAnnotation("complianceLevel", genModel, GenModel!GenJDKLevel#JDK60);
 	genModel.copyrightFields = topEPackage.getBooleanAnnotation("copyrightFields", false);
 	genModel.modelPluginId = topEPackage.getAnnotation("modelPluginID", pluginName);
