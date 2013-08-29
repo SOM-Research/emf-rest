@@ -114,7 +114,7 @@ public class GenerateRestEMFCommand implements IHandler {
 		variables.put("usedGenPackages", usedGenPackages);
 		variables.put("pluginName", ecoreResource.getProject().getName());
 		variables.put("foreignModel", ecoreResource.getName());
-		MTCChoreographer choreographer = MTCStandaloneUtils.startMTC("emf-rest", "default.mtc", variables, (tag == null ? null : Collections.singletonList(tag)));
+		MTCChoreographer choreographer = MTCStandaloneUtils.startMTC(ecoreResource.getProject(),"emf-rest", "default.mtc", variables, (tag == null ? null : Collections.singletonList(tag)));
 		ArrayList<IResource> resourceToRefresh = new ArrayList<IResource>();
 		resourceToRefresh.add(ecoreResource.getProject());
 		choreographer.addExecutionListener(new GenerationListener(ecoreResource.getProject(), Platform.getBundle("emf-rest"), copyLibraries));

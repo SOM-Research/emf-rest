@@ -15,6 +15,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
@@ -41,8 +42,9 @@ public class PluginResourceLocator implements IResourceLocator {
 	private final Bundle bundle;
 	private final MTC mtc;
 	private File workingDirectory;
+	private IProject project;
 
-	public PluginResourceLocator(String bundleName, MTC mtc) {
+	public PluginResourceLocator(String bundleName, MTC mtc, IProject project) {
 		this.bundle = Platform.getBundle(bundleName);
 		this.mtc = mtc;
 		File tempFile = null;
@@ -54,6 +56,7 @@ public class PluginResourceLocator implements IResourceLocator {
 		tempFile.delete();
 		tempFile.mkdir();
 		workingDirectory = tempFile;
+		this.project = project;
 	}
 
 	public File findFile(String path) {
@@ -112,11 +115,11 @@ public class PluginResourceLocator implements IResourceLocator {
 		}
 		String path = null;
 		String baseFolder;
-		//if (workspace) {
-		//	baseFolder = workingDirectory.getAbsolutePath() + "/";
-		//} else {
-			baseFolder = getFolder(resource);
-		//}
+		// if (workspace) {
+		// baseFolder = workingDirectory.getAbsolutePath() + "/";
+		// } else {
+		baseFolder = getFolder(resource);
+		// }
 		if (resource.getFile() != null && !resource.getFile().trim().isEmpty()) {
 			// If the model doesn't have a default Factory put the
 			// XMIResourceFactoryImpl as default
@@ -182,7 +185,12 @@ public class PluginResourceLocator implements IResourceLocator {
 	}
 
 	public File getTarget(M2TTransformation resource) {
-		return new File(resource.getTarget());
+		File f = new File(resource.getTarget());
+		if (!f.exists()) {
+			return new File(project.findMember(resource.getTarget()).getLocation().toOSString());
+		} else {
+			return f;
+		}
 	}
 
 	public String getWorkingFolder() {

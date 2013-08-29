@@ -14,6 +14,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 
+import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
@@ -75,15 +76,15 @@ public class MTCStandaloneUtils {
 		return (MTC) resource.getContents().get(0);
 	}
 
-	public static MTCChoreographer startMTC(String bundle, String mtc, HashMap<String, Object> variables) {
-		return startMTC(bundle, mtc, null, null, null, variables);
+	public static MTCChoreographer startMTC(IProject project, String bundle, String mtc, HashMap<String, Object> variables) {
+		return startMTC(project,bundle, mtc, null, null, null, variables);
 	}
 
-	public static MTCChoreographer startMTC(String bundle, String mtc, HashMap<String, Object> variables, List<String> tags) {
-		return startMTC(bundle, mtc, null, null, tags, variables);
+	public static MTCChoreographer startMTC(IProject project, String bundle, String mtc, HashMap<String, Object> variables, List<String> tags) {
+		return startMTC(project,bundle, mtc, null, null, tags, variables);
 	}
 
-	public static MTCChoreographer startMTC(String bundleName, String mtcName, Transformation transformation, List<Model> startModels, List<String> tagList, HashMap<String, Object> variables) {
+	public static MTCChoreographer startMTC(IProject project, String bundleName, String mtcName, Transformation transformation, List<Model> startModels, List<String> tagList, HashMap<String, Object> variables) {
 		MTCChoreographer mtcChoreographer = null;
 		try {
 			final Bundle bundle = Platform.getBundle(bundleName);
@@ -107,7 +108,7 @@ public class MTCStandaloneUtils {
 
 			initializeRegistry();
 			console.clear();
-			mtcChoreographer = new MTCChoreographer(mtcPath, mtc, false, false, console, new PluginResourceLocator(bundleName, mtc), new TransformationExecutorFactory(), new EclipseModelEnvironmentManager(), tagList);
+			mtcChoreographer = new MTCChoreographer(mtcPath, mtc, false, false, console, new PluginResourceLocator(bundleName, mtc, project), new TransformationExecutorFactory(), new EclipseModelEnvironmentManager(), tagList);
 			mtcChoreographer.setVariables(variables);
 		} catch (Exception e) {
 			e.printStackTrace();
