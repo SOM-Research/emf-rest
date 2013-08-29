@@ -7,14 +7,20 @@
     <link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
     <link href="css/style.css" rel="stylesheet" media="screen">
     <link href='http://fonts.googleapis.com/css?family=Roboto:700' rel='stylesheet' type='text/css'>
+    <script>
+    var callResponse = function(data){
+      var jsonPretty = JSON.stringify(data,null,2);  
+      $('#resultBox').val(jsonPretty);
+    }
+    </script>
   </head>
   <!-- The embedded style is for fixing spaces with navbar -->
   <body style="padding-top: 50px;">
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-1.10.2.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="js/bootstrap.min.js"></script>
-
+    <script src="http://emf-rest.com:8080/Demo/scripts/api.js"></script>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
       <div class="navbar-header">
@@ -67,29 +73,14 @@
       </div> <!-- col-md-10 -->
 
       <div class="col-md-2">
-        <button type="submit" class="btn btn-default btn-block" onClick="callGET('http://emf-rest.com:8080/Demo/app/Family/Simpsons/' + document.getElementById('call').value);">Launch</button>
-        <script language="javascript" type="text/javascript">
-          function callGET(urlCall) {
-            $.ajax({
-              url: urlCall,
-              type: 'GET',
-              beforeSend : function(xhr) {
-                xhr.overrideMimeType("application/json; charset=x-user-defined");
-              } 
-            }).done(function(data) {
-              alert('Completed ' + data); document.getElementById('resultBox').value = data;
-            }).fail(function(xhr, status) {
-              alert('Fail ' + status); document.getElementById('resultBox').value = status;
-            })
-          };
-        </script>
+        <button class="btn btn-default btn-block" onclick="RestApi.callGet('http://emf-rest.com:8080/Demo/app/Family/Simpsons/' + document.getElementById('call').value,callResponse); return false;">Launch</button>
       </div> <!-- col-md-2 -->
       </div>
     </div> <!-- form-group -->
     </form>
 
     <div class="form-group">
-      <textarea id="resultBox" class="form-control" rows="10"></textarea>
+      <textarea id="resultBox" class="form-control" rows="18"></textarea>
     </div> <!-- form-group -->
 
 

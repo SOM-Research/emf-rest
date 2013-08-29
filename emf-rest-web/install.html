@@ -78,7 +78,8 @@
     <li>Create a new folder in the project, e.g., called <em>model</em> and copy your EMF model and their instances</li>
     <li>Right click on your EMF model (the file with extension <code>.ecore</code> and select the menu entrance <em>EMF-REST / Generate All + Copy Libraries</em></li>
     <li>The generator will create all the needed infrastructure for your model</li>
-    <li>Edit the variable called <code>modelsPath</code> of the class <code>webmapi.storage.MemoryStorage</code> to point at the folder containing your models</li>
+    <li>By default the generated code will search for the models in the <code>WebContent/models</code> folder. You should copy your models to this location.
+       If you want to change this location, edit the variable called <code>modelsPath</code> of the class <code>webmapi.storage.MemoryStorage</code> to point at the folder containing your models</li>     
     <li>The project is ready to be deployed into your application server</li>
     </ol>
 
