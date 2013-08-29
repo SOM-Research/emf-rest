@@ -75,31 +75,35 @@
 
     <ol>
     <li>Create a new <em>Dynamic Web Project</em></li>
-    <li>Create a new folder in the project, e.g., called <em>model</em> and copy your EMF model and their instances</li>
-    <li>Right click on your EMF model (the file with extension <code>.ecore</code> and select the menu entrance <em>EMF-REST / Generate All + Copy Libraries</em></li>
-    <li>The generator will create all the needed infrastructure for your model</li>
-    <li>By default the generated code will search for the models in the <code>WebContent/models</code> folder. You should copy your models to this location.
-       If you want to change this location, edit the variable called <code>modelsPath</code> of the class <code>webmapi.storage.MemoryStorage</code> to point at the folder containing your models</li>     
+    <li>Create a new folder in the project, e.g., called <em>model</em> and copy your EMF model (the file with extension <code>.ecore</code>) there </li>
+    <li>Right click on the model and select the menu entrance <em>EMF-REST / Generate All + Copy Libraries</em></li>
+    <li>The generator will create all the needed infrastructure (REST API, JSON serializers and JavaScript library) in your project folder</li>
+    <li>Edit the variable called <code>modelsPath</code> of the class <code>webmapi.storage.MemoryStorage</code> to specify the folder where you would like to store your data (i.e. the instances of the classes in the model)</li>
     <li>The project is ready to be deployed into your application server</li>
     </ol>
 
     <h4>Running your generated application</h4>
 
-    <p>The fastest way to try EMF-REST is to deploy it into an application server compatible with Eclipse. These steps will describe how to do it in Apache Tommee.
+    <p>The fastest way to try your new application is to deploy it using an application server compatible with Eclipse. These steps will describe how to do it in Apache Tommee.
 
     <ol>
       <li>Download <a href="https://tomee.apache.org/downloads.html">Apache Tomee JAX-RS</a> and unzip in your hard disk</li>
-      <li>Run your recently created application by clicking on <em>Run As / Run On Server</em></li>
+      <li>Run the application by clicking on <em>Run As / Run On Server</em></li>
       <li>Define a new server of type <em>Tomcat v7.0 Server</em> and configure the runtime environment to use the previously downloaded Apache Tomee</li>
-      <li>Click on finish, the application will be deployed in the server</li>
+      <li>Click on finish, the application will be deployed in your local server</li>
     </ol>
+
+	To deploy in a production server you can create a .war file using the Eclipse standard tools for that.
+
+	If you'd like to use as well the JavaScript library created during the generation, you'll find it in /webcontent/scripts .
+
    
     <div class="panel panel-danger">
       <div class="panel-body">
         <strong>Remember!</strong>
       </div>
       <div class="panel-footer">
-        <p>Note that the default landing page of your EMF-REST generated application is not included in the generation process so it is normal no get an error when accessing to the root of the application. To check that everything is working fine remember the format used to navigate through the models (explained <a href="documentation.html#api">here</a>).</p>
+        <p>Note that the default landing page of your EMF-REST generated application is not included in the generation process so it is normal to get an error when accessing to the root of the application. To check that everything is working fine remember the format used to navigate through the models (explained <a href="documentation.html#api">here</a>).</p>
         <p>Just as a quick reminder: <code>http://&lt;server&gt;/&lt;project-name&gt;/app/&lt;model-name&gt;/&lt;concrete-model-name&gt;</code></p>
       </div>
     </div>
