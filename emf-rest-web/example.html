@@ -43,10 +43,10 @@
   <div class="col-md-9">
 
   <h3>Example</h3>
-  <p>To illustrate EMF-REST we will use as simple example a <em>Family </em> model (with the typical classes: Parent, Son, Daughter,...) together with the most famous family ever: the Simpsons! as family instantiation to play with.</p>
+  <p>To illustrate EMF-REST we will use as simple example a <em>Family </em> model (with the typical classes: Parent, Son, Daughter,...) together with the most famous family ever: the <a href="https://en.wikipedia.org/wiki/The_Simpsons">Simpsons</a>! as family instantiation to play with.</p>
 
   <h4>The Family model</h4>
-  <p> Let's first take a look at our Family Model.</p>
+  <p> Let's first take a look at our Family Model (you can download it <a href="Example.ecore">here</a>)</p>
 
   <img class="img-thumbnail" src="img/familyMetamodel.png" alt="Family Model">
 
@@ -60,7 +60,7 @@
 
   <h4>The Simpsons family</h4>
 
-  <p>In the rest of the example we are going to assume that you have already created a first Family (either through a sequence of PUT calls to the Family RESTful API or by uploading directly this predefined Simpsons file). The following figure shows our view of the Simpsons family </p>
+  <p>In the rest of the example we are going to assume that you have already created a first Family (either through a sequence of PUT calls to the Family RESTful API or by uploading directly <a href="Simpsons.xmi">this predefined Simpsons file</a>). The following figure shows our view of the Simpsons family </p>
 
   <img class="img-thumbnail" src="img/simpsonsModel.png" alt="Simpsons Model">
 
@@ -80,9 +80,9 @@
 }
 </pre>
 
-  <p>We can also set the level of detail in the returned JSON by using the <code>depth</code> parameter. Depth=1 would return all the objects direclty connected with the element we are querying, depth=2 all the objects connected to the directly connectes ones, and so forth. For instance, the call: </p>
+  <p>We can also set the level of detail in the returned JSON by using the <code>depth</code> parameter. <code>depth=1</code> would return all the objects direclty connected with the element we are querying, <code>depth=2</code> all the objects connected to the directly connectes ones, and so forth. For instance, the call: </p>
 
-  <pre>GET http://&lt;server&gt;/app/Family/Simpsons?depth=1</pre>
+  <pre>GET http://&lt;server&gt;/&lt;project&gt;/app/Family/Simpsons?depth=1</pre>
 
   <p>will return the following JSON:</p>
 
@@ -134,6 +134,39 @@
 }
 </pre>
 
+  <p>We can query for the daughters of the Simpsons family by using this call:</p>
+
+  <pre>http://&lt;server&gt;/&lt;project&gt;/app/Family/Simpsons/daughters</pre>
+
+  <p>Which will return:</p>
+
+  <pre>
+[
+  {
+    "firstName": "Lisa",
+    "lastName": "Simpson"
+  },
+  {
+    "firstName": "Maggie",
+    "lastName": "Simpson"
+  }
+]
+</pre>
+  
+  <p>If we want to get only <code>Lisa</code> we can do: </p>
+
+  <pre>http://&lt;server&gt;/&lt;project&gt;/app/Family/Simpsons/daughters/Lisa</pre>
+
+  <p>Which will return:</p>
+
+  <pre>
+{
+  "firstName": "Lisa",
+  "lastName": "Simpson"
+}
+</pre>
+
+
   <p>You can find more details about the REST API in the <a href="documentation.html#api">Documentation</a>.
 
 <!--  <p>If we want to get only a set of particular elements of the family model we can modify the API call. For instance, if we want to get only the parents of the family we can use the following call: </p>
@@ -146,7 +179,7 @@
 
   <h5>The JavaScript API</h5>
 
-  <p>REST-EMF also generates a JavaScript library including a set of functions helping you to call the REST API. For instance, to get the previous JSON we can do:</p>
+  <p>REST-EMF also generates a JavaScript library including a set of functions helping you to interact with the REST API. For instance, to get the previous JSON we can do:</p>
 
   <pre>
 var family = new Family('http://&lt;server&gt;/&lt;project-name&gt;/app', 'Simpsons');
