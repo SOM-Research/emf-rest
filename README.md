@@ -12,6 +12,14 @@ Thanks to EMF-REST, web developers can quickly get a JSON-based RESTful API deri
 * All the communication with the API is done via JSON objects. Currently, these objects are then stored as XML files in the server.
 * EMF-REST also generates a JavaScript library to facilitate the management of the API on the client-side (e.g. use of the dot notation for navigation).
 
+What is coming next?
+--------------------
+
+We are currently working hard on:
+
+* Support for POST / DELETE / PUT http methods
+* Tuning the way objects are represented in JSON
+
 Who is behind EMF-REST?
 -----------------------
 * [Camilo Alvarez](http://github.com/cadorca/ "Camilo Alvarez")
