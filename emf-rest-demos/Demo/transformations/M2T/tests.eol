@@ -1,8 +1,0 @@
-import "lib/EcoreUtils.eol";
-
-var aClass = EClass.all.first();
-for (clazz in EClass.all) { 
-println(clazz.package()+"    ");
-println(clazz.isSuperClass()+"    ");
-}
-
