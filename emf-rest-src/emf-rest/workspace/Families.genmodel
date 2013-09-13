@@ -1,66 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-  Copyright (c) 2013 cadmilo.
-  All rights reserved. This program and the accompanying materials
-  are made available under the terms of the Eclipse Public License v1.0
-  which accompanies this distribution, and is available at
-  http://www.eclipse.org/legal/epl-v10.html
-  
-  Contributors:
-      Camilo Alvarez (cadorca@gmail.com)  - initial API and implementation
--->
 <genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/MiPlugin/src" modelPluginID="MiPlugin" modelName="Families"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/emf-rest/src" modelPluginID="emf-rest" modelName="Example"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
-  <foreignModel>foreignModel</foreignModel>
-  <genPackages prefix="Families" disposableProviderFactory="true" ecorePackage="../models/Families.ecore#/">
-    <genClasses ecoreClass="../models/Families.ecore#//Family">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Families.ecore#//Family/lastName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//Family/father"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//Family/mother"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//Family/sons"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//Family/daughters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//Family/pets"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//Family/dogs"/>
+  <foreignModel></foreignModel>
+  <genPackages prefix="Example" disposableProviderFactory="true" ecorePackage="../models/Example.ecore#/">
+    <genClasses ecoreClass="../models/Example.ecore#//Family">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Example.ecore#//Family/parents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Example.ecore#//Family/sons"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Example.ecore#//Family/daughters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Example.ecore#//Family/pets"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Example.ecore#//Family/address"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="../models/Families.ecore#//Member">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Families.ecore#//Member/firstName"/>
+    <genClasses image="false" ecoreClass="../models/Example.ecore#//Member">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Example.ecore#//Member/firstName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Example.ecore#//Member/lastName"/>
     </genClasses>
-    <genClasses ecoreClass="../models/Families.ecore#//Father">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../models/Families.ecore#//Father/family"/>
+    <genClasses ecoreClass="../models/Example.ecore#//Parent">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../models/Example.ecore#//Parent/family"/>
     </genClasses>
-    <genClasses ecoreClass="../models/Families.ecore#//Mother">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../models/Families.ecore#//Mother/family"/>
+    <genClasses ecoreClass="../models/Example.ecore#//Son">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../models/Example.ecore#//Son/family"/>
     </genClasses>
-    <genClasses ecoreClass="../models/Families.ecore#//Son">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../models/Families.ecore#//Son/family"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//Son/EReference0"/>
+    <genClasses ecoreClass="../models/Example.ecore#//Daughter">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../models/Example.ecore#//Daughter/family"/>
     </genClasses>
-    <genClasses ecoreClass="../models/Families.ecore#//Daughter">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference ../models/Families.ecore#//Daughter/family"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//Daughter/inner"/>
+    <genClasses image="false" ecoreClass="../models/Example.ecore#//Pet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Example.ecore#//Pet/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Example.ecore#//Pet/breed"/>
     </genClasses>
-    <genClasses ecoreClass="../models/Families.ecore#//Inner">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//Inner/EReference0"/>
-    </genClasses>
-    <genClasses ecoreClass="../models/Families.ecore#//AlsoStand"/>
-    <genClasses ecoreClass="../models/Families.ecore#//EClass0">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//EClass0/EReference0"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="../models/Families.ecore#//Pet">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Families.ecore#//Pet/RFID"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Families.ecore#//Pet/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Families.ecore#//Pet/breed"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute ../models/Families.ecore#//Pet/age"/>
-    </genClasses>
-    <genClasses ecoreClass="../models/Families.ecore#//kk">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference ../models/Families.ecore#//kk/EReference0"/>
-    </genClasses>
-    <genClasses ecoreClass="../models/Families.ecore#//Dog"/>
-    <genClasses ecoreClass="../models/Families.ecore#//Cat"/>
-    <genClasses ecoreClass="../models/Families.ecore#//RaceDog"/>
-    <genClasses ecoreClass="../models/Families.ecore#//EClass1"/>
-    <genClasses ecoreClass="../models/Families.ecore#//TrainingDog"/>
-    <genClasses ecoreClass="../models/Families.ecore#//HuntingDog"/>
+    <genClasses ecoreClass="../models/Example.ecore#//Dog"/>
+    <genClasses ecoreClass="../models/Example.ecore#//Cat"/>
+    <genClasses ecoreClass="../models/Example.ecore#//RaceDog"/>
+    <genClasses ecoreClass="../models/Example.ecore#//HuntingDog"/>
   </genPackages>
 </genmodel:GenModel>
