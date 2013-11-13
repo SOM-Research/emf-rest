@@ -4,14 +4,6 @@ Bundle-Name: emf-rest
 Bundle-SymbolicName: emf-rest;singleton:=true
 Bundle-Version: 1.0.3.qualifier
 Bundle-ClassPath: .,
- lib/com.mtcflow.engine_1.0.0.201308281412.jar,
- lib/com.mtcflow.engine.core_1.0.0.201308281412.jar,
- lib/com.mtcflow.engine.eclipse_1.0.0.201308281412.jar,
- lib/com.mtcflow.engine.egl_1.0.0.201308281412.jar,
- lib/com.mtcflow.engine.eol_1.0.0.201308281412.jar,
- lib/com.mtcflow.engine.epsilon_1.0.0.201308281412.jar,
- lib/com.mtcflow.engine.etl_1.0.0.201308281412.jar,
- lib/com.mtcflow.model_1.0.0.201308281412.jar,
  lib/commons-lang3-3.1.jar,
  lib/org.antlr.runtime_3.1.b1_3.1.0.jar,
  lib/org.eclipse.epsilon.common.jar,
@@ -20,13 +12,18 @@ Bundle-ClassPath: .,
  lib/org.eclipse.epsilon.emc.emf.jar,
  lib/org.eclipse.epsilon.eol.engine.jar,
  lib/org.eclipse.epsilon.erl.engine.jar,
- lib/org.eclipse.epsilon.etl.engine.jar
+ lib/org.eclipse.epsilon.etl.engine.jar,
+ lib/com.mtcflow.engine_1.0.0.201310081749.jar,
+ lib/com.mtcflow.engine.core_1.0.0.201310081749.jar,
+ lib/com.mtcflow.engine.eclipse_1.0.0.201310081749.jar,
+ lib/com.mtcflow.engine.egl_1.0.0.201310081749.jar,
+ lib/com.mtcflow.engine.eol_1.0.0.201310081749.jar,
+ lib/com.mtcflow.engine.epsilon_1.0.0.201310081749.jar,
+ lib/com.mtcflow.engine.etl_1.0.0.201310081749.jar,
+ lib/com.mtcflow.model_1.0.0.201310081749.jar
 Bundle-Vendor: emf-rest
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: Example,
- Example.impl,
- Example.util
 Require-Bundle: org.eclipse.emf.codegen.ecore,
  org.eclipse.core.commands,
  org.eclipse.core.resources,
@@ -40,3 +37,4 @@ Require-Bundle: org.eclipse.emf.codegen.ecore,
  org.eclipse.ui.console
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.ui.handlers
+Export-Package: com.emf.rest

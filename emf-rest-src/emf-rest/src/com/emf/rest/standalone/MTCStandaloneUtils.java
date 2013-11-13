@@ -107,8 +107,8 @@ public class MTCStandaloneUtils {
 			view.display(findConsole("EMF - Rest"));
 
 			initializeRegistry();
-			console.clear();
-			mtcChoreographer = new MTCChoreographer(mtcPath, mtc, false, false, console, new PluginResourceLocator(bundleName, mtc, project), new TransformationExecutorFactory(), new EclipseModelEnvironmentManager(), tagList);
+			console.clear(); 
+			mtcChoreographer = new MTCChoreographer(mtcPath, mtc, false, false, console, new PluginResourceLocator(bundleName, mtc, project), new TransformationExecutorFactory(), new EclipseModelEnvironmentManager(), tagList, variables);
 			mtcChoreographer.setVariables(variables);
 		} catch (Exception e) {
 			e.printStackTrace();

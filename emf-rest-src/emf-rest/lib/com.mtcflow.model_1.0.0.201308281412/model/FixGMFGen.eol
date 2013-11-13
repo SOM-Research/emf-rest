@@ -1,0 +1,8 @@
+-- Change generated editor path
+var root = GmfGen!GenEditorGenerator.all.first();
+root.diagram.creationWizardCategoryID ='com.mtcflow.project.eclipse.wizard';
+root.pluginDirectory="/com.mtcflow.designer.diagram/src";
+root.packageNamePrefix="com.mtcflow.designer.diagram";
+
+var coreTab = GmfGen!GenCustomPropertyTab.all.selectOne(p|p.label='Core');
+coreTab.label = 'Configuration';

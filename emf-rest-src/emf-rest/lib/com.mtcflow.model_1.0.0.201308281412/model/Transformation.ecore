@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="mtc" nsURI="http://com.mtcflow.mtc/1.0" nsPrefix="com.mtcflow.model">
+  <eClassifiers xsi:type="ecore:EClass" name="MTC">
+    <eAnnotations source="gmf.diagram">
+      <details key="model.extension" value="mtc"/>
+      <details key="diagram.extension" value="mtcdiag"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="MTC"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="files" upperBound="-1"
+        eType="#//File" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metamodels" upperBound="-1"
+        eType="#//Metamodel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="models" upperBound="-1"
+        eType="#//Model" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputModels" upperBound="-1"
+        eType="#//InputModel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformations" upperBound="-1"
+        eType="#//Transformation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputModels" upperBound="-1"
+        eType="#//OutputModel" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="M2MTechnology" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="ATL"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="M2TTechnology" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="ACCELEO"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HOTTechnology" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="ATL"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metamodelsFolder" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="/metamodels/"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="modelsFolder" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="/models/"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="M2MTransformationsFolder"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="/transformations/M2M/"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="M2TTransformationsFolder"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="/transformations/M2T/"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validations" upperBound="-1"
+        eType="#//Validation" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="configurations" eType="#//Configuration"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="HOTransformationsFolder"
+        lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="/transformations/HOT/"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validationsFolder" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="/validations/"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="1.0"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="librariesFolder" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="/libraries/"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedResources" upperBound="-1"
+        eType="#//ReferencedResource" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="validateConformance" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="workspace" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" defaultValueLiteral="/workspace/"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionInformation" transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Metamodel" eSuperTypes="#//MTCResource">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="figure" value="com.mtcflow.designer.diagram.figures.MetamodelFigure"/>
+      <details key="size" value="80,108"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="autoregister" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="M2MTransformation" eSuperTypes="#//ModelProducerTransformation">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="figure" value="com.mtcflow.designer.diagram.figures.M2MFigure"/>
+      <details key="tool.name" value="M2M - Model To Model"/>
+      <details key="tool.description" value="Create a new Model To Model Transformation (M2M)"/>
+      <details key="size" value="80,65"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="refinement" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="false"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="M2TTransformation" eSuperTypes="#//Transformation">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="figure" value="com.mtcflow.designer.diagram.figures.M2TFigure"/>
+      <details key="tool.name" value="M2T - Model To Text"/>
+      <details key="tool.description" value="Create a new Model To Text Transformation (M2T)"/>
+      <details key="size" value="80,75"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="templatesName" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputFiles" upperBound="-1"
+        eType="#//File">
+      <eAnnotations source="gmf.link">
+        <details key="label" value="generates"/>
+        <details key="target.decoration" value="filledclosedarrow"/>
+        <details key="width" value="3"/>
+        <details key="color" value="77,77,77"/>
+        <details key="style" value="solid"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="target" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="File" eSuperTypes="#//MTCResource">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="com.mtcflow.designer.diagram.figures.TextFileFigure"/>
+      <details key="label" value="name"/>
+      <details key="tool.name" value="File"/>
+      <details key="tool.description" value="Create a new Output File"/>
+      <details key="size" value="80,114"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//FileType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Model" eSuperTypes="#//MTCResource">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="com.mtcflow.designer.diagram.figures.ModelFigure"/>
+      <details key="label" value="name"/>
+      <details key="tool.name" value="Model"/>
+      <details key="tool.description" value="Create a new Model"/>
+      <details key="size" value="80,114"/>
+    </eAnnotations>
+    <eOperations name="getMainMetamodel" lowerBound="1" eType="#//Metamodel"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="metamodel" lowerBound="1"
+        upperBound="-1" eType="#//Metamodel">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="filledsquare"/>
+        <details key="label" value="conforms to"/>
+        <details key="style" value="dot"/>
+        <details key="width" value="1"/>
+        <details key="color" value="207,207,207"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="validations" upperBound="-1"
+        eType="#//Validation">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="filledsquare"/>
+        <details key="source.decoration" value="square"/>
+        <details key="style" value="dash"/>
+        <details key="width" value="1"/>
+        <details key="color" value="69,139,0"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="format" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="InputModel">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="model"/>
+      <details key="target" value="transformation"/>
+      <details key="label" value="alias"/>
+      <details key="width" value="3"/>
+      <details key="color" value="77,77,77"/>
+      <details key="target.decoration" value="filledclosedarrow"/>
+      <details key="incoming" value="true"/>
+    </eAnnotations>
+    <eOperations name="getFinalMetamodelAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//Model"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="IN"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
+        eType="#//Transformation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metamodelAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="index" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EIntegerObject"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transformation" abstract="true" eSuperTypes="#//MTCResource">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="technology" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementationClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" upperBound="-1"
+        eType="#//Library"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="preExecutionScript" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postExecutionScript" eType="#//Script"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modelDependencies" upperBound="-1"
+        eType="#//Model">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="filledsquare"/>
+        <details key="tool.name" value="Depends on model"/>
+        <details key="style" value="solid"/>
+        <details key="width" value="1"/>
+        <details key="color" value="74,118,110"/>
+        <details key="label" value="depends on"/>
+        <details key="incoming" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fileDependencies" upperBound="-1"
+        eType="#//File">
+      <eAnnotations source="gmf.link">
+        <details key="source.decoration" value="filledsquare"/>
+        <details key="tool.name" value="Depends on file"/>
+        <details key="style" value="solid"/>
+        <details key="width" value="1"/>
+        <details key="color" value="74,118,110"/>
+        <details key="label" value="depends on"/>
+        <details key="incoming" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputModel">
+    <eAnnotations source="gmf.link">
+      <details key="source" value="transformation"/>
+      <details key="target" value="model"/>
+      <details key="label" value="alias"/>
+      <details key="width" value="3"/>
+      <details key="color" value="77,77,77"/>
+      <details key="target.decoration" value="filledclosedarrow"/>
+      <details key="incoming" value="true"/>
+    </eAnnotations>
+    <eOperations name="getFinalMetamodelAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="alias" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="OUT"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="model" lowerBound="1" eType="#//Model"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transformation" lowerBound="1"
+        eType="#//ModelProducerTransformation"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="metamodelAlias" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="FileType">
+    <eLiterals name="JSF" value="3"/>
+    <eLiterals name="JSP" value="4"/>
+    <eLiterals name="PROPERTIES" value="2"/>
+    <eLiterals name="ASPECT" value="5"/>
+    <eLiterals name="JAVA" value="1"/>
+    <eLiterals name="XML"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MTCResource" abstract="true">
+    <eOperations name="inWorkspace" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="URI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="file" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="properties" upperBound="-1"
+        eType="#//Property" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="referencedResources" upperBound="-1"
+        eType="#//ReferencedResource">
+      <eAnnotations source="gmf.link">
+        <details key="target.decoration" value="filledclosedarrow"/>
+        <details key="label" value="ref"/>
+        <details key="style" value="dash"/>
+        <details key="width" value="1"/>
+        <details key="color" value="69,139,0"/>
+        <details key="incoming" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="executionInformation" transient="true">
+      <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+        <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+      </eGenericType>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Validation" eSuperTypes="#//MTCResource">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="com.mtcflow.designer.diagram.figures.ValidationFigure"/>
+      <details key="label" value="name"/>
+      <details key="tool.name" value="Validation"/>
+      <details key="tool.description" value="Create a new Validation"/>
+      <details key="size" value="80,112"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean" defaultValueLiteral="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Variable">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="defaultValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Configuration">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+      <details key="label.icon" value="false"/>
+      <details key="tool.name" value="MTC Configuration"/>
+      <details key="tool.description" value="Create a new Configuration"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="Configuration"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variables" upperBound="-1"
+        eType="#//Variable" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="tags" upperBound="-1" eType="#//Tag"
+        containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="libraries" upperBound="-1"
+        eType="#//Library" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="scripts" upperBound="-1"
+        eType="#//Script" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environments" upperBound="-1"
+        eType="#//ModelEnvironment" containment="true">
+      <eAnnotations source="gmf.compartment">
+        <details key="layout" value="list"/>
+        <details key="collapsible" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="T2MTransformation" eSuperTypes="#//ModelProducerTransformation">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="figure" value="com.mtcflow.designer.diagram.figures.T2MFigure"/>
+      <details key="tool.name" value="T2M - Text To Model"/>
+      <details key="tool.description" value="Create a new Text To Model Transformation (T2M)"/>
+      <details key="size" value="80,65"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="inputFiles" upperBound="-1"
+        eType="#//File">
+      <eAnnotations source="gmf.link">
+        <details key="source.decoration" value="filledclosedarrow"/>
+        <details key="width" value="3"/>
+        <details key="color" value="77,77,77"/>
+        <details key="style" value="solid"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelProducerTransformation" abstract="true"
+      eSuperTypes="#//Transformation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MTCTransformation" eSuperTypes="#//M2TTransformation #//T2MTransformation #//M2MTransformation">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="figure" value="com.mtcflow.designer.diagram.figures.MTCFigure"/>
+      <details key="tool.name" value="MTC - Model T. Chain"/>
+      <details key="tool.description" value="Create a new Model Transformation Chain"/>
+      <details key="size" value="80,65"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Library" eSuperTypes="#//MTCResource">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tag">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Script" eSuperTypes="#//MTCResource">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementationClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReferencedResource" eSuperTypes="#//MTCResource">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="figure" value="com.mtcflow.designer.diagram.figures.RefResourceFigure"/>
+      <details key="label" value="name"/>
+      <details key="tool.name" value="Referenced Resource"/>
+      <details key="tool.description" value="Create a new Referenced Resource"/>
+      <details key="size" value="80,114"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModelEnvironment">
+    <eAnnotations source="gmf.node">
+      <details key="label" value="name"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="implementationClass" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="params" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Property">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HOTransformation" eSuperTypes="#//M2TTransformation #//T2MTransformation #//M2MTransformation">
+    <eAnnotations source="gmf.node">
+      <details key="label.icon" value="false"/>
+      <details key="label" value="name"/>
+      <details key="figure" value="com.mtcflow.designer.diagram.figures.HOTFigure"/>
+      <details key="tool.name" value="HOT - High Order Tranformation"/>
+      <details key="tool.description" value="Create a new High Order Transformation"/>
+      <details key="size" value="80,65"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="outputTransformations"
+        upperBound="-1" eType="#//Transformation">
+      <eAnnotations source="gmf.link">
+        <details key="label" value="GEN"/>
+        <details key="target.decoration" value="filledclosedarrow"/>
+        <details key="tool.name" value="Generated Transformations"/>
+        <details key="width" value="3"/>
+        <details key="color" value="77,77,77"/>
+        <details key="style" value="solid"/>
+        <details key="incoming" value="true"/>
+      </eAnnotations>
+    </eStructuralFeatures>
+  </eClassifiers>
+</ecore:EPackage>

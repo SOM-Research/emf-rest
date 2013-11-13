@@ -40,6 +40,6 @@ public class EMFGenerator extends TransformationExecutor {
 		for (File file : outputFiles) {
 			executionEnvironment.fileReady(file, transformation);
 		}
-	}
+	}  
 
 }

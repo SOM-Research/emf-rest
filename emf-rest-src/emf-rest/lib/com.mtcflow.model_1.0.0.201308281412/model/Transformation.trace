@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<trace:TraceModel
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
+  <nodeTraces
+      visualID="2026"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'M2MTransformation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'transformations')">
+    <nodeLabelTraces
+        visualID="5033"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2028"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'T2MTransformation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'transformations')">
+    <nodeLabelTraces
+        visualID="5035"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2029"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTCTransformation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'transformations')">
+    <nodeLabelTraces
+        visualID="5036"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2030"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'M2TTransformation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'transformations')">
+    <nodeLabelTraces
+        visualID="5037"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2032"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Metamodel') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'metamodels')">
+    <nodeLabelTraces
+        visualID="5039"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2033"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Model') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'models')">
+    <nodeLabelTraces
+        visualID="5040"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2034"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Validation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'validations')">
+    <nodeLabelTraces
+        visualID="5041"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2035"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'ReferencedResource') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'referencedResources')">
+    <nodeLabelTraces
+        visualID="5042"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2037"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Configuration') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'configurations')">
+    <nodeLabelTraces
+        visualID="5049"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7008"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7009"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7010"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7011"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7012"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2038"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'File') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'files')">
+    <nodeLabelTraces
+        visualID="5051"
+        queryText="true"/>
+  </nodeTraces>
+  <nodeTraces
+      visualID="2039"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'HOTransformation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTC') and _containmentMF_.name = 'transformations')">
+    <nodeLabelTraces
+        visualID="5052"
+        queryText="true"/>
+  </nodeTraces>
+  <childNodeTraces
+      visualID="3008"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Library') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Configuration') and _containmentMF_.name = 'libraries')">
+    <nodeLabelTraces
+        visualID="5044"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3009"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Script') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Configuration') and _containmentMF_.name = 'scripts')">
+    <nodeLabelTraces
+        visualID="5045"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3010"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Variable') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Configuration') and _containmentMF_.name = 'variables')">
+    <nodeLabelTraces
+        visualID="5046"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3011"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Tag') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Configuration') and _containmentMF_.name = 'tags')">
+    <nodeLabelTraces
+        visualID="5047"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3013"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'ModelEnvironment') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Configuration') and _containmentMF_.name = 'environments')">
+    <nodeLabelTraces
+        visualID="5050"
+        queryText="true"/>
+  </childNodeTraces>
+  <linkTraces
+      visualID="4027"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'InputModel')">
+    <linkLabelTraces
+        visualID="6018"
+        queryText="true"/>
+  </linkTraces>
+  <linkTraces
+      visualID="4028"
+      queryText="modelFacet.oclIsKindOf(gmfgen::TypeLinkModelFacet) and (let _eClass_:ecore::EClass = modelFacet.oclAsType(gmfgen::TypeLinkModelFacet).metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'OutputModel')">
+    <linkLabelTraces
+        visualID="6019"
+        queryText="true"/>
+  </linkTraces>
+  <linkTraces
+      visualID="4031"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Model') and _feature_.name = 'validations')">
+    <linkLabelTraces
+        visualID="6022"
+        queryText="true"/>
+  </linkTraces>
+  <linkTraces
+      visualID="4033"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'MTCResource') and _feature_.name = 'referencedResources')">
+    <linkLabelTraces
+        visualID="6024"
+        queryText="true"/>
+  </linkTraces>
+  <linkTraces
+      visualID="4034"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'M2TTransformation') and _feature_.name = 'outputFiles')">
+    <linkLabelTraces
+        visualID="6025"
+        queryText="true"/>
+  </linkTraces>
+  <linkTraces
+      visualID="4035"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'T2MTransformation') and _feature_.name = 'inputFiles')">
+    <linkLabelTraces
+        visualID="6026"
+        queryText="true"/>
+  </linkTraces>
+  <linkTraces
+      visualID="4039"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'HOTransformation') and _feature_.name = 'outputTransformations')">
+    <linkLabelTraces
+        visualID="6030"
+        queryText="true"/>
+  </linkTraces>
+  <linkTraces
+      visualID="4040"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Transformation') and _feature_.name = 'modelDependencies')">
+    <linkLabelTraces
+        visualID="6031"
+        queryText="true"/>
+  </linkTraces>
+  <linkTraces
+      visualID="4041"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Transformation') and _feature_.name = 'fileDependencies')">
+    <linkLabelTraces
+        visualID="6032"
+        queryText="true"/>
+  </linkTraces>
+  <linkTraces
+      visualID="4043"
+      queryText="modelFacet.oclIsKindOf(gmfgen::FeatureLinkModelFacet) and (let _feature_:ecore::EStructuralFeature = modelFacet.oclAsType(gmfgen::FeatureLinkModelFacet).metaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _feature_.eContainingClass in _eClass_.ePackage.nsURI = 'http://com.mtcflow.mtc/1.0' and _eClass_.name = 'Model') and _feature_.name = 'metamodel')">
+    <linkLabelTraces
+        visualID="6034"
+        queryText="true"/>
+  </linkTraces>
+</trace:TraceModel>

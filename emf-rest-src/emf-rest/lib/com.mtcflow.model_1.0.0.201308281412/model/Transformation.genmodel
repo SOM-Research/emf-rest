@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" copyrightText="" modelDirectory="/com.mtcflow.model/src" modelPluginID="com.mtcflow.model"
+    modelName="Mtc" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
+  <foreignModel>Transformation.emf</foreignModel>
+  <genPackages prefix="Mtc" basePackage="com.mtcflow.model" disposableProviderFactory="true"
+      ecorePackage="Transformation.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Transformation.ecore#//FileType">
+      <genEnumLiterals ecoreEnumLiteral="Transformation.ecore#//FileType/JSF"/>
+      <genEnumLiterals ecoreEnumLiteral="Transformation.ecore#//FileType/JSP"/>
+      <genEnumLiterals ecoreEnumLiteral="Transformation.ecore#//FileType/PROPERTIES"/>
+      <genEnumLiterals ecoreEnumLiteral="Transformation.ecore#//FileType/ASPECT"/>
+      <genEnumLiterals ecoreEnumLiteral="Transformation.ecore#//FileType/JAVA"/>
+      <genEnumLiterals ecoreEnumLiteral="Transformation.ecore#//FileType/XML"/>
+    </genEnums>
+    <genClasses ecoreClass="Transformation.ecore#//MTC">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTC/files"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTC/metamodels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTC/models"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTC/inputModels"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTC/transformations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTC/outputModels"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/M2MTechnology"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/M2TTechnology"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/HOTTechnology"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/metamodelsFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/modelsFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/M2MTransformationsFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/M2TTransformationsFolder"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTC/validations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTC/configurations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/HOTransformationsFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/validationsFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/version"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/librariesFolder"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTC/referencedResources"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/validateConformance"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/workspace"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTC/executionInformation"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//Metamodel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Metamodel/alias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Metamodel/autoregister"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//M2MTransformation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//M2MTransformation/refinement"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//M2TTransformation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//M2TTransformation/templatesName"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//M2TTransformation/outputFiles"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//M2TTransformation/target"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//File">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//File/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//Model">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//Model/metamodel"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//Model/validations"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Model/format"/>
+      <genOperations ecoreOperation="Transformation.ecore#//Model/getMainMetamodel"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//InputModel">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//InputModel/model"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//InputModel/alias"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//InputModel/transformation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//InputModel/metamodelAlias"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//InputModel/index"/>
+      <genOperations ecoreOperation="Transformation.ecore#//InputModel/getFinalMetamodelAlias"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Transformation.ecore#//Transformation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Transformation/technology"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Transformation/implementationClass"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//Transformation/libraries"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//Transformation/preExecutionScript"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//Transformation/postExecutionScript"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//Transformation/modelDependencies"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//Transformation/fileDependencies"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//OutputModel">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//OutputModel/alias"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//OutputModel/model"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//OutputModel/transformation"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//OutputModel/metamodelAlias"/>
+      <genOperations ecoreOperation="Transformation.ecore#//OutputModel/getFinalMetamodelAlias"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Transformation.ecore#//MTCResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTCResource/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTCResource/URI"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTCResource/file"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTCResource/tags"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTCResource/description"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTCResource/properties"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//MTCResource/referencedResources"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//MTCResource/executionInformation"/>
+      <genOperations ecoreOperation="Transformation.ecore#//MTCResource/inWorkspace"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//Validation">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Validation/required"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//Variable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Variable/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Variable/defaultValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Variable/description"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//Configuration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Configuration/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//Configuration/variables"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//Configuration/tags"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//Configuration/libraries"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//Configuration/scripts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Transformation.ecore#//Configuration/environments"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//T2MTransformation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//T2MTransformation/inputFiles"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="Transformation.ecore#//ModelProducerTransformation"/>
+    <genClasses ecoreClass="Transformation.ecore#//MTCTransformation"/>
+    <genClasses ecoreClass="Transformation.ecore#//Library"/>
+    <genClasses ecoreClass="Transformation.ecore#//Tag">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Tag/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Tag/description"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//Script">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Script/implementationClass"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//ReferencedResource">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//ReferencedResource/type"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//ModelEnvironment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//ModelEnvironment/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//ModelEnvironment/implementationClass"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//ModelEnvironment/params"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//Property">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Property/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Transformation.ecore#//Property/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Transformation.ecore#//HOTransformation">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Transformation.ecore#//HOTransformation/outputTransformations"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

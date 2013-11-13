@@ -48,56 +48,56 @@ import "StringUtils.eol";
   
   
   //Classes
-  operation EClass name() : String{
+  operation EClassifier name() : String{
     return self.name;
   }
   
-  operation EClass serializerName() : String{
+  operation EClassifier serializerName() : String{
     return "webmapi.service."+self.name+"Serializer";
   }
   
-  operation EClass containerSerializerName() : String{
+  operation EClassifier containerSerializerName() : String{
     return "webmapi.service."+self.inheritanceContainerName()+"Serializer";
   }
   
-  operation EClass listVarName() : String{
+  operation EClassifier listVarName() : String{
     return self.name().toLowerFirst()+"List";
   }
   
-  operation EClass inheritanceContainerName() : String{
+  operation EClassifier inheritanceContainerName() : String{
     return self.name+"Container";
   }
   
-  operation EClass compoundResourceClassName() : String{
+  operation EClassifier compoundResourceClassName() : String{
     return "Compound"+self.name+"Resource";
   }   
   
-  operation EClass qualifiedCompoundResourceClassName() : String{
+  operation EClassifier qualifiedCompoundResourceClassName() : String{
     return self.package()+".service.Compound"+self.name+"Resource";
   }  
   
-  operation EClass getMethod() : String{
+  operation EClassifier getMethod() : String{
     return "get"+self.name;
   }
   
-  operation EClass setMethod() : String{
+  operation EClassifier setMethod() : String{
     return "set"+self.name;
   }
   
-  operation EClass idMethod() : String{
+  operation EClassifier idMethod() : String{
     return "get"+self.name+"Id";
   }
 
-  operation EClass rscClassName() : String{
+  operation EClassifier rscClassName() : String{
     return self.name+"Resource";
   }
   
-  operation EClass qualifiedRscClassName() : String{
+  operation EClassifier qualifiedRscClassName() : String{
     return self.package()+".service."+self.name+"Resource";
   }
   
   @cached
-  operation EClass package() : String{
+  operation EClassifier package() : String{
    if(self.eContainer().isDefined())
     return getPackage(self.eContainer());
    else
@@ -111,20 +111,20 @@ import "StringUtils.eol";
     return class.name;
   }
   
-  operation EClass packagePath() : String{
+  operation EClassifier packagePath() : String{
     return self.package().replaceAll("[.]","/")+"/";
   }
 
-  operation EClass qualifiedName() : String{
+  operation EClassifier qualifiedName() : String{
    return self.package()+"."+self.name;
   }
   
-  operation EClass qualifiedJavaName() : String{
+  operation EClassifier qualifiedJavaName() : String{
     return self.package()+".service."+self.name;
   }
   
   @cached
-  operation EClass isSuperClass() : Boolean{
+  operation EClassifier isSuperClass() : Boolean{
     return self.getAllConcreteClasses()->size() >1;
   }
   
@@ -133,7 +133,7 @@ import "StringUtils.eol";
   //println("Called for"+self.name);
     var resp = new List;
     if(not self.abstract){
-    resp.add(self);
+     resp.add(self);
     }
     // Look for all classes that has this EClass as a supertype
     for (class in EClass.all) { 

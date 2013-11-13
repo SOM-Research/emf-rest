@@ -1,0 +1,19 @@
+var genModel := GenModel!GenModel.all.first();
+genModel.genPackages.first().basePackage="com.mtcflow.model";
+genModel.genPackages.first().prefix="Mtc";
+--genModel.genPackages.first().prefix.println();
+--genModel.println();
+
+--var generatedAttribute := genModel.genPackages.first().genClasses->select(gc|).first().genFeatures->select(ft|ft.ecoreFeature.name=="generated").first();
+--generatedAttribute.println();
+--generatedAttribute.property=GenModel!GenPropertyKind#None;
+
+--for(gc in genModel.genPackages.first().genClasses){
+--if(gc.ecoreClass.name=="MTCResource"){
+--for (ft in gc.genFeatures) { 
+--if(ft.ecoreFeature.name=="generated"){
+
+--}
+--}
+--}
+--}

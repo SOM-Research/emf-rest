@@ -56,8 +56,8 @@
   <outputModels model="//@models.6" transformation="//@transformations.2"/>
   <outputModels alias="GenModel" model="//@models.7" transformation="//@transformations.12"/>
   <configurations>
-    <variables name="output" defaultValue="src-gen/" description=""/>
-    <variables name="ecore_file" defaultValue="Example.ecore" description=""/>
+    <variables name="output" defaultValue="src-gen/" description="" />
+    <variables name="ecore_file" defaultValue="bin.ecore" description=""/>
     <variables name="genModel_file" defaultValue="Families.genmodel"/>
     <variables name="output_js" defaultValue="/WebContent/scripts"/>
     <variables name="pluginName" defaultValue="emf-rest"/>

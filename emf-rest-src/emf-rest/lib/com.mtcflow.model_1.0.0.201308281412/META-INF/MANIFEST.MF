@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Require-Bundle: org.eclipse.core.runtime;visibility:=reexport,org.ecli
+ pse.emf.ecore;visibility:=reexport
+Export-Package: com.mtcflow.model.mtc,com.mtcflow.model.mtc.impl,com.m
+ tcflow.model.mtc.util
+Bundle-Vendor: %providerName
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,lib/commons-lang3-3.1.jar
+Bundle-Version: 1.0.0.201308281412
+Bundle-Localization: plugin
+Bundle-Name: %pluginName
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.mtcflow.model;singleton:=true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+
+

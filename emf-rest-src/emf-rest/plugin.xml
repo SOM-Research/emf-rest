@@ -271,11 +271,6 @@
 
 
 
-   <extension point="org.eclipse.emf.ecore.generated_package">
-      <!-- @generated Families -->
-      <package
-            uri="http://emf-rest.com/Example"
-            class="Example.ExamplePackage"/>
-   </extension>
+
 
 </plugin>
