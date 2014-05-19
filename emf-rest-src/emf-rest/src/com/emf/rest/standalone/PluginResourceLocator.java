@@ -105,10 +105,8 @@ public class PluginResourceLocator implements IResourceLocator {
 	}
 
 	public String getPath(MTCResource resource) {
-		boolean workspace = false;
 		try {
 			if (resource.getExecutionInformation() != null && (Boolean) resource.getExecutionInformation().get(ExecutionData.GENERATED_IN_WORKSPACE)) {
-				workspace = true;
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();

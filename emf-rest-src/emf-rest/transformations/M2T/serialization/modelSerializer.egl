@@ -47,14 +47,14 @@ public final class [%=clazz.name()%]Serializer {
 	 		[%if (attr.upperBound<2) {%]
 		  		jw.key("[%=attr.name()%]").value(obj.[%=attr.getMethod()%]());	
 			[%} else{%]
+				[*if attribute is array*]
 				jw.array();
 				for ([%=attr.eType.qualifiedName()%] value : obj.[%=attr.getMethod()%]()) {
 					jw.value(value);
 				}
 				jw.endArray();
 			[%} %]  						
-	    [%}%]
-	    [*if attribute is array*] 
+	    [%}%] 
 		serialized.put("[%=clazz.name%]"+IdentificationResolver.[%=clazz.idMethod()%](obj), "t");
 		if (depth > 0) {
 		[%for (ref in clazz.eAllReferences) { %]

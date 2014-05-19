@@ -19,7 +19,6 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.IHandler;
 import org.eclipse.core.commands.IHandlerListener;
-import org.eclipse.core.commands.common.NotDefinedException;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
@@ -36,8 +35,6 @@ import org.eclipse.ui.handlers.HandlerUtil;
 
 import com.emf.rest.standalone.MTCStandaloneUtils;
 import com.mtcflow.engine.core.MTCChoreographer;
-import com.mtcflow.model.mtc.MTC;
-import com.mtcflow.model.mtc.Transformation;
 
 public class GenerateRestEMFCommand implements IHandler {
 

@@ -1,4 +1,5 @@
 .metadata/**
 .DS_Store
 build/
+bin/
 *.class

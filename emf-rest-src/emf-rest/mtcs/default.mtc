@@ -1,65 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<com.mtcflow.model:MTC xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.mtcflow.model="http://com.mtcflow.mtc/1.0" validateConformance="false">
+<com.mtcflow.model:MTC xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.mtcflow.model="http://com.mtcflow.mtc/1.1" validateConformance="false">
   <files name="API &lt;-> Serializers"/>
   <files name="REST Services"/>
-  <files name="JSON + Webservice Libraries"/>
-  <files name="? Documentation"/>
   <files name="JavaScript API"/>
   <files name="Reader/Writer"/>
   <files name="Containers"/>
   <files name="EMF Code"/>
   <files name="index.html"/>
-  <metamodels name="Structural" alias="STR"/>
-  <metamodels name="ECORE" URI="http://www.eclipse.org/emf/2002/Ecore" alias=""/>
-  <metamodels name="Navigation" alias="NAV"/>
-  <metamodels name="GenModel" URI="http://www.eclipse.org/emf/2002/GenModel" description="" alias="GenModel" autoregister="false"/>
-  <models name="Structural DSL" metamodel="//@metamodels.0"/>
-  <models name="Structural Description" metamodel="//@metamodels.0"/>
-  <models name="Ecore Metamodel" metamodel="//@metamodels.1"/>
-  <models name="Navigation Description" metamodel="//@metamodels.2"/>
-  <models name="Navigation DSL" metamodel="//@metamodels.2"/>
-  <models name="Ecore Fully Annotated" file="${ecore_file}" metamodel="//@metamodels.1"/>
-  <models name="Ecore ST Annotated" metamodel="//@metamodels.1"/>
-  <models name="GenModel" file="${genModel_file}" metamodel="//@metamodels.3"/>
-  <inputModels model="//@models.0" alias="IN1" transformation="//@transformations.0"/>
-  <inputModels model="//@models.4" alias="IN2" transformation="//@transformations.1"/>
-  <inputModels model="//@models.3" alias="NV" transformation="//@transformations.5"/>
-  <inputModels model="//@models.1" alias="ST" transformation="//@transformations.2"/>
-  <inputModels model="//@models.2" alias="MM" transformation="//@transformations.2"/>
-  <inputModels model="//@models.5" transformation="//@transformations.4"/>
-  <inputModels model="//@models.5" transformation="//@transformations.3"/>
-  <inputModels model="//@models.6" alias="MM" transformation="//@transformations.5"/>
-  <inputModels model="//@models.5" transformation="//@transformations.9"/>
-  <inputModels model="//@models.5" transformation="//@transformations.10"/>
-  <inputModels model="//@models.5" transformation="//@transformations.8"/>
-  <inputModels model="//@models.5" alias="Ecore" transformation="//@transformations.12"/>
-  <inputModels model="//@models.7" transformation="//@transformations.11"/>
-  <inputModels model="//@models.5" transformation="//@transformations.13"/>
-  <transformations xsi:type="com.mtcflow.model:T2MTransformation" name="Structural DSL -> Model" URI="" technology=""/>
-  <transformations xsi:type="com.mtcflow.model:T2MTransformation" name="Navigation DSL -> Model"/>
-  <transformations xsi:type="com.mtcflow.model:M2MTransformation" name="Ecore -> Structural Annotated Ecore" referencedResources="//@referencedResources.0"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Serializer" file="generateSerializer.egl" tags="//@configurations/@tags.1" description="" technology="" outputFiles="//@files.0" target="${output}"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Services" file="generateWebMApi.egl" tags="//@configurations/@tags.2" description="" technology="" implementationClass="" fileDependencies="//@files.7" outputFiles="//@files.1" target="${output}">
-    <templatesName>generateService</templatesName>
-  </transformations>
-  <transformations xsi:type="com.mtcflow.model:M2MTransformation" name="Ecore -> Navigation Annotated Ecore" referencedResources="//@referencedResources.1" technology=""/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Copy Libraries" file="aaa.kkk" technology="" outputFiles="//@files.2" target="/src-gen"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Rest Api Doc" file="dummy.egll" technology="" outputFiles="//@files.3" target="/src-gen"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> JavaScript API" file="generateJavascript.egl" tags="//@configurations/@tags.3" outputFiles="//@files.4" target="${output_js}"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Reader/Writer" file="generateReader-Writer.egl" tags="//@configurations/@tags.2" outputFiles="//@files.5" target="${output}"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore-> REST- Container" file="generateContainer.egl" tags="//@configurations/@tags.1 //@configurations/@tags.2" outputFiles="//@files.6" target="${output}"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="GenerateEMF" tags="//@configurations/@tags.0 //@configurations/@tags.2" implementationClass="com.emf.rest.EMFGenerator" outputFiles="//@files.7"/>
-  <transformations xsi:type="com.mtcflow.model:M2MTransformation" name="Ecore->Genmodel" file="Ecore2GenModel.etl" tags="//@configurations/@tags.0 //@configurations/@tags.2"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Default Index" file="generateIndex.egl" outputFiles="//@files.8" target="WebContent"/>
-  <outputModels model="//@models.1" transformation="//@transformations.0"/>
-  <outputModels model="//@models.3" transformation="//@transformations.1"/>
-  <outputModels model="//@models.6" transformation="//@transformations.2"/>
-  <outputModels alias="GenModel" model="//@models.7" transformation="//@transformations.12"/>
+  <metamodels name="ECORE" URI="" alias="" metamodelURI="http://www.eclipse.org/emf/2002/Ecore"/>
+  <metamodels name="GenModel" URI="" description="" alias="GenModel" autoregister="false" metamodelURI="http://www.eclipse.org/emf/2002/GenModel"/>
+  <models name="Ecore Fully Annotated" URI="${ecore_file}" metamodels="//@metamodels.0"/>
+  <models name="GenModel" URI="${genModel_file}" metamodels="//@metamodels.1"/>
+  <inputModels model="//@models.0" transformation="//@transformations.1"/>
+  <inputModels model="//@models.0" transformation="//@transformations.0"/>
+  <inputModels model="//@models.0" transformation="//@transformations.3"/>
+  <inputModels model="//@models.0" transformation="//@transformations.4"/>
+  <inputModels model="//@models.0" transformation="//@transformations.2"/>
+  <inputModels model="//@models.0" modelAlias="Ecore" transformation="//@transformations.6"/>
+  <inputModels model="//@models.1" transformation="//@transformations.5"/>
+  <inputModels model="//@models.0" transformation="//@transformations.7"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Serializer" URI="generateSerializer.egl" tags="//@configurations/@tags.1" description="" technology="" target="${output}"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Services" URI="generateWebMApi.egl" tags="//@configurations/@tags.2" description="" technology="" implementationClass="" fileDependencies="//@files.5" target="${output}"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> JavaScript API" URI="generateJavascript.egl" tags="//@configurations/@tags.3" target="${output_js}"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Reader/Writer" URI="generateReader-Writer.egl" tags="//@configurations/@tags.2" target="${output}"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore-> REST- Container" URI="generateContainer.egl" tags="//@configurations/@tags.1 //@configurations/@tags.2" target="${output}"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="GenerateEMF" tags="//@configurations/@tags.0 //@configurations/@tags.2" implementationClass="com.emf.rest.EMFGenerator"/>
+  <transformations xsi:type="com.mtcflow.model:M2MTransformation" name="Ecore->Genmodel" URI="Ecore2GenModel.etl" tags="//@configurations/@tags.0 //@configurations/@tags.2"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Default Index" URI="generateIndex.egl" target="WebContent"/>
+  <outputModels modelAlias="GenModel" model="//@models.1" transformation="//@transformations.6"/>
   <configurations>
-    <variables name="output" defaultValue="src-gen/" description="" />
-    <variables name="ecore_file" defaultValue="bin.ecore" description=""/>
+    <variables name="output" defaultValue="src-gen/" description=""/>
+    <variables name="ecore_file" defaultValue="Example.ecore" description=""/>
     <variables name="genModel_file" defaultValue="Families.genmodel"/>
-    <variables name="output_js" defaultValue="/WebContent/scripts"/>
+    <variables name="output_js" defaultValue="WebContent/scripts"/>
     <variables name="pluginName" defaultValue="emf-rest"/>
     <variables name="foreignModel" defaultValue=""/>
     <variables name="usedGenPackages" type="java.util.HashMap"/>
@@ -69,6 +42,11 @@
     <tags name="services"/>
     <tags name="javascript"/>
   </configurations>
-  <referencedResources name="Structural Comparator"/>
-  <referencedResources name="Navigation Comparator" description=""/>
+  <outputFiles transformation="//@transformations.0" file="//@files.0"/>
+  <outputFiles transformation="//@transformations.1" file="//@files.1"/>
+  <outputFiles transformation="//@transformations.2" file="//@files.2"/>
+  <outputFiles transformation="//@transformations.3" file="//@files.3"/>
+  <outputFiles transformation="//@transformations.4" file="//@files.4"/>
+  <outputFiles transformation="//@transformations.5" file="//@files.5"/>
+  <outputFiles transformation="//@transformations.7" file="//@files.6"/>
 </com.mtcflow.model:MTC>
