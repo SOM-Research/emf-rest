@@ -49,6 +49,7 @@ public class [%=clazz.rscClassName()%]{
 		 [%if(not ref.eType.isSuperClass()){%]
 		 [% ref.generateGET(); %]
 		 [% ref.generatePOST(); %]
+		 [% ref.generateDELETE(); %]
 		 [%}} else {%]
 		 [* Look for all the concrete classses of the abstract reference *]
 		[%}}

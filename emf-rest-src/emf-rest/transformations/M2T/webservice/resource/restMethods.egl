@@ -8,6 +8,7 @@
  * Contributors:
  *     Camilo Alvarez (cadorca@gmail.com)  - initial API and implementation
  ******************************************************************************]
+ 
 [%
 function EReference generateGenericResource() {
   if(self.eType.isSuperClass()){%]
@@ -54,6 +55,12 @@ function EReference generateGET() {
           
    }
   [%} 
+}
+%]
+
+[%
+function EReference generateDELETE() {
+
 }
 %]
 
