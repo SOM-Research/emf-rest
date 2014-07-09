@@ -13,14 +13,14 @@ Bundle-ClassPath: .,
  lib/org.eclipse.epsilon.eol.engine.jar,
  lib/org.eclipse.epsilon.erl.engine.jar,
  lib/org.eclipse.epsilon.etl.engine.jar,
- lib/com.mtcflow.engine_1.0.0.201310081749.jar,
- lib/com.mtcflow.engine.core_1.0.0.201310081749.jar,
- lib/com.mtcflow.engine.eclipse_1.0.0.201310081749.jar,
- lib/com.mtcflow.engine.egl_1.0.0.201310081749.jar,
- lib/com.mtcflow.engine.eol_1.0.0.201310081749.jar,
- lib/com.mtcflow.engine.epsilon_1.0.0.201310081749.jar,
- lib/com.mtcflow.engine.etl_1.0.0.201310081749.jar,
- lib/com.mtcflow.model_1.0.0.201310081749.jar
+ lib/com.mtcflow.engine_1.0.0.201404130154.jar,
+ lib/com.mtcflow.engine.core_1.0.0.201404130154.jar,
+ lib/com.mtcflow.engine.eclipse_1.0.0.201404130154.jar,
+ lib/com.mtcflow.engine.egl_1.0.0.201404130154.jar,
+ lib/com.mtcflow.engine.eol_1.0.0.201404130154.jar,
+ lib/com.mtcflow.engine.epsilon_1.0.0.201404130154.jar,
+ lib/com.mtcflow.engine.etl_1.0.0.201404130154.jar,
+ lib/com.mtcflow.model_1.0.0.201404130154.jar
 Bundle-Vendor: emf-rest
 Bundle-Localization: plugin
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

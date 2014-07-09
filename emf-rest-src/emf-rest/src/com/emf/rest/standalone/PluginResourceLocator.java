@@ -118,7 +118,7 @@ public class PluginResourceLocator implements IResourceLocator {
 		// } else {
 		baseFolder = getFolder(resource);
 		// }
-		if (resource.getFile() != null && !resource.getFile().trim().isEmpty()) {
+		if (resource.getURI() != null && !resource.getURI().trim().isEmpty()) {
 			// If the model doesn't have a default Factory put the
 			// XMIResourceFactoryImpl as default
 			if (resource instanceof Model) {
@@ -131,7 +131,7 @@ public class PluginResourceLocator implements IResourceLocator {
 
 				}
 			}
-			path = baseFolder + resource.getFile();
+			path = baseFolder + resource.getURI();
 		} else if (resource.getURI() != null && !resource.getURI().trim().isEmpty()) {
 			// Load using URI
 			return resource.getURI();
@@ -145,7 +145,7 @@ public class PluginResourceLocator implements IResourceLocator {
 
 		String entryPath = getEntryPath(path);
 		if (entryPath == null) {
-			return resource.getFile();
+			return resource.getURI();
 		} else {
 			return entryPath;
 		}

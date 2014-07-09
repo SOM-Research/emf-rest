@@ -16,13 +16,13 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-
 import org.eclipse.emf.codegen.ecore.generator.Generator;
 import org.eclipse.emf.codegen.ecore.genmodel.generator.GenBaseGeneratorAdapter;
 
 import com.mtcflow.engine.transformation.IExecutionInformation;
 import com.mtcflow.engine.transformation.TransformationExecutor;
 import com.mtcflow.model.mtc.File;
+import com.mtcflow.model.mtc.OutputFile;
 
 public class EMFGenerator extends TransformationExecutor {
 
@@ -37,8 +37,8 @@ public class EMFGenerator extends TransformationExecutor {
 		Generator generator = new Generator();
 		generator.setInput(genModel);
 		generator.generate(genModel, GenBaseGeneratorAdapter.MODEL_PROJECT_TYPE, new BasicMonitor.Printing(System.err));
-		for (File file : outputFiles) {
-			executionEnvironment.fileReady(file, transformation);
+		for (OutputFile outFile : outputFiles) {
+			executionEnvironment.fileReady(outFile.getFile(), transformation);
 		}
 	}  
 

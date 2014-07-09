@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry exported="true" kind="lib" path="lib/com.mtcflow.engine_1.0.0.201310081749.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/com.mtcflow.engine.core_1.0.0.201310081749.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/com.mtcflow.engine.eclipse_1.0.0.201310081749.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/com.mtcflow.engine.egl_1.0.0.201310081749.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/com.mtcflow.engine.eol_1.0.0.201310081749.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/com.mtcflow.engine.epsilon_1.0.0.201310081749.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/com.mtcflow.engine.etl_1.0.0.201310081749.jar"/>
-	<classpathentry exported="true" kind="lib" path="lib/com.mtcflow.model_1.0.0.201310081749.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/commons-lang3-3.1.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.antlr.runtime_3.1.b1_3.1.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="lib/org.eclipse.epsilon.common.jar"/>
@@ -20,6 +12,13 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="src-gen"/>
+	<classpathentry kind="lib" path="lib/com.mtcflow.engine_1.0.0.201404130154.jar"/>
+	<classpathentry kind="lib" path="lib/com.mtcflow.engine.core_1.0.0.201404130154.jar"/>
+	<classpathentry kind="lib" path="lib/com.mtcflow.engine.eclipse_1.0.0.201404130154.jar"/>
+	<classpathentry kind="lib" path="lib/com.mtcflow.engine.egl_1.0.0.201404130154.jar"/>
+	<classpathentry kind="lib" path="lib/com.mtcflow.engine.eol_1.0.0.201404130154.jar"/>
+	<classpathentry kind="lib" path="lib/com.mtcflow.engine.epsilon_1.0.0.201404130154.jar"/>
+	<classpathentry kind="lib" path="lib/com.mtcflow.engine.etl_1.0.0.201404130154.jar"/>
+	<classpathentry kind="lib" path="lib/com.mtcflow.model_1.0.0.201404130154.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
