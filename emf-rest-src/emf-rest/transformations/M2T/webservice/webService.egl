@@ -18,6 +18,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.Consumes;
 
 [%for (pkg in EPackage.all) {%]
 import [%=pkg.name%].*;
@@ -57,25 +59,11 @@ function EClass generatePOST() {
    public [%=self.rscClassName()%] handle[%=self.name%](@PathParam("id") String id)
    {
      initStorage();
-     return new [%=self.rscClassName()%](([%=self.name%])storage.get("[%=self.qualifiedName()%]",id));
+     return new [%=self.rscClassName()%](([%=self.name%])storage.get("[%=self.qualifiedName()%]",id),id, storage);
    }
 
-   @POST 
-   @Path("[%=self.name%]")
-   public void create[%=self.name%]([%=self.name%] obj)
-   {
-     initStorage();
-     String id = IdentificationResolver.get[%=self.name%]Id(obj);
-     storage.put("[%=self.qualifiedName()%]",id, obj);
-   }
-   
-   @DELETE 
-   @Path("[%=self.name%]/{id}")
-   public void delete[%=self.name%](@PathParam("id") String id)
-   {
-     initStorage();
-     storage.remove("[%=self.qualifiedName()%]",id);
-   }   
+  
+ 
 [%
 }
 %]

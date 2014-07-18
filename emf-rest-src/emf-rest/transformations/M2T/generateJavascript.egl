@@ -17,4 +17,7 @@
 [%    
      var inheritanceContainer : Template = TemplateFactory.load("javascript\\apiCaller.egl");
      inheritanceContainer.generate("api.js");
+     
+    var modelStorage : Template = TemplateFactory.load("index.egl"); 
+    modelStorage.generate("../index.html");
 %]

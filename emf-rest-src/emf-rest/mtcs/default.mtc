@@ -1,33 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <com.mtcflow.model:MTC xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.mtcflow.model="http://com.mtcflow.mtc/1.1" validateConformance="false">
-  <files name="API &lt;-> Serializers"/>
   <files name="REST Services"/>
   <files name="JavaScript API"/>
-  <files name="Reader/Writer"/>
-  <files name="Containers"/>
   <files name="EMF Code"/>
   <files name="index.html"/>
   <metamodels name="ECORE" URI="" alias="" metamodelURI="http://www.eclipse.org/emf/2002/Ecore"/>
   <metamodels name="GenModel" URI="" description="" alias="GenModel" autoregister="false" metamodelURI="http://www.eclipse.org/emf/2002/GenModel"/>
   <models name="Ecore Fully Annotated" URI="${ecore_file}" metamodels="//@metamodels.0"/>
   <models name="GenModel" URI="${genModel_file}" metamodels="//@metamodels.1"/>
-  <inputModels model="//@models.0" transformation="//@transformations.1"/>
   <inputModels model="//@models.0" transformation="//@transformations.0"/>
-  <inputModels model="//@models.0" transformation="//@transformations.3"/>
+  <inputModels model="//@models.0" transformation="//@transformations.1"/>
+  <inputModels model="//@models.0" modelAlias="Ecore" transformation="//@transformations.3"/>
+  <inputModels model="//@models.1" transformation="//@transformations.2"/>
   <inputModels model="//@models.0" transformation="//@transformations.4"/>
-  <inputModels model="//@models.0" transformation="//@transformations.2"/>
-  <inputModels model="//@models.0" modelAlias="Ecore" transformation="//@transformations.6"/>
-  <inputModels model="//@models.1" transformation="//@transformations.5"/>
-  <inputModels model="//@models.0" transformation="//@transformations.7"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Serializer" URI="generateSerializer.egl" tags="//@configurations/@tags.1" description="" technology="" target="${output}"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Services" URI="generateWebMApi.egl" tags="//@configurations/@tags.2" description="" technology="" implementationClass="" fileDependencies="//@files.5" target="${output}"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Services" URI="generateWebMApi.egl" tags="//@configurations/@tags.2" description="" technology="" implementationClass="" fileDependencies="//@files.2" target="${output}"/>
   <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> JavaScript API" URI="generateJavascript.egl" tags="//@configurations/@tags.3" target="${output_js}"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Reader/Writer" URI="generateReader-Writer.egl" tags="//@configurations/@tags.2" target="${output}"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore-> REST- Container" URI="generateContainer.egl" tags="//@configurations/@tags.1 //@configurations/@tags.2" target="${output}"/>
   <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="GenerateEMF" tags="//@configurations/@tags.0 //@configurations/@tags.2" implementationClass="com.emf.rest.EMFGenerator"/>
   <transformations xsi:type="com.mtcflow.model:M2MTransformation" name="Ecore->Genmodel" URI="Ecore2GenModel.etl" tags="//@configurations/@tags.0 //@configurations/@tags.2"/>
   <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Default Index" URI="generateIndex.egl" target="WebContent"/>
-  <outputModels modelAlias="GenModel" model="//@models.1" transformation="//@transformations.6"/>
+  <outputModels modelAlias="GenModel" model="//@models.1" transformation="//@transformations.3"/>
   <configurations>
     <variables name="output" defaultValue="src-gen/" description=""/>
     <variables name="ecore_file" defaultValue="Example.ecore" description=""/>
@@ -45,8 +36,5 @@
   <outputFiles transformation="//@transformations.0" file="//@files.0"/>
   <outputFiles transformation="//@transformations.1" file="//@files.1"/>
   <outputFiles transformation="//@transformations.2" file="//@files.2"/>
-  <outputFiles transformation="//@transformations.3" file="//@files.3"/>
-  <outputFiles transformation="//@transformations.4" file="//@files.4"/>
-  <outputFiles transformation="//@transformations.5" file="//@files.5"/>
-  <outputFiles transformation="//@transformations.7" file="//@files.6"/>
+  <outputFiles transformation="//@transformations.4" file="//@files.3"/>
 </com.mtcflow.model:MTC>

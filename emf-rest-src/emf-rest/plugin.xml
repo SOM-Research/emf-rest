@@ -232,6 +232,13 @@
        </commandParameter>
           
     </command>
+ </extension>
+ <extension
+       point="org.eclipse.emf.codegen.ecore.generatorAdapters">
+    <adapterFactory
+          class="com.emf.rest.codegen.EMFRestGeneratorAdapterFactory"
+          modelPackage="http://www.eclipse.org/emf/2002/GenModel">
+    </adapterFactory>
  </extension>  
 
 

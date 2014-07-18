@@ -30,16 +30,14 @@
     var modelStorage : Template = TemplateFactory.load("storage/modelStorage.egl"); 
     modelStorage.generate("webmapi/storage/" + "MemoryStorage.java");
 
-
+  var wrapper : Template = TemplateFactory.load("config/wrapper.egl"); 
+    wrapper.generate("webmapi/service/configuration/"+"Wrapper.java");
 for (c in EClass.all.clone()) {
    -- var f = new Native("org.eclipse.epsilon.egl.formatter.language.JavaFormatter");
    var classService : Template = TemplateFactory.load("webservice/resource/resource.egl"); 
    classService.populate("clazz", c);  
    classService.generate(c.packagePath()+"service/" + c.rscClassName() + ".java"); 
-   if(c.isSuperClass()){
-    var compoundClassService : Template = TemplateFactory.load("webservice/resource/compoundResource.egl"); 
-    compoundClassService.populate("clazz", c);  
-    compoundClassService.generate(c.packagePath()+"service/" + c.compoundResourceClassName() + ".java");
-   }
+   
+  
   }
 %]
