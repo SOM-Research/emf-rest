@@ -6,6 +6,8 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Context;
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.Consumes;
 
 import Example.*;
 import Example.service.*;
@@ -30,116 +32,46 @@ public class WebApiService{
    public FamilyResource handleFamily(@PathParam("id") String id)
    {
      initStorage();
-     return new FamilyResource((Family)storage.get("Example.Family",id));
+     return new FamilyResource((Family)storage.get("Example.Family",id),id, storage);
    }
 
-   @POST 
-   @Path("Family")
-   public void createFamily(Family obj)
-   {
-     initStorage();
-     String id = IdentificationResolver.getFamilyId(obj);
-     storage.put("Example.Family",id, obj);
-   }
-   
-   @DELETE 
-   @Path("Family/{id}")
-   public void deleteFamily(@PathParam("id") String id)
-   {
-     initStorage();
-     storage.remove("Example.Family",id);
-   }   
+  
+ 
    @Path("Dog/{id}")
    public DogResource handleDog(@PathParam("id") String id)
    {
      initStorage();
-     return new DogResource((Dog)storage.get("Example.Dog",id));
+     return new DogResource((Dog)storage.get("Example.Dog",id),id, storage);
    }
 
-   @POST 
-   @Path("Dog")
-   public void createDog(Dog obj)
-   {
-     initStorage();
-     String id = IdentificationResolver.getDogId(obj);
-     storage.put("Example.Dog",id, obj);
-   }
-   
-   @DELETE 
-   @Path("Dog/{id}")
-   public void deleteDog(@PathParam("id") String id)
-   {
-     initStorage();
-     storage.remove("Example.Dog",id);
-   }   
+  
+ 
    @Path("Cat/{id}")
    public CatResource handleCat(@PathParam("id") String id)
    {
      initStorage();
-     return new CatResource((Cat)storage.get("Example.Cat",id));
+     return new CatResource((Cat)storage.get("Example.Cat",id),id, storage);
    }
 
-   @POST 
-   @Path("Cat")
-   public void createCat(Cat obj)
-   {
-     initStorage();
-     String id = IdentificationResolver.getCatId(obj);
-     storage.put("Example.Cat",id, obj);
-   }
-   
-   @DELETE 
-   @Path("Cat/{id}")
-   public void deleteCat(@PathParam("id") String id)
-   {
-     initStorage();
-     storage.remove("Example.Cat",id);
-   }   
+  
+ 
    @Path("RaceDog/{id}")
    public RaceDogResource handleRaceDog(@PathParam("id") String id)
    {
      initStorage();
-     return new RaceDogResource((RaceDog)storage.get("Example.RaceDog",id));
+     return new RaceDogResource((RaceDog)storage.get("Example.RaceDog",id),id, storage);
    }
 
-   @POST 
-   @Path("RaceDog")
-   public void createRaceDog(RaceDog obj)
-   {
-     initStorage();
-     String id = IdentificationResolver.getRaceDogId(obj);
-     storage.put("Example.RaceDog",id, obj);
-   }
-   
-   @DELETE 
-   @Path("RaceDog/{id}")
-   public void deleteRaceDog(@PathParam("id") String id)
-   {
-     initStorage();
-     storage.remove("Example.RaceDog",id);
-   }   
+  
+ 
    @Path("HuntingDog/{id}")
    public HuntingDogResource handleHuntingDog(@PathParam("id") String id)
    {
      initStorage();
-     return new HuntingDogResource((HuntingDog)storage.get("Example.HuntingDog",id));
+     return new HuntingDogResource((HuntingDog)storage.get("Example.HuntingDog",id),id, storage);
    }
 
-   @POST 
-   @Path("HuntingDog")
-   public void createHuntingDog(HuntingDog obj)
-   {
-     initStorage();
-     String id = IdentificationResolver.getHuntingDogId(obj);
-     storage.put("Example.HuntingDog",id, obj);
-   }
-   
-   @DELETE 
-   @Path("HuntingDog/{id}")
-   public void deleteHuntingDog(@PathParam("id") String id)
-   {
-     initStorage();
-     storage.remove("Example.HuntingDog",id);
-   }   
+  
+ 
 }
 

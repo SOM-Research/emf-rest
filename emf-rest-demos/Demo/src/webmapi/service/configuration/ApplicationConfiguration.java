@@ -8,14 +8,13 @@ import java.util.Set;
 public class ApplicationConfiguration extends javax.ws.rs.core.Application {
 
 	public ApplicationConfiguration() {
-		ModelEnvironmentManager.getInstance();
+		
 	}
 	
 	@Override
 	public Set<Class<?>> getClasses() {
 		Set<Class<?>> classes = new HashSet<Class<?>>();
-  		classes.add(webmapi.service.WebApiService.class);
-  		classes.add(webmapi.service.ModelWriter.class);			
+  		classes.add(webmapi.service.WebApiService.class);		
         return classes;
 	}
 }
