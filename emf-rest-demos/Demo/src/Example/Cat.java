@@ -11,8 +11,8 @@ package Example;
  *
  * @see Example.ExamplePackage#getCat()
  * @model
+
  * @generated
  */
-public interface Cat extends Pet
-{
+public interface Cat extends Pet {
 } // Cat

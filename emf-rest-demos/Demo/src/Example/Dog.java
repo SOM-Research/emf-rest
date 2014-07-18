@@ -11,8 +11,8 @@ package Example;
  *
  * @see Example.ExamplePackage#getDog()
  * @model
+
  * @generated
  */
-public interface Dog extends Pet
-{
+public interface Dog extends Pet {
 } // Dog

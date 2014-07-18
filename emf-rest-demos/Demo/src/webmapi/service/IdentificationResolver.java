@@ -18,61 +18,61 @@ public class IdentificationResolver {
  	    if(obj==null)
  	     return null;
  
-		return obj.getAddress();
+		return obj.getAddress().toString();
  	}
  	public static String getMemberId(Example.Member obj){
  	    if(obj==null)
  	     return null;
  
-		return obj.getFirstName();
+		return obj.getFirstName().toString();
  	}
  	public static String getParentId(Example.Parent obj){
  	    if(obj==null)
  	     return null;
  
-		return obj.getFirstName();
+		return obj.getFirstName().toString();
  	}
  	public static String getSonId(Example.Son obj){
  	    if(obj==null)
  	     return null;
  
-		return obj.getFirstName();
+		return obj.getFirstName().toString();
  	}
  	public static String getDaughterId(Example.Daughter obj){
  	    if(obj==null)
  	     return null;
  
-		return obj.getFirstName();
+		return obj.getFirstName().toString();
  	}
  	public static String getPetId(Example.Pet obj){
  	    if(obj==null)
  	     return null;
  
-		return obj.getName();
+		return obj.getName().toString();
  	}
  	public static String getDogId(Example.Dog obj){
  	    if(obj==null)
  	     return null;
  
-		return obj.getName();
+		return obj.getName().toString();
  	}
  	public static String getCatId(Example.Cat obj){
  	    if(obj==null)
  	     return null;
  
-		return obj.getName();
+		return obj.getName().toString();
  	}
  	public static String getRaceDogId(Example.RaceDog obj){
  	    if(obj==null)
  	     return null;
  
-		return obj.getName();
+		return obj.getName().toString();
  	}
  	public static String getHuntingDogId(Example.HuntingDog obj){
  	    if(obj==null)
  	     return null;
  
-		return obj.getName();
+		return obj.getName().toString();
  	}
 	
  	public static Example.Family findFamilyById(java.util.List<Example.Family> list, String id){

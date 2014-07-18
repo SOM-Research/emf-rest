@@ -12,4 +12,11 @@
             class="Family.FamilyPackage"/>
    </extension>
 
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated Example -->
+      <package
+            uri="http://emf-rest.com/Example"
+            class="Example.ExamplePackage"/>
+   </extension>
+
 </plugin>

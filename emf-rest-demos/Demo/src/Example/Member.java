@@ -19,60 +19,60 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see Example.ExamplePackage#getMember()
  * @model abstract="true"
+
  * @generated
  */
-public interface Member extends EObject
-{
-  /**
-   * Returns the value of the '<em><b>First Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>First Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>First Name</em>' attribute.
-   * @see #setFirstName(String)
-   * @see Example.ExamplePackage#getMember_FirstName()
-   * @model id="true" ordered="false"
-   * @generated
-   */
-  String getFirstName();
+public interface Member extends EObject {
+	/**
+	 * Returns the value of the '<em><b>First Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>First Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>First Name</em>' attribute.
+	 * @see #setFirstName(String)
+	 * @see Example.ExamplePackage#getMember_FirstName()
+	 * @model id="true" ordered="false"
+	 * @generated
+	 */
+	String getFirstName();
 
-  /**
-   * Sets the value of the '{@link Example.Member#getFirstName <em>First Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>First Name</em>' attribute.
-   * @see #getFirstName()
-   * @generated
-   */
-  void setFirstName(String value);
+	/**
+	 * Sets the value of the '{@link Example.Member#getFirstName <em>First Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>First Name</em>' attribute.
+	 * @see #getFirstName()
+	 * @generated
+	 */
+	void setFirstName(String value);
 
-  /**
-   * Returns the value of the '<em><b>Last Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Last Name</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Last Name</em>' attribute.
-   * @see #setLastName(String)
-   * @see Example.ExamplePackage#getMember_LastName()
-   * @model unique="false"
-   * @generated
-   */
-  String getLastName();
+	/**
+	 * Returns the value of the '<em><b>Last Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Last Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Last Name</em>' attribute.
+	 * @see #setLastName(String)
+	 * @see Example.ExamplePackage#getMember_LastName()
+	 * @model unique="false"
+	 * @generated
+	 */
+	String getLastName();
 
-  /**
-   * Sets the value of the '{@link Example.Member#getLastName <em>Last Name</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Last Name</em>' attribute.
-   * @see #getLastName()
-   * @generated
-   */
-  void setLastName(String value);
+	/**
+	 * Sets the value of the '{@link Example.Member#getLastName <em>Last Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Last Name</em>' attribute.
+	 * @see #getLastName()
+	 * @generated
+	 */
+	void setLastName(String value);
 
 } // Member
