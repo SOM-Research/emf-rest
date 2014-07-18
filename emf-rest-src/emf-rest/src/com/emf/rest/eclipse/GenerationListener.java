@@ -46,11 +46,26 @@ public class GenerationListener extends ExecutionListener {
 				if (webWebInfDir.exists()) {
 					copyDir = "WebContent/WEB-INF/lib";
 				}
-				copyJar(project, copyDir, "org.eclipse.emf.common_2.9.jar");
-				copyJar(project, copyDir, "org.eclipse.emf.ecore_2.9.jar");
-				copyJar(project, copyDir, "org.eclipse.emf.ecore.xmi_2.9.jar");
-				copyJar(project, copyDir, "org.json.jar");
-				copyJar(project, copyDir, "jsr311-api-1.1.1.jar");
+				copyJar(project, copyDir, "activation-1.1.jar");
+				copyJar(project, copyDir, "async-http-servlet-3.0-3.0.7.Final.jar");
+				copyJar(project, copyDir, "commons-codec-1.6.jar");
+				copyJar(project, copyDir, "commons-io-2.1.jar");
+				copyJar(project, copyDir, "commons-logging-1.1.1.jar");
+				copyJar(project, copyDir, "httpclient-4.2.1.jar");
+				copyJar(project, copyDir, "httpcore-4.2.1.jar");
+				copyJar(project, copyDir, "jaxrs-api-3.0.7.Final.jar");
+				copyJar(project, copyDir, "jcip-annotations-1.0.jar");
+				copyJar(project, copyDir, "jettison-1.3.5.jar");
+				copyJar(project, copyDir, "org.eclipse.emf.common-2.9.2-v20131212-0545.jar");
+				copyJar(project, copyDir, "org.eclipse.emf.ecore-2.9.2-v20131212-0545.jar");
+				copyJar(project, copyDir, "org.eclipse.emf.ecore.xmi-2.9.1-v20131212-0545.jar");
+				copyJar(project, copyDir, "resteasy-client-3.0.7.Final.jar");
+				copyJar(project, copyDir, "resteasy-jaxb-provider-3.0.7.Final.jar");
+				copyJar(project, copyDir, "resteasy-jaxrs-3.0.7.Final.jar");
+				copyJar(project, copyDir, "jboss-annotations-api_1.1_spec-1.0.1.Final.jar");
+				copyJar(project, copyDir, "resteasy-jettison-provider-3.0.7.Final.jar");
+				copyJar(project, copyDir, "resteasy-servlet-initializer-3.0.7.Final.jar");
+				copyJar(project, copyDir, "stax-api-1.0.1.jar");
 			} catch (Exception ex) {
 				ex.printStackTrace();
 			}

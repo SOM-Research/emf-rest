@@ -32,6 +32,8 @@ public class EMFGenerator extends TransformationExecutor {
 		resource.load(null);
 		EcoreUtil.resolveAll(resourceSet);
 		GenModel genModel = (GenModel) resource.getContents().get(0);
+		genModel.setDynamicTemplates(true);
+		genModel.setTemplateDirectory("platform:/plugin/emf-rest/templates");
 		genModel.setCanGenerate(true);
 		// generate the code
 		Generator generator = new Generator();

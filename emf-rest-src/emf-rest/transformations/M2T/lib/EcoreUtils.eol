@@ -19,7 +19,11 @@ import "StringUtils.eol";
   operation EReference getMethod() : String{
     return "get"+self.name.toUpperFirst();
   }
-
+operation EReference getType() : String{
+   return self.getEReferenceType().getName();
+    
+  }
+  
   @cached
   operation EClass isStandAlone() : Boolean{
    for(ref in EReference.all){
