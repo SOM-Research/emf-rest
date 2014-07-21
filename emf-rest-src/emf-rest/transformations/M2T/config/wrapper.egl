@@ -10,7 +10,15 @@
  ******************************************************************************]
 [% import "../lib/StringUtils.eol"; %]
 [% import "../lib/EcoreUtils.eol"; %]
-
+[%
+var root = null;
+for (class in EClass.all) {
+	if(class.isStandAlone()) {
+		root = class.name();
+		break;
+	}
+}
+%]
 package webmapi.service.configuration;
 
 import java.util.ArrayList;
@@ -20,10 +28,10 @@ import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
-import Example.impl.DaughterImpl;
+import Example.impl.[%=root%]Impl;
 
 @XmlRootElement(name ="list")
-@XmlSeeAlso(DaughterImpl.class)
+@XmlSeeAlso([%=root%]Impl.class)
 public class Wrapper<T> {
 
 	private List<T> items;
