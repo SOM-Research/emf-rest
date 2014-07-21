@@ -22,10 +22,11 @@ We are currently working hard on:
 
 Who is behind EMF-REST?
 -----------------------
+* [Hamza Ed-douibi](http://github.com/hamzaed/ "Hamza Ed-douibi")
 * [Camilo Alvarez](http://github.com/cadorca/ "Camilo Alvarez")
 * [Javier Canovas](http://github.com/jlcanovas/ "Javier Canovas")
 * [Jordi Cabot](http://github.com/jcabot/ "Jordi Cabot")
-* [Hamza Ed-douibi](http://github.com/hamzaed/ "Hamza Ed-douibi")
+
 
 Can I collaborate?
 ------------------
