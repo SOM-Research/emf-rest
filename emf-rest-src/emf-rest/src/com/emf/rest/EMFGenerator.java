@@ -40,12 +40,7 @@ public class EMFGenerator extends TransformationExecutor {
 		EcoreUtil.resolveAll(resourceSet);
 		GenModel genModel = (GenModel) resource.getContents().get(0);
 		genModel.setDynamicTemplates(true);
-//		genModel.setTemplateDirectory("platform:/plugin/emf-rest/templates");
-		System.out.println(EMFRestPlugin.INSTANCE.getSymbolicName());
-		   Bundle bundle = Platform.getBundle(EMFRestPlugin.ID);
-		   Path path = new Path("templates");
-		   URL fileURL = FileLocator.find(bundle, path, null);
-			genModel.setTemplateDirectory(fileURL.getPath());
+		genModel.setTemplateDirectory("platform:/plugin/emf-rest/templates");
 		genModel.setCanGenerate(true);
 		System.out.println("test");
 		// generate the code
