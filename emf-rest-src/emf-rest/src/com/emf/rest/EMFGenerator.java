@@ -10,6 +10,12 @@
  ******************************************************************************/
 package com.emf.rest;
 
+import java.net.URL;
+
+import org.eclipse.core.runtime.FileLocator;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.Platform;
+import org.eclipse.core.runtime.Plugin;
 import org.eclipse.emf.codegen.ecore.genmodel.GenModel;
 import org.eclipse.emf.common.util.BasicMonitor;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -18,6 +24,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.codegen.ecore.generator.Generator;
 import org.eclipse.emf.codegen.ecore.genmodel.generator.GenBaseGeneratorAdapter;
+import org.osgi.framework.Bundle;
 
 import com.mtcflow.engine.transformation.IExecutionInformation;
 import com.mtcflow.engine.transformation.TransformationExecutor;
@@ -35,6 +42,7 @@ public class EMFGenerator extends TransformationExecutor {
 		genModel.setDynamicTemplates(true);
 		genModel.setTemplateDirectory("platform:/plugin/emf-rest/templates");
 		genModel.setCanGenerate(true);
+		System.out.println("test");
 		// generate the code
 		Generator generator = new Generator();
 		generator.setInput(genModel);

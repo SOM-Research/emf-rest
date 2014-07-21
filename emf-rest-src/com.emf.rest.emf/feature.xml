@@ -234,12 +234,11 @@ litigation.
       <import plugin="org.eclipse.jface"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.eclipse.core.runtime"/>
+      <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.ui.console"/>
       <import plugin="org.eclipse.ui.workbench"/>
-      <import plugin="org.eclipse.emf.ecoretools"/>
-      <import plugin="org.eclipse.emf.ecoretools.diagram"/>
    </requires>
 
    <plugin
