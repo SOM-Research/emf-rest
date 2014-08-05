@@ -17,8 +17,11 @@ What is coming next?
 
 We are currently working hard on:
 
-* Support for POST / DELETE / PUT http methods
-* Tuning the way objects are represented in JSON
+* Model management support (e.g., creating/deleting models by the API)
+* Storage configuration (currently only file-based in supported)
+* Access control management
+* Configuration of the generated API
+* Definition of how model elements have to be serialized.
 
 Who is behind EMF-REST?
 -----------------------
