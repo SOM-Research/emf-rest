@@ -7,6 +7,7 @@
  * 
  * Contributors:
  *     Camilo Alvarez (cadorca@gmail.com)  - initial API and implementation
+ *     Hamza Ed-douibi (hamza.ed-douibi@inria.fr)  - Add support for boolean identifiers
  ******************************************************************************]
 [% import "../lib/EcoreUtils.eol"; %]
 
@@ -27,16 +28,20 @@ public class IdentificationResolver {
  	    var getByUnique = false;
  	    var uniqueAttName = "";
  	    var idFieldName = null;
+ 	    var dataType ;
  	    for (attr in cls.eAllAttributes) {
 		   if (attr.name=='id'){ 
 		      getById = true;
+		      dataType = attr.getTypeName();
 		      break;
 		   } else if (attr.name=='name'){ 
 		      getByName = true;
+		       dataType = attr.getTypeName();
 		      break;
 		   } else if (attr.unique){ 
 		      getByUnique = true;
 		      uniqueAttName = attr.name;
+		       dataType = attr.getTypeName();
 		   }
 	    }
 	    if(getById){
@@ -47,12 +52,15 @@ public class IdentificationResolver {
 	     idFieldName = uniqueAttName.toUpperFirst(); 
 	    } else if(cls.eAllAttributes.size()>0){
 	     idFieldName = cls.eAllAttributes.first().name.toUpperFirst(); 
+	      dataType = cls.eAllAttributes.first().getTypeName();
 	    }
 	    
 	    %] 
 	    [%if (idFieldName == null){%]
 	    return "";
-	    [%}else{%]
+	    [%}else if(dataType == "EBoolean"){%]
+	    return String.valueOf(obj.is[%=idFieldName%]());
+	    [%}else {%]
 		return obj.get[%=idFieldName%]().toString();
 		[%}%]
  	}
