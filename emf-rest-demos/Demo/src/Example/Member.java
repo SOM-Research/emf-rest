@@ -19,6 +19,8 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see Example.ExamplePackage#getMember()
  * @model abstract="true"
+ *        annotation="Ecore constraints='validFirstName validLastName' roles='admin, user'"
+ *        annotation="OCL validFirstName='not self.firstName.oclIsUndefined() and self.firstName <>\'\'' validLastName='not self.lastName.oclIsUndefined() and self.lastName <>\'\''"
 
  * @generated
  */

@@ -490,6 +490,46 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 
 		// Create resource
 		createResource(eNS_URI);
+
+		// Create annotations
+		// Ecore
+		createEcoreAnnotations();
+		// OCL
+		createOCLAnnotations();
+	}
+
+	/**
+	 * Initializes the annotations for <b>Ecore</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createEcoreAnnotations() {
+		String source = "Ecore";	
+		addAnnotation
+		  (memberEClass, 
+		   source, 
+		   new String[] {
+			 "constraints", "validFirstName validLastName",
+			 "roles", "admin, user"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>OCL</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createOCLAnnotations() {
+		String source = "OCL";	
+		addAnnotation
+		  (memberEClass, 
+		   source, 
+		   new String[] {
+			 "validFirstName", "not self.firstName.oclIsUndefined() and self.firstName <>\'\'",
+			 "validLastName", "not self.lastName.oclIsUndefined() and self.lastName <>\'\'"
+		   });
 	}
 
 } //ExamplePackageImpl

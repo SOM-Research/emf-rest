@@ -1,4 +1,3 @@
-
 package webmapi.service.configuration;
 
 import java.util.ArrayList;
@@ -8,10 +7,10 @@ import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
-import Example.impl.DaughterImpl;
+import Example.impl.FamilyImpl;
 
 @XmlRootElement(name ="list")
-@XmlSeeAlso(DaughterImpl.class)
+@XmlSeeAlso(FamilyImpl.class)
 public class Wrapper<T> {
 
 	private List<T> items;

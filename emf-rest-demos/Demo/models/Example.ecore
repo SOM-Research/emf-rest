@@ -14,6 +14,14 @@
         unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true">
+    <eAnnotations source="Ecore">
+      <details key="constraints" value="validFirstName validLastName"/>
+      <details key="roles" value="admin, user"/>
+    </eAnnotations>
+    <eAnnotations source="OCL">
+      <details key="validFirstName" value="not self.firstName.oclIsUndefined() and self.firstName &lt;>''"/>
+      <details key="validLastName" value="not self.lastName.oclIsUndefined() and self.lastName &lt;>''"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="firstName" ordered="false"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString" iD="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="lastName" unique="false"

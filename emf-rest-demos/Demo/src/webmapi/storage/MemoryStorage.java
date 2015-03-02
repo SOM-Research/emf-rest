@@ -7,6 +7,8 @@ import java.util.Map;
 import java.io.File;
 import java.net.URISyntaxException;
 
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.ecore.util.Diagnostician;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
@@ -20,6 +22,8 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
+
 
 import webmapi.service.configuration.ModelEnvironmentManager;
 import Example.ExamplePackage;
@@ -64,7 +68,9 @@ public class MemoryStorage implements IModelStorage {
 			obj.eSet(eAttribute, value.eGet(eAttribute));
 			store.remove(composedId);
 		}
-
+		Diagnostic d = Diagnostician.INSTANCE.validate(obj);
+		if(d.getSeverity() == Diagnostic.ERROR)
+			throw new WebApplicationException(Status.BAD_REQUEST);
 		try {
 			ModelEnvironmentManager.getInstance(modelsPath).getResource()
 					.save(Collections.EMPTY_MAP);
@@ -83,11 +89,12 @@ public class MemoryStorage implements IModelStorage {
 		System.out.println(obj.eClass().getInstanceTypeName());
 		EList<EAttribute> eAttributes = obj.eClass().getEAllAttributes();
 		for (EAttribute eAttribute : eAttributes) {
-System.out.println("e"+eAttribute);
 			obj.eSet(eAttribute, value.eGet(eAttribute));
 			store.remove(id);
 		}
-
+		Diagnostic d = Diagnostician.INSTANCE.validate(obj);
+		if(d.getSeverity() == Diagnostic.ERROR)
+			throw new WebApplicationException(Status.BAD_REQUEST);
 		try {
 			ModelEnvironmentManager.getInstance(modelsPath).getResource()
 					.save(Collections.EMPTY_MAP);
@@ -137,6 +144,9 @@ System.out.println("e"+eAttribute);
 		EObject obj = store.get(composedId);
 		EcoreUtil.delete(obj);
 		store.remove(composedId);
+		Diagnostic d = Diagnostician.INSTANCE.validate(obj);
+		if(d.getSeverity() == Diagnostic.ERROR)
+			throw new WebApplicationException(Status.BAD_REQUEST);
 		try {
 			ModelEnvironmentManager.getInstance(modelsPath).getResource()
 					.save(Collections.EMPTY_MAP);
