@@ -42,6 +42,7 @@ public class EMFGenerator extends TransformationExecutor {
 		genModel.setDynamicTemplates(true);
 		genModel.setTemplateDirectory("platform:/plugin/emf-rest/templates");
 		genModel.setCanGenerate(true);
+		genModel.setModelDirectory(genModel.getModelDirectory()+"/main/java");
 		System.out.println("test");
 		// generate the code
 		Generator generator = new Generator();

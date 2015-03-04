@@ -4,6 +4,7 @@
   <files name="JavaScript API"/>
   <files name="EMF Code"/>
   <files name="index.html"/>
+  <files name="pom.xml"/>
   <metamodels name="ECORE" URI="" alias="" metamodelURI="http://www.eclipse.org/emf/2002/Ecore"/>
   <metamodels name="GenModel" URI="" description="" alias="GenModel" autoregister="false" metamodelURI="http://www.eclipse.org/emf/2002/GenModel"/>
   <models name="Ecore Fully Annotated" URI="${ecore_file}" metamodels="//@metamodels.0"/>
@@ -13,21 +14,25 @@
   <inputModels model="//@models.0" modelAlias="Ecore" transformation="//@transformations.3"/>
   <inputModels model="//@models.1" transformation="//@transformations.2"/>
   <inputModels model="//@models.0" transformation="//@transformations.4"/>
+  <inputModels model="//@models.0" transformation="//@transformations.5"/>
   <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> Services" URI="generateWebMApi.egl" tags="//@configurations/@tags.2" description="" technology="" implementationClass="" fileDependencies="//@files.2" target="${output}"/>
   <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Ecore -> JavaScript API" URI="generateJavascript.egl" tags="//@configurations/@tags.3" target="${output_js}"/>
   <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="GenerateEMF" tags="//@configurations/@tags.0 //@configurations/@tags.2" implementationClass="com.emf.rest.EMFGenerator"/>
   <transformations xsi:type="com.mtcflow.model:M2MTransformation" name="Ecore->Genmodel" URI="Ecore2GenModel.etl" tags="//@configurations/@tags.0 //@configurations/@tags.2"/>
-  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Default Index" URI="generateIndex.egl" target="WebContent"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="Default Index" URI="generateIndex.egl" target="${output_index}"/>
+  <transformations xsi:type="com.mtcflow.model:M2TTransformation" name="pom" URI="generatePom.egl" target="${output_pom}"/>
   <outputModels modelAlias="GenModel" model="//@models.1" transformation="//@transformations.3"/>
   <configurations>
     <variables name="output" defaultValue="src-gen/" description=""/>
     <variables name="ecore_file" defaultValue="Example.ecore" description=""/>
     <variables name="genModel_file" defaultValue="Families.genmodel"/>
-    <variables name="output_js" defaultValue="WebContent/scripts"/>
+    <variables name="output_js" defaultValue="src/main/webapp/scripts"/>
     <variables name="pluginName" defaultValue="emf-rest"/>
     <variables name="foreignModel" defaultValue=""/>
     <variables name="usedGenPackages" type="java.util.HashMap"/>
     <variables name="modelName" defaultValue="Simpsons"/>
+    <variables name="output_index" defaultValue="src/main/webapp"/>
+    <variables name="output_pom" defaultValue="src"/>
     <tags name="genModel"/>
     <tags name="serializer"/>
     <tags name="services"/>
@@ -37,4 +42,5 @@
   <outputFiles transformation="//@transformations.1" file="//@files.1"/>
   <outputFiles transformation="//@transformations.2" file="//@files.2"/>
   <outputFiles transformation="//@transformations.4" file="//@files.3"/>
+   <outputFiles transformation="//@transformations.5" file="//@files.4"/>
 </com.mtcflow.model:MTC>

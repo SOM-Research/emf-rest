@@ -52,7 +52,7 @@ public class GenerateRestEMFCommand implements IHandler {
 		String tag = null;
 		boolean copyLibraries = false;
 		try {
-			copyLibraries = (event.getParameter("emf-rest.copyLibraries") == null ? false : Boolean.valueOf(event.getParameter("emf-rest.copyLibraries")));
+//			copyLibraries = (event.getParameter("emf-rest.copyLibraries") == null ? false : Boolean.valueOf(event.getParameter("emf-rest.copyLibraries")));
 			tag = event.getParameter("emf-rest.tagParameter");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -61,27 +61,27 @@ public class GenerateRestEMFCommand implements IHandler {
 		IStructuredSelection selection = (IStructuredSelection) window.getSelectionService().getSelection();
 		IResource ecoreResource = (IResource) selection.getFirstElement();
 		
-		if(tag!=null && tag.equals("None")){
-			GenerationListener genlistener = new GenerationListener(ecoreResource.getProject(),  Platform.getBundle("emf-rest"), true);
-			genlistener.afterFinishExecution(null, null, null);
-			return null;
-		}
+//		if(tag!=null && tag.equals("None")){
+//			GenerationListener genlistener = new GenerationListener(ecoreResource.getProject(),  Platform.getBundle("emf-rest"), true);
+//			genlistener.afterFinishExecution(null, null, null);
+//			return null;
+//		}
 
 		
 		HashMap<String, Object> variables = new HashMap<String, Object>();
 		variables.put("ecore_file", ecoreResource.getLocation().toOSString());
 		variables.put("genModel_file", ecoreResource.getLocation().toOSString().replaceFirst(".ecore", ".genmodel"));
-		variables.put("output", ecoreResource.getProject().findMember("src").getLocation().toOSString());
+		variables.put("output", ecoreResource.getProject().findMember("src/main/java").getLocation().toOSString());
 		try {
-			variables.put("modelDirectory", ecoreResource.getProject().findMember("WebContent/models").getLocation().toOSString());
+			variables.put("modelDirectory", ecoreResource.getProject().findMember("src/main/resources").getLocation().toOSString());
 		} catch (Exception ex) {
 			variables.put("modelDirectory", "");
 		}
-		File scriptDir = new File(ecoreResource.getProject().getLocation().toOSString() + "/WebContent/scripts");
+		File scriptDir = new File(ecoreResource.getProject().getLocation().toOSString() + "/src/main/webapp/scripts");
 		if (tag == null || tag.equals("javascript")) {
 			scriptDir.mkdirs();
 		}
-		variables.put("output_js", ecoreResource.getProject().getLocation().toOSString() + "/WebContent/scripts");
+		variables.put("output_js", ecoreResource.getProject().getLocation().toOSString() + "/src/main/webapp/scripts");
 		HashMap<String, GenPackage> usedGenPackages = new HashMap<String, GenPackage>();
 
 		try {
@@ -111,8 +111,9 @@ public class GenerateRestEMFCommand implements IHandler {
 		variables.put("usedGenPackages", usedGenPackages);
 		variables.put("pluginName", ecoreResource.getProject().getName());
 		variables.put("foreignModel", ecoreResource.getName());
+		variables.put("output_pom", ecoreResource.getProject().getLocation().toOSString());
 		
-		File webContentModelsPath = new File(ecoreResource.getProject().findMember("WebContent/models").getLocation().toOSString());
+		File webContentModelsPath = new File(ecoreResource.getProject().findMember("src/main/resources").getLocation().toOSString());
 		String modelName = "";
 		for(File file : webContentModelsPath.listFiles()) {
 			if(file.getName().endsWith(".xmi")) {
