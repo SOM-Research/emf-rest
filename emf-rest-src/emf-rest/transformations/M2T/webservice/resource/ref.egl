@@ -9,7 +9,6 @@
  *     Camilo Alvarez (cadorca@gmail.com)  - initial API and implementation
  ******************************************************************************]
 [%
- import "restMethods.egl"; 
  import "../../lib/StringUtils.eol"; 
  import "../../lib/EcoreUtils.eol"; 
 %]
@@ -17,25 +16,20 @@
 [% var pckName = clazz.package(); %]
 package [%=pckName%].service;
 
-import java.util.List;
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import javax.ws.rs.core.Response;
-import webmapi.service.configuration.Wrapper;
-import webmapi.util.ResourceSaver;
 import [%=pckName%].*;
 import [%=pckName%].impl.*;
 
-public class [%=clazz.rscClassName()%]{
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
+public class [%=clazz.name%]Ref{
 
     private [%=clazz.qualifiedName()%] instance;
     private String id;
+     @Inject
 	private ResourceSaver resourceSaver;
-    public [%=clazz.rscClassName()%]([%=clazz.qualifiedName()%] instance,String id, ResourceSaver r){
+    public [%=clazz.rscClassName()%]([%=clazz.qualifiedName()%] instance,String id){
     	this.instance = instance;
     	this.id = id;
-    	resourceSaver = r;
     }
 
 	@GET
@@ -69,8 +63,3 @@ public class [%=clazz.rscClassName()%]{
 	
 }
 
-[%
-function EClass idParam() : String{
- return self.name+"Id";
-}
-%]

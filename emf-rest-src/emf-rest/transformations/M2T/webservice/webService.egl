@@ -39,7 +39,7 @@ function EClass generatePOST() {
    @Path("[%=self.name%]/{id}")
    public [%=self.rscClassName()%] handle[%=self.name%](@PathParam("id") String id)
    {
-     return new [%=self.rscClassName()%](([%=self.name%])resourceSaver.get("[%=self.qualifiedName()%]",id),id);
+     return new [%=self.rscClassName()%](([%=self.name%])resourceSaver.get("[%=self.qualifiedName()%]",id),id,resourceSaver);
    }
 
   

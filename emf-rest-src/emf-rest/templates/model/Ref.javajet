@@ -25,16 +25,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @<%=genModel.getImportedName("javax.xml.bind.annotation.XmlAccessorType")%>(<%=genModel.getImportedName("javax.xml.bind.annotation.XmlAccessType")%>.FIELD)
 public class <%= genClass.getInterfaceName()+"Ref"%> {
 
-<%
- for( GenFeature gf : genClass.getAllGenFeatures()){
-	 if(!gf.isReferenceType()){ %>
-		 public <%=gf.getImportedType(genClass)%> <%=gf.getName()%>;
-		
-  <%  	
-    	}
-    }
-%>
-
 }
 
 

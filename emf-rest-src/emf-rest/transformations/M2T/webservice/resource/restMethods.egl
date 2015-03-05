@@ -18,14 +18,14 @@ function EReference generateGenericResource() {
    public [%=self.eType.qualifiedRscClassName()%] getResource[%=self.name.toUpperFirst()%]
    (@PathParam("id") String id)
    {
-      return new [%=self.eType.qualifiedRscClassName()%](webmapi.service.IdentificationResolver.find[%=self.eType.name%]ById(instance.get[%=self.name.toUpperFirst()%](),id),id);   
+      return new [%=self.eType.qualifiedRscClassName()%](webmapi.service.IdentificationResolver.find[%=self.eType.name%]ById(instance.get[%=self.name.toUpperFirst()%](),id),id,resourceSaver);   
    }  
   [%} else{%]
    [* GENERATE A METHOD TO SELECT REFERENCES OF SINGLE VALUE *]  
    @Path("[%=self.name%]")
    public [%=self.eType.qualifiedRscClassName()%] getResource[%=self.name.toUpperFirst()%]()
    {
-      return new [%=self.eType.qualifiedRscClassName()%](instance.get[%=self.name.toUpperFirst()%](),id);
+      return new [%=self.eType.qualifiedRscClassName()%](instance.get[%=self.name.toUpperFirst()%](),id,resourceSaver);
    }    
   [%}}
 

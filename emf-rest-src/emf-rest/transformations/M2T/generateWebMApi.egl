@@ -37,9 +37,21 @@
     var idResolver : Template = TemplateFactory.load("config/identificationResolver.egl"); 
     idResolver.generate("webmapi/service/" + "IdentificationResolver.java");
     
+     var bean : Template = TemplateFactory.load("config/beans.egl"); 
+    bean.generate("../webapp/WEB-INF/" + "beans.xml");
     
-   
-
+    var bean : Template = TemplateFactory.load("config/ds.egl"); 
+    bean.generate("../webapp/WEB-INF/" + pluginName+"-ds.xml");
+    
+ 	var faces : Template = TemplateFactory.load("config/faces-config.egl"); 
+    faces.generate("../webapp/WEB-INF/" + "faces-config.xml");
+    
+   var deployment : Template = TemplateFactory.load("config/jboss-deployment-structure.egl"); 
+    deployment.generate("../webapp/WEB-INF/" + "jboss-deployment-structure.xml");
+     var jboss : Template = TemplateFactory.load("config/jboss-web.egl"); 
+    jboss.generate("../webapp/WEB-INF/" + "jboss-web.xml");
+    var persistence : Template = TemplateFactory.load("config/persistence.egl"); 
+    persistence.generate("../resources/META-INF/" + "persistence.xml");
   var wrapper : Template = TemplateFactory.load("config/wrapper.egl"); 
     wrapper.generate("webmapi/service/configuration/"+"Wrapper.java");
 for (c in EClass.all.clone()) {

@@ -2,7 +2,11 @@
 [% import "../lib/EcoreUtils.eol"; %]
 package webmapi.util;
 
-import java.net.URISyntaxException;
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
+
 
 import javax.annotation.PostConstruct;
 import javax.ejb.Startup;
@@ -15,6 +19,7 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+import org.jboss.vfs.VirtualFile;
 
 @Startup
 @Singleton
@@ -34,13 +39,14 @@ public class ResourceLoader {
 		ResourceSet rst = new ResourceSetImpl();
 		try {
 			ClassLoader classLoader = getClass().getClassLoader();
+			URLConnection conn = new URL(classLoader.getResource("[%=modelName%].xmi").toString()).openConnection();
+			VirtualFile vf = (VirtualFile)conn.getContent();
+			File contentsFile = vf.getPhysicalFile();
 			resource = rst.getResource(
-					URI.createURI(classLoader.getResource("models/[%=modelName%].xmi")
-							.toURI().toString()), true);
-			System.out.println(resource);
-		} catch (URISyntaxException e1) {
+			URI.createURI(contentsFile.toString()),true);
+		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e1.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 
