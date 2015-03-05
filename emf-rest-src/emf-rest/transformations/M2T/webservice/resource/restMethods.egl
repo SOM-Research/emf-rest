@@ -18,14 +18,14 @@ function EReference generateGenericResource() {
    public [%=self.eType.qualifiedRscClassName()%] getResource[%=self.name.toUpperFirst()%]
    (@PathParam("id") String id)
    {
-      return new [%=self.eType.qualifiedRscClassName()%](webmapi.service.IdentificationResolver.find[%=self.eType.name%]ById(instance.get[%=self.name.toUpperFirst()%](),id),id, storage);   
+      return new [%=self.eType.qualifiedRscClassName()%](webmapi.service.IdentificationResolver.find[%=self.eType.name%]ById(instance.get[%=self.name.toUpperFirst()%](),id),id);   
    }  
   [%} else{%]
    [* GENERATE A METHOD TO SELECT REFERENCES OF SINGLE VALUE *]  
    @Path("[%=self.name%]")
    public [%=self.eType.qualifiedRscClassName()%] getResource[%=self.name.toUpperFirst()%]()
    {
-      return new [%=self.eType.qualifiedRscClassName()%](instance.get[%=self.name.toUpperFirst()%](),id, storage);
+      return new [%=self.eType.qualifiedRscClassName()%](instance.get[%=self.name.toUpperFirst()%](),id);
    }    
   [%}}
 
@@ -77,7 +77,7 @@ function EReference generatePOST() {
    )
    {
      instance.get[%=self.name.toUpperFirst()%]().add(obj);
-     storage.save();
+     resourceSaver.save();
    }
   [%}
 }
@@ -101,7 +101,7 @@ function EReference generatePUT() {
     %]
    )
    {
-     storage.put("[%=self.qualifiedName()%]", EcoreUtil.getIdentification(instance), object);
+     resourceSaver.put("[%=self.qualifiedName()%]", EcoreUtil.getIdentification(instance), object);
    }
   [%}
 }

@@ -1,25 +1,15 @@
-[*******************************************************************************
- * Copyright (c) 2013 EMF-REST.
- * All rights reserved. This program and the accompanying materials
- * are made available under the terms of the Eclipse Public License v1.0
- * which accompanies this distribution, and is available at
- * http://www.eclipse.org/legal/epl-v10.html
- * 
- * Contributors:
- *     Camilo Alvarez (cadorca@gmail.com)  - initial API and implementation
- ******************************************************************************]
 [% import "../lib/StringUtils.eol"; %]
 [% import "../lib/EcoreUtils.eol"; %]
-package webmapi.service;
+package webmapi.rest;
 
-import javax.ws.rs.DELETE;
-import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.Context;
-import javax.servlet.http.HttpServletRequest;
-import javax.ws.rs.core.MediaType;
-import javax.ws.rs.Consumes;
+import javax.ejb.Stateless;
+import javax.inject.Inject;
+
+
+
+import webmapi.util.ResourceSaver;
 
 [%for (pkg in EPackage.all) {%]
 import [%=pkg.name%].*;
@@ -29,17 +19,8 @@ import [%=pkg.name%].service.*;
 @Path("")
 public class WebApiService{
 
-  	@Context
-	private HttpServletRequest request;
-
-	private webmapi.storage.IModelStorage storage;
-
-	private void initStorage() {
-		if (storage == null) {
-			String modelsPath = request.getServletContext().getRealPath("models");
-			storage = new webmapi.storage.MemoryStorage(modelsPath);
-		}
-	}
+  	@Inject
+	private ResourceSaver resourceSaver;
 
 
   [%for (pkg in EPackage.all) {
@@ -58,8 +39,7 @@ function EClass generatePOST() {
    @Path("[%=self.name%]/{id}")
    public [%=self.rscClassName()%] handle[%=self.name%](@PathParam("id") String id)
    {
-     initStorage();
-     return new [%=self.rscClassName()%](([%=self.name%])storage.get("[%=self.qualifiedName()%]",id),id, storage);
+     return new [%=self.rscClassName()%](([%=self.name%])resourceSaver.get("[%=self.qualifiedName()%]",id),id);
    }
 
   

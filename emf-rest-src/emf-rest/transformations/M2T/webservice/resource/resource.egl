@@ -18,13 +18,13 @@
 package [%=pckName%].service;
 
 import java.util.List;
-
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import javax.ws.rs.core.Response;
 import webmapi.service.configuration.Wrapper;
-
+import webmapi.util.ResourceSaver;
 import [%=pckName%].*;
 import [%=pckName%].impl.*;
 
@@ -32,11 +32,11 @@ public class [%=clazz.rscClassName()%]{
 
     private [%=clazz.qualifiedName()%] instance;
     private String id;
-    private webmapi.storage.IModelStorage storage;
-    public [%=clazz.rscClassName()%]([%=clazz.qualifiedName()%] instance,String id,webmapi.storage.IModelStorage storage){
+     @Inject
+	private ResourceSaver resourceSaver;
+    public [%=clazz.rscClassName()%]([%=clazz.qualifiedName()%] instance,String id){
     	this.instance = instance;
     	this.id = id;
-    	this.storage = storage;
     }
 
 	@GET
@@ -48,11 +48,11 @@ public class [%=clazz.rscClassName()%]{
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	public void update[%=clazz.name%]([%=clazz.name%]Impl object){
-		storage.put(EcoreUtil.getIdentification(instance), object);
+		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
 	}
 	@DELETE
 	public void delete[%=clazz.name%]() {
-		storage.remove(EcoreUtil.getIdentification(instance));
+		resourceSaver.remove(EcoreUtil.getIdentification(instance));
 	}
 
 	[%

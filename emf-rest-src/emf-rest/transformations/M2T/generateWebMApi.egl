@@ -12,23 +12,33 @@
 [% import "lib/EcoreUtils.eol"; %]
 
 [%
-    var mEnvironment : Template = TemplateFactory.load("config/modelEnvironmentManager.egl");
-    mEnvironment.generate("webmapi/service/configuration/ModelEnvironmentManager.java");
-
-    var appConfiguration : Template = TemplateFactory.load("config/applicationConfiguration.egl");
-    appConfiguration.generate("webmapi/service/configuration/ApplicationConfiguration.java");
+	var user : Template = TemplateFactory.load("model/user.egl");
+    user.generate("webmapi/model/User.java");
+    
+    	var role : Template = TemplateFactory.load("model/role.egl");
+   role.generate("webmapi/model/Role.java");
+   
+    	var userRole : Template = TemplateFactory.load("model/userRole.egl");
+    userRole.generate("webmapi/model/UserRole.java");
+    
+    var resourceLoader : Template = TemplateFactory.load("config/resourceLoader.egl");
+    resourceLoader.generate("webmapi/util/ResourceLoader.java");
+    
+	var resourceSaver : Template = TemplateFactory.load("config/resourceSaver.egl"); 
+    resourceSaver.generate("webmapi/util/" + "ResourceSaver.java");
+    
+    var appConfiguration : Template = TemplateFactory.load("config/jaxRsActivator.egl");
+    appConfiguration.generate("webmapi/rest/JaxRsActivator.java");
+    
 
     var webService : Template = TemplateFactory.load("webservice/webService.egl"); 
-    webService.generate("webmapi/service/" + "WebApiService.java");
+    webService.generate("webmapi/rest/" + "WebApiService.java");
 
     var idResolver : Template = TemplateFactory.load("config/identificationResolver.egl"); 
     idResolver.generate("webmapi/service/" + "IdentificationResolver.java");
     
-    var imodelStorage : Template = TemplateFactory.load("storage/imodelStorage.egl"); 
-    imodelStorage.generate("webmapi/storage/" + "IModelStorage.java");
     
-    var modelStorage : Template = TemplateFactory.load("storage/modelStorage.egl"); 
-    modelStorage.generate("webmapi/storage/" + "MemoryStorage.java");
+   
 
   var wrapper : Template = TemplateFactory.load("config/wrapper.egl"); 
     wrapper.generate("webmapi/service/configuration/"+"Wrapper.java");

@@ -112,7 +112,7 @@ package <%=genPackage.getClassPackageName()%>;
     }
 %><%for(GenClass gc : subClasses){%>,<%=gc.getClassName()%>.class<%}%>
 })
-public <%if (genClass.isAbstract()) {%> abstract<%}%> class <%=genClass.getClassName()%><%=genClass.getTypeParameters().trim()%><%=genClass.getClassExtends()%><%=genClass.getClassImplements()%>,<%=genModel.getImportedName("com.sun.xml.internal.bind.CycleRecoverable")%>
+public <%if (genClass.isAbstract()) {%> abstract<%}%> class <%=genClass.getClassName()%><%=genClass.getTypeParameters().trim()%><%=genClass.getClassExtends()%><%=genClass.getClassImplements()%>
 <%} else {%>
 public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters().trim()%><%=genClass.getInterfaceExtends()%>
 <%}%>
@@ -781,6 +781,12 @@ if (index != -1) { head = typeName.substring(0, index); tail = typeName.substrin
 	<%=genFeature.getImportedType(genClass)%> <%=genFeature.getGetAccessor()%>();
 
 <%} else {%>
+/**
+	 * <!-- begin-user-doc -->
+	 * Z1
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 <% if (genFeature.isReferenceType() && genFeature.isListType() ){ %> 
 	@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlElementWrapper")%>(name =  "<%=genFeature.getName()%>")<%}%>	<% if (genFeature.isReferenceType() ){ %> 
 	@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlAnyElement")%>(lax=true)<%} else {%>	
@@ -2394,23 +2400,6 @@ if (index != -1) { head = typeName.substring(0, index); tail = typeName.substrin
 		return result.toString();
 	}
 
-<%}%>
-<%if (isImplementation ){%>
-@Override
-	public Object onCycleDetected(Context arg0) {
-		<%=genModel.getImportedName(genPackage.getInterfacePackageName().concat(".ref.").concat(genClass.getInterfaceName()).concat("Ref"))%>  ref = new <%=genModel.getImportedName(genPackage.getInterfacePackageName().concat(".ref.").concat(genClass.getInterfaceName()).concat("Ref"))%>();
-		<%for( GenFeature gf : genClass.getAllGenFeatures()){
-	 if(!gf.isReferenceType()){ %>
-		 ref.<%=gf.getName()%>=<%=gf.getName()%>;
-		
-  <%  	
-    	}
-    }
-%>
-		
-		return ref;
-		}
-	
 <%}%>
 <%if (isImplementation && genClass.isMapEntry()) { GenFeature keyFeature = genClass.getMapEntryKeyFeature(); GenFeature valueFeature = genClass.getMapEntryValueFeature();%>
 <%String objectType = genModel.getImportedName("java.lang.Object");%>

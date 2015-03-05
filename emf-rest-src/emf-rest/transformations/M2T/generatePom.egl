@@ -14,6 +14,6 @@
 [%
 
     var modelStorage : Template = TemplateFactory.load("pom.egl"); 
-    modelStorage.generate("pom.html");
+    modelStorage.generate("pom.xml");
 
 %]

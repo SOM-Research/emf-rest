@@ -1,0 +1,56 @@
+[% import "../lib/StringUtils.eol"; %]
+[% import "../lib/EcoreUtils.eol"; %]
+package webmapi.util;
+
+import java.net.URISyntaxException;
+
+import javax.annotation.PostConstruct;
+import javax.ejb.Startup;
+import javax.inject.Singleton;
+
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
+import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
+
+@Startup
+@Singleton
+public class ResourceLoader {
+
+	private Resource resource;
+
+	@PostConstruct
+	public void applicationStartup() {
+
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
+				"ecore", new EcoreResourceFactoryImpl());
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
+				"xmi", new XMIResourceFactoryImpl());
+		EPackage.Registry.INSTANCE.put("http://emf-rest.com/Example",
+				Example.ExamplePackage.eINSTANCE);
+		ResourceSet rst = new ResourceSetImpl();
+		try {
+			ClassLoader classLoader = getClass().getClassLoader();
+			resource = rst.getResource(
+					URI.createURI(classLoader.getResource("models/[%=modelName%].xmi")
+							.toURI().toString()), true);
+			System.out.println(resource);
+		} catch (URISyntaxException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
+
+	public Resource getResource() {
+		return resource;
+	}
+
+	public void setResource(Resource resource) {
+		this.resource = resource;
+	}
+
+}
+
