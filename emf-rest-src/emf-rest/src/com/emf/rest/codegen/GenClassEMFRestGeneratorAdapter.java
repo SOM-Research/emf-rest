@@ -28,10 +28,12 @@ import com.emf.rest.EMFRestPlugin;
 public class GenClassEMFRestGeneratorAdapter extends GenBaseGeneratorAdapter
 {
   protected static final int REF_ID = 0;
+  protected static final int ADAPTER_ID = 1;
 
   protected static final JETEmitterDescriptor[] JET_EMITTER_DESCRIPTORS =
   {
-    new JETEmitterDescriptor("model/Ref.javajet", "emf-rest.templates.model.Ref")
+    new JETEmitterDescriptor("model/Proxy.javajet", "emf-rest.templates.model.Proxy"),
+    new JETEmitterDescriptor("model/Adapter.javajet", "emf-rest.templates.model.Adapter")
  
   };
 
@@ -73,14 +75,21 @@ public class GenClassEMFRestGeneratorAdapter extends GenBaseGeneratorAdapter
     
     generateJava
     (genModel.getModelDirectory(),
-    		genPackage.getInterfacePackageName() + ".ref", 
-    		genClass.getInterfaceName()+"Ref",
+    		genPackage.getInterfacePackageName() + ".proxy", 
+    		genClass.getInterfaceName()+"Proxy",
     		
      getJETEmitter(getJETEmitterDescriptors(), REF_ID),
      null,
      createMonitor(monitor, 1)); 
     
-   
+    generateJava
+    (genModel.getModelDirectory(),
+    		genPackage.getInterfacePackageName() + ".proxy", 
+    		genClass.getInterfaceName()+"Adapter",
+    		
+     getJETEmitter(getJETEmitterDescriptors(), ADAPTER_ID),
+     null,
+     createMonitor(monitor, 1)); 
 
     return Diagnostic.OK_INSTANCE;
   }

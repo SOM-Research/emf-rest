@@ -9,7 +9,12 @@ public class EMFRestGeneratorAdapterFactory extends GenModelGeneratorAdapterFact
 	
 
 	  @Override
-	  public Adapter createGenPackageAdapter() { return null; }
+	  public Adapter createGenPackageAdapter() {
+		  if (genPackageGeneratorAdapter == null && !DISABLE)
+		    {
+			  genPackageGeneratorAdapter = new GenClassEMFRestPackageGeneratorAdapter(this);
+		    }
+		    return genPackageGeneratorAdapter; }
 	  
 	  @Override
 	  public Adapter createGenEnumAdapter() { return null; }

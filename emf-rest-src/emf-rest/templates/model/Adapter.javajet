@@ -1,0 +1,88 @@
+<%@ jet package="org.eclipse.emf.codegen.ecore.templates.model" imports="java.util.* org.eclipse.emf.codegen.ecore.genmodel.* org.eclipse.emf.codegen.util.CodeGenUtil" class="Adapter"%>
+<%
+/**
+ * Copyright (c) 2002-2011 IBM Corporation and others.
+ * All rights reserved.   This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ *
+ * Contributors:
+ *   IBM - Initial API and implementation
+ *  Enter  Adapter
+ */
+%>
+<%final GenClass genClass = (GenClass) argument; 
+final GenPackage genPackage = genClass.getGenPackage(); 
+final GenModel genModel=genPackage.getGenModel();
+String className =  genClass.eClass().getName();%>
+package <%= genPackage.getInterfacePackageName()+".proxy"%>;
+
+import javax.xml.bind.annotation.adapters.XmlAdapter;
+import <%=genPackage.getInterfacePackageName()+"."+genClass.getInterfaceName()%>;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EClassifier;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EReference;
+
+import webmapi.service.IdentificationResolver;
+import Example.ExampleFactory;
+
+public class <%= genClass.getInterfaceName()+"Adapter"%> extends <%=genModel.getImportedName("javax.xml.bind.annotation.adapters.XmlAdapter")%><<%= genClass.getInterfaceName()+"Proxy"%>,<%=genModel.getImportedName(genPackage.getInterfacePackageName()+"."+genClass.getInterfaceName())%>>{
+
+	@Override
+	public <%= genClass.getInterfaceName()+"Proxy"%> marshal(<%= genClass.getInterfaceName()%> arg0) throws Exception {
+		
+		
+		
+		<%= genClass.getInterfaceName()+"Proxy"%> d = ProxyFactory.create<%= genClass.getInterfaceName()%>(arg0.eClass().getName());
+		
+		
+		
+		d.url = getURL(arg0);
+		return d;
+	}
+
+	@Override
+	public <%= genClass.getInterfaceName()%>  unmarshal(<%= genClass.getInterfaceName()+"Proxy"%>  arg0) throws Exception {
+		ExampleFactory factory =  ExampleFactory.eINSTANCE;
+		return factory.create<%= genClass.getInterfaceName()%>();
+	}
+	
+	
+	
+	
+	public String getURL(<%= genClass.getInterfaceName()%> obj){
+		Map<EObject,EReference> map = new HashMap<EObject, EReference>();
+		String id = IdentificationResolver.get<%= genClass.getInterfaceName()%>Id(obj);
+		EObject temp = obj;
+		while(temp.eContainer()!= null){
+			map.put(temp.eContainer(), temp.eContainmentFeature());
+			temp = temp.eContainer();
+		}
+		Set<Entry<EObject, EReference>> set = map.entrySet();
+		List<Entry<EObject, EReference>> list = new ArrayList<Map.Entry<EObject,EReference>>(set);
+		Collections.reverse(list);
+		StringBuffer sb = new StringBuffer();
+		for(Entry<EObject,EReference> entry : list){
+			sb.append(entry.getValue().getName()+"/");
+		}
+		sb.append(id);
+		return sb.toString();
+	}	
+}
+
+
+<%@ include file="Class/insert.javajetinc" fail="silent" %>
+
+<%// TODO fix the space above%>
+<%genModel.emitSortedImports();%>

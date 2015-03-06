@@ -1,4 +1,4 @@
-<%@ jet package="org.eclipse.emf.codegen.ecore.templates.model" imports="java.util.* org.eclipse.emf.codegen.ecore.genmodel.* org.eclipse.emf.codegen.util.CodeGenUtil" class="Ref"%>
+<%@ jet package="org.eclipse.emf.codegen.ecore.templates.model" imports="java.util.* org.eclipse.emf.codegen.ecore.genmodel.* org.eclipse.emf.codegen.util.CodeGenUtil" class="Proxy"%>
 <%
 /**
  * Copyright (c) 2002-2011 IBM Corporation and others.
@@ -15,7 +15,7 @@
 <%final GenClass genClass = (GenClass) argument; 
 final GenPackage genPackage = genClass.getGenPackage(); 
 final GenModel genModel=genPackage.getGenModel();%>
-package <%= genPackage.getInterfacePackageName()+".ref"%>;
+package <%= genPackage.getInterfacePackageName()+".proxy"%>;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
@@ -23,10 +23,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @<%=genModel.getImportedName("javax.xml.bind.annotation.XmlRootElement")%>(name="<%=genClass.getInterfaceName().toLowerCase()%>")
 @<%=genModel.getImportedName("javax.xml.bind.annotation.XmlAccessorType")%>(<%=genModel.getImportedName("javax.xml.bind.annotation.XmlAccessType")%>.FIELD)
-public class <%= genClass.getInterfaceName()+"Ref"%> <%if(genClass.hasGenericSuperTypes()){%>extends <%=genClass.getClassExtendsGenClass().getInterfaceName()+"Ref"%><%}%>{
+public class <%= genClass.getInterfaceName()+"Proxy"%> <%if(genClass.getClassExtendsGenClass() != null){%>extends <%=genClass.getClassExtendsGenClass().getInterfaceName()+"Proxy"%><%}%>{
 
 
-	<%if(!genClass.hasGenericSuperTypes()){%>String url;<%}%>
+	<%if(genClass.getClassExtendsGenClass() == null){%>String url;<%}%>
 }
 
 
