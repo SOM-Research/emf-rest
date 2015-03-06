@@ -21,10 +21,12 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlRootElement")%>
+@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlRootElement")%>(name="<%=genClass.getInterfaceName().toLowerCase()%>")
 @<%=genModel.getImportedName("javax.xml.bind.annotation.XmlAccessorType")%>(<%=genModel.getImportedName("javax.xml.bind.annotation.XmlAccessType")%>.FIELD)
-public class <%= genClass.getInterfaceName()+"Ref"%> {
+public class <%= genClass.getInterfaceName()+"Ref"%> <%if(genClass.hasGenericSuperTypes()){%>extends <%=genClass.getClassExtendsGenClass().getInterfaceName()+"Ref"%><%}%>{
 
+
+	<%if(!genClass.hasGenericSuperTypes()){%>String url;<%}%>
 }
 
 
