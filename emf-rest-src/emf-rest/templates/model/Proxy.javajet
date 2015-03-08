@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlRootElement")%>(name="<%=genClass.getInterfaceName().toLowerCase()%>")
+@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlRootElement")%>(name="<%=genClass.getInterfaceName().toLowerCase()%>",namespace="http://emf-rest.com/proxy")
 @<%=genModel.getImportedName("javax.xml.bind.annotation.XmlAccessorType")%>(<%=genModel.getImportedName("javax.xml.bind.annotation.XmlAccessType")%>.FIELD)
 public class <%= genClass.getInterfaceName()+"Proxy"%> <%if(genClass.getClassExtendsGenClass() != null){%>extends <%=genClass.getClassExtendsGenClass().getInterfaceName()+"Proxy"%><%}%>{
 

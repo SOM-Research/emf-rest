@@ -24,6 +24,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import javax.ws.rs.core.Response;
 import webmapi.service.configuration.Wrapper;
 import webmapi.util.ResourceSaver;
+import org.jboss.resteasy.annotations.providers.jaxb.json.Mapped;
+import org.jboss.resteasy.annotations.providers.jaxb.json.XmlNsMap;
+
 import [%=pckName%].*;
 import [%=pckName%].impl.*;
 
@@ -40,16 +43,25 @@ public class [%=clazz.rscClassName()%]{
 
 	@GET
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	@Mapped(namespaceMap = {
+	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
+	})
 	public [%=clazz.qualifiedName()%] get[%=clazz.name%](){
 		return instance;
 	}
 		
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
+	@Mapped(namespaceMap = {
+	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
+	})
 	public void update[%=clazz.name%]([%=clazz.name%]Impl object){
 		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
 	}
 	@DELETE
+	@Mapped(namespaceMap = {
+	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
+	})
 	public void delete[%=clazz.name%]() {
 		resourceSaver.remove(EcoreUtil.getIdentification(instance));
 	}

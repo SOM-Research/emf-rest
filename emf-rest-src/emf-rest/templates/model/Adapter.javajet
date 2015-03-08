@@ -44,7 +44,7 @@ public class <%= genClass.getInterfaceName()+"Adapter"%> extends <%=genModel.get
 		
 		
 		
-		<%= genClass.getInterfaceName()+"Proxy"%> d = ProxyFactory.create<%= genClass.getInterfaceName()%>(arg0.eClass().getName());
+		<%= genClass.getInterfaceName()+"Proxy"%> d = ProxyFactory.create<%= genClass.getInterfaceName()%>Proxy(arg0.eClass().getName());
 		
 		
 		
@@ -55,7 +55,7 @@ public class <%= genClass.getInterfaceName()+"Adapter"%> extends <%=genModel.get
 	@Override
 	public <%= genClass.getInterfaceName()%>  unmarshal(<%= genClass.getInterfaceName()+"Proxy"%>  arg0) throws Exception {
 		ExampleFactory factory =  ExampleFactory.eINSTANCE;
-		return factory.create<%= genClass.getInterfaceName()%>();
+		return ProxyFactory.create<%= genClass.getInterfaceName()%>(arg0);
 	}
 	
 	
