@@ -1,0 +1,16 @@
+<jboss-deployment-structure xmlns="urn:jboss:deployment-structure:1.2">
+  <deployment>
+    <exclusions>
+      <module name="org.jboss.resteasy.resteasy-jackson-provider" />
+    </exclusions>
+    <dependencies>
+      <module name="org.jboss.resteasy.resteasy-jettison-provider" />
+    </dependencies>
+      <exclude-subsystems>
+        <subsystem name="jaxb-impl" />
+        <subsystem name="jaxb-api" />
+          <subsystem name="jaxb-xjc" />
+    </exclude-subsystems>
+  </deployment>
+
+</jboss-deployment-structure>
