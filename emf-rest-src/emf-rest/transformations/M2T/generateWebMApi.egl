@@ -20,8 +20,8 @@
    
     	var userRole : Template = TemplateFactory.load("model/userRole.egl");
     userRole.generate("webmapi/model/UserRole.java");
-    
     var resourceLoader : Template = TemplateFactory.load("config/resourceLoader.egl");
+    resourceLoader.populate("pkg",EPackage.allInstances().get(0));
     resourceLoader.generate("webmapi/util/ResourceLoader.java");
     
 	var resourceSaver : Template = TemplateFactory.load("config/resourceSaver.egl"); 

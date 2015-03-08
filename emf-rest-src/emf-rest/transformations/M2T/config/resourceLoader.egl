@@ -34,8 +34,7 @@ public class ResourceLoader {
 				"ecore", new EcoreResourceFactoryImpl());
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
 				"xmi", new XMIResourceFactoryImpl());
-		EPackage.Registry.INSTANCE.put("http://emf-rest.com/Example",
-				Example.ExamplePackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put("[%=pkg.nsURI%]",[%=pkg.name%].[%=(pkg.name).toUpperFirst()%]Package.eINSTANCE);
 		ResourceSet rst = new ResourceSetImpl();
 		try {
 			ClassLoader classLoader = getClass().getClassLoader();
