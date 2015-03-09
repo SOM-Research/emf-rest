@@ -36,6 +36,7 @@ operation EReference getType() : String{
    return true;
   }
   
+
   // Attributes
   operation EAttribute name() : String{
     return self.name;

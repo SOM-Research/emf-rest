@@ -46,6 +46,11 @@
  	var faces : Template = TemplateFactory.load("config/faces-config.egl"); 
     faces.generate("../webapp/WEB-INF/" + "faces-config.xml");
     
+    	var web : Template = TemplateFactory.load("config/web.egl"); 
+   web.generate("../webapp/WEB-INF/" + "web.xml");
+   var sql : Template = TemplateFactory.load("config/import.egl"); 
+   sql.generate("../resources/" + "import.sql");
+    
    var deployment : Template = TemplateFactory.load("config/jboss-deployment-structure.egl"); 
     deployment.generate("../webapp/WEB-INF/" + "jboss-deployment-structure.xml");
      var jboss : Template = TemplateFactory.load("config/jboss-web.egl"); 

@@ -15,10 +15,13 @@ import Example.Pet;
 import Example.RaceDog;
 import Example.Son;
 
+import Example.util.ExampleValidator;
+
 import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
@@ -150,6 +153,15 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 
 		// Initialize created meta-data
 		theExamplePackage.initializePackageContents();
+
+		// Register package validator
+		EValidator.Registry.INSTANCE.put
+			(theExamplePackage, 
+			 new EValidator.Descriptor() {
+				 public EValidator getEValidator() {
+					 return ExampleValidator.INSTANCE;
+				 }
+			 });
 
 		// Mark meta-data to indicate it can't be changed
 		theExamplePackage.freeze();
@@ -492,43 +504,61 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 		createResource(eNS_URI);
 
 		// Create annotations
-		// Ecore
+		// http://www.eclipse.org/emf/2002/Ecore
 		createEcoreAnnotations();
-		// OCL
+		// http://www.eclipse.org/emf/2002/Ecore/OCL
 		createOCLAnnotations();
+		// http:emf-rest.com/ROLE
+		createROLEAnnotations();
 	}
 
 	/**
-	 * Initializes the annotations for <b>Ecore</b>.
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "Ecore";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore";	
 		addAnnotation
 		  (memberEClass, 
 		   source, 
 		   new String[] {
 			 "constraints", "validFirstName validLastName",
-			 "roles", "admin, user"
+			 "roles", "admin"
 		   });
 	}
 
 	/**
-	 * Initializes the annotations for <b>OCL</b>.
+	 * Initializes the annotations for <b>http://www.eclipse.org/emf/2002/Ecore/OCL</b>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	protected void createOCLAnnotations() {
-		String source = "OCL";	
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
 		addAnnotation
 		  (memberEClass, 
 		   source, 
 		   new String[] {
-			 "validFirstName", "not self.firstName.oclIsUndefined() and self.firstName <>\'\'",
-			 "validLastName", "not self.lastName.oclIsUndefined() and self.lastName <>\'\'"
+			 "validFirstName", "not self.firstName.oclIsUndefined() and self.firstName <> \'\'",
+			 "validLastName", "not self.lastName.oclIsUndefined() and self.lastName <> \'\'"
+		   });
+	}
+
+	/**
+	 * Initializes the annotations for <b>http:emf-rest.com/ROLE</b>.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void createROLEAnnotations() {
+		String source = "http:emf-rest.com/ROLE";	
+		addAnnotation
+		  (memberEClass, 
+		   source, 
+		   new String[] {
+			 "admin", "rw-"
 		   });
 	}
 
