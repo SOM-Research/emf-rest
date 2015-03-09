@@ -2,7 +2,7 @@
 <feature
       id="com.rest.emf"
       label="EMF-REST"
-      version="1.0.3.qualifier"
+      version="2.0.3.qualifier"
       provider-name="EMF-REST">
 
    <description url="http://www.emf-rest.com">
@@ -223,7 +223,7 @@ litigation.
    </license>
 
    <url>
-      <update label="EMF Update Site" url="http://www.emf-rest.com/update"/>
+      <update label="EMF Update Site" url="http://www.emf-rest.com/update/v2"/>
    </url>
 
    <requires>
