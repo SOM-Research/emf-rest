@@ -14,7 +14,6 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 
-import Example.ExamplePackage;
 
 
 
@@ -36,7 +35,8 @@ public final class ModelEnvironmentManager {
 			 synchronized(ModelEnvironmentManager.class){
 				 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 				 Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
-				 EPackage.Registry.INSTANCE.put("http://emf-rest.com/Example",Example.ExamplePackage.eINSTANCE);	
+				EPackage.Registry.INSTANCE.put("http://emf-rest.com/Example",Example.ExamplePackage.eINSTANCE);
+		
 				 ResourceSet rst = new ResourceSetImpl();
 			instance.resource = null;
 			instance.resource = rst.getResource(URI.createURI(new File(modelsPath + File.separator+"Simpsons.xmi").toURI().toString()),true);

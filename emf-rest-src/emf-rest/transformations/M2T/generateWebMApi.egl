@@ -13,6 +13,7 @@
 
 [%
     var mEnvironment : Template = TemplateFactory.load("config/modelEnvironmentManager.egl");
+     mEnvironment.populate("pkg",EPackage.allInstances().get(0));
     mEnvironment.generate("webmapi/service/configuration/ModelEnvironmentManager.java");
 
     var appConfiguration : Template = TemplateFactory.load("config/applicationConfiguration.egl");
