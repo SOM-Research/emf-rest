@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+
+<ui:composition template="/templates/uiLayout.xhtml">
+	
+	 <ui:define name="centerContent">
+
+
+		
+			<p:breadCrumb>  
+    <p:menuitem value="" url="#" />  
+    <p:menuitem value="Admin" url="#" />  
+    <p:menuitem value="Parameters" url="/admin/parameters.xhtml" />  
+    </p:breadCrumb>
+		
+
+
+			
+				<p:growl id="msgs3" showDetail="false" />
+	
+		<h:panelGrid id="param" columns="2" cellspacing="5">
+
+			<h:panelGroup>
+				<h:outputLabel for="validation" value="validation " />
+			
+
+			</h:panelGroup>
+			<p:inputSwitch  id="validation" value="#{paramController.validation.flag}" required="true"
+				
+				/>
+
+
+
+			
+
+
+
+		
+		
+
+			<f:facet name="footer">
+			
+				<p:outputPanel layout="block" style="text-align:right">
+					<p:commandButton value="Save"
+						update="msgs3  param" process="param"
+						actionListener="#{paramController.save}"
+						icon="ui-icon-check" />
+
+
+					
+
+
+				</p:outputPanel>
+			</f:facet>
+
+
+
+		</h:panelGrid>
+
+
+					
+						
+
+						
+					
+
+
+
+				
+					
+					
+
+
+
+
+
+
+				
+		
+	</ui:define>
+	<ui:define name="useCases">
+	
+  <p:carousel id="tabsCarousel" rows="1" itemStyle="width:180px;height:300px" effect="easeInStrong">  
+    
+  
+   
+</p:carousel>  
+                      
+      
+    </ui:define>
+     <ui:define name="dialog">
+       
+
+       
+    </ui:define>
+     
+</ui:composition>
+
+</html>
+

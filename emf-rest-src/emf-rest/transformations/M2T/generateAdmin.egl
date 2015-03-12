@@ -1,0 +1,70 @@
+[*******************************************************************************
+ * Copyright (c) 2013 EMF-REST.
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * 
+ * Contributors:
+ *     Camilo Alvarez (cadorca@gmail.com)  - initial API and implementation
+ ******************************************************************************]
+[% import "lib/StringUtils.eol"; %]
+[% import "lib/EcoreUtils.eol"; %]
+
+[%
+	var user : Template = TemplateFactory.load("model/user.egl");
+    user.generate("webmapi/model/User.java");
+    
+    	var role : Template = TemplateFactory.load("model/role.egl");
+   role.generate("webmapi/model/Role.java");
+   
+    	var userRole : Template = TemplateFactory.load("model/userRole.egl");
+    userRole.generate("webmapi/model/UserRole.java");
+    var resourceLoader : Template = TemplateFactory.load("config/resourceLoader.egl");
+    resourceLoader.populate("pkg",EPackage.allInstances().get(0));
+    resourceLoader.generate("webmapi/util/ResourceLoader.java");
+    
+	var resourceSaver : Template = TemplateFactory.load("config/resourceSaver.egl"); 
+    resourceSaver.generate("webmapi/util/" + "ResourceSaver.java");
+    
+    var appConfiguration : Template = TemplateFactory.load("config/jaxRsActivator.egl");
+    appConfiguration.generate("webmapi/rest/JaxRsActivator.java");
+    
+
+    var webService : Template = TemplateFactory.load("webservice/webService.egl"); 
+    webService.generate("webmapi/rest/" + "WebApiService.java");
+
+    var idResolver : Template = TemplateFactory.load("config/identificationResolver.egl"); 
+    idResolver.generate("webmapi/service/" + "IdentificationResolver.java");
+    
+     var bean : Template = TemplateFactory.load("config/beans.egl"); 
+    bean.generate("../webapp/WEB-INF/" + "beans.xml");
+    
+    var bean : Template = TemplateFactory.load("config/ds.egl"); 
+    bean.generate("../webapp/WEB-INF/" + pluginName+"-ds.xml");
+    
+ 	var faces : Template = TemplateFactory.load("config/faces-config.egl"); 
+    faces.generate("../webapp/WEB-INF/" + "faces-config.xml");
+    
+    	var web : Template = TemplateFactory.load("config/web.egl"); 
+   web.generate("../webapp/WEB-INF/" + "web.xml");
+   var sql : Template = TemplateFactory.load("config/import.egl"); 
+   sql.generate("../resources/" + "import.sql");
+    
+   var deployment : Template = TemplateFactory.load("config/jboss-deployment-structure.egl"); 
+    deployment.generate("../webapp/WEB-INF/" + "jboss-deployment-structure.xml");
+     var jboss : Template = TemplateFactory.load("config/jboss-web.egl"); 
+    jboss.generate("../webapp/WEB-INF/" + "jboss-web.xml");
+    var persistence : Template = TemplateFactory.load("config/persistence.egl"); 
+    persistence.generate("../resources/META-INF/" + "persistence.xml");
+  var wrapper : Template = TemplateFactory.load("config/wrapper.egl"); 
+    wrapper.generate("webmapi/service/configuration/"+"Wrapper.java");
+for (c in EClass.all.clone()) {
+   -- var f = new Native("org.eclipse.epsilon.egl.formatter.language.JavaFormatter");
+   var classService : Template = TemplateFactory.load("webservice/resource/resource.egl"); 
+   classService.populate("clazz", c);  
+   classService.generate(c.packagePath()+"service/" + c.rscClassName() + ".java"); 
+   
+  
+  }
+%]

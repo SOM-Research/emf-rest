@@ -1,0 +1,23 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<ui:composition>
+	<script type="text/javascript">
+            function onAddUserComplete(xhr, status, args) {
+                if(args.validationFailed) {
+					$(PrimeFaces.escapeClientId('dialogForm:addUserDlg')).effect("shake", { times:1 }, 100);
+				} else {
+					addUserDialog.hide();
+				}
+            }
+            </script>
+	
+
+	
+
+
+</ui:composition>
+</html>

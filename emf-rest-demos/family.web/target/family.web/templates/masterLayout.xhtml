@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:pe="http://primefaces.org/ui/extensions">
+<f:view contentType="text/html" locale="en">
+    <pe:head title="EMF-REST - Admin view">
+        <f:facet name="first">
+            <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+            <meta http-equiv="pragma" content="no-cache"/>
+            <meta http-equiv="cache-control" content="no-cache"/>
+            <meta http-equiv="expires" content="0"/>
+        </f:facet>
+    </pe:head>
+    <h:body>
+     <p:layout fullPage="true" >
+     
+<!--        <pe:layout id="fpl" widgetVar="fullLayoutWidget" >-->
+            <p:layoutUnit id="north" position="north" size="100" >
+                <h:form id="headerForm" prependId="false">
+                    <ui:insert name="header"/>
+                </h:form>
+          </p:layoutUnit>
+           
+                <ui:insert name="center"/>
+                <p:layoutUnit position="south" isize="28" id="bottom" >
+                    <ui:insert name="footer"/>
+                </p:layoutUnit>
+ 
+<!--        </pe:layout>-->
+</p:layout>
+
+    <ui:insert name="dialogs"/>
+    </h:body>
+</f:view>
+</html>

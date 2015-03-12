@@ -12,14 +12,70 @@
 [% import "lib/EcoreUtils.eol"; %]
 
 [%
+
+var paramController : Template = TemplateFactory.load("admin/ParamController.egl");
+    paramController.generate("webmapi/admin/ParamController.java");
+    
+    var roleController : Template = TemplateFactory.load("admin/RoleController.egl");
+    roleController.generate("webmapi/admin/RoleController.java");
+    
+    var roleConverter : Template = TemplateFactory.load("admin/RoleConverter.egl");
+    roleConverter.generate("webmapi/admin/RoleConverter.java");
+    
+    var roleListProducer : Template = TemplateFactory.load("admin/RoleListProducer.egl");
+    roleListProducer.generate("webmapi/admin/RoleListProducer.java");
+    
+    var roleRepository : Template = TemplateFactory.load("admin/RoleRepository.egl");
+    roleRepository.generate("webmapi/admin/RoleRepository.java");
+    
+    var userListProducer : Template = TemplateFactory.load("admin/UserListProducer.egl");
+    userListProducer.generate("webmapi/admin/UserListProducer.java");
+    var userRegistration : Template = TemplateFactory.load("admin/UserRegistration.egl");
+    userRegistration.generate("webmapi/admin/UserRegistration.java");
+    var userRepository : Template = TemplateFactory.load("admin/UserRepository.egl");
+   userRepository.generate("webmapi/admin/UserRepository.java");
+    var userRoleRepository : Template = TemplateFactory.load("admin/UserRoleRepository.egl");
+    userRoleRepository.generate("webmapi/admin/UserRoleRepository.java");
+    
+    var roleController : Template = TemplateFactory.load("admin/RoleController.egl");
+    roleController.generate("webmapi/admin/RoleController.java");
+    
+    
+    var resources : Template = TemplateFactory.load("admin/Resources.egl");
+    resources.generate("webmapi/util/Resources.java");
+    
+    	var users : Template = TemplateFactory.load("jsf/users.egl"); 
+   users.generate("../webapp/admin/" + "users.xhtml");
+    var parameters : Template = TemplateFactory.load("jsf/parameters.egl"); 
+   parameters.generate("../webapp/admin/" + "parameters.xhtml");
+    
+     var header : Template = TemplateFactory.load("jsf/header.egl"); 
+   header.generate("../webapp/sections" + "header.xhtml");
+    
+    
+     var footer : Template = TemplateFactory.load("jsf/footer.egl"); 
+   footer.generate("../webapp/sections/" + "footer.xhtml");
+   
+    var masterLayout : Template = TemplateFactory.load("jsf/masterLayout.egl"); 
+   masterLayout.generate("../webapp/templates/" + "masterLayout.xhtml");
+    
+     
+    var uiLayout : Template = TemplateFactory.load("jsf/uiLayout.egl"); 
+   uiLayout.generate("../webapp/templates/" + "uiLayout.xhtml");
+    
+    
 	var user : Template = TemplateFactory.load("model/user.egl");
     user.generate("webmapi/model/User.java");
     
     	var role : Template = TemplateFactory.load("model/role.egl");
    role.generate("webmapi/model/Role.java");
    
+   
     	var userRole : Template = TemplateFactory.load("model/userRole.egl");
     userRole.generate("webmapi/model/UserRole.java");
+    
+    	var parameter : Template = TemplateFactory.load("model/Parameter.egl");
+    parameter.generate("webmapi/model/Parameter.java");
     var resourceLoader : Template = TemplateFactory.load("config/resourceLoader.egl");
     resourceLoader.populate("pkg",EPackage.allInstances().get(0));
     resourceLoader.generate("webmapi/util/ResourceLoader.java");

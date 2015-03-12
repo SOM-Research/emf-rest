@@ -1,0 +1,80 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<ui:composition template="/templates/masterLayout.xhtml">
+	<h:outputStylesheet library="css" name="default.css"/>
+	<ui:define name="header">
+		<ui:include src="/sections/system/header.xhtml" />
+	</ui:define>
+	<ui:define name="center">
+		<p:layoutUnit position="center" minWidth="200" minHeight="60"
+			resizable="false" closable="false">
+			<h:form id="mainForm" prependId="false">
+			
+				<ui:insert name="centerContent" />
+			</h:form>
+		</p:layoutUnit>
+
+		<p:layoutUnit position="west" size="225" minSize="180" maxSize="300"
+			resizable="true" closable="false" collapsible="true"
+			header="Menu">
+
+			<p:panelMenu>
+
+<p:submenu label="Configuration" >
+
+			
+					<p:menuitem icon="ui-icon-circle-triangle-e"
+						value="Users"
+						
+						 ajax="false"
+						url="/admin/users.xhtml" />
+						
+						
+					<p:menuitem icon="ui-icon-circle-triangle-e"
+						value="Parameters"
+						
+						 ajax="false"
+						url="/admin/parameters.xhtml" />
+						
+				
+
+</p:submenu>
+
+			</p:panelMenu>
+
+
+
+
+		</p:layoutUnit>
+
+	</ui:define>
+	<ui:define name="footer">
+	
+		<ui:include src="/sections/system/footer.xhtml" />
+	</ui:define>
+
+	<ui:define name="dialogs">
+
+		<p:confirmDialog header="idle"
+			message="expired" resizable="false" closable="false"
+			widgetVar="idleDialog" width="300">
+			<p:outputPanel layout="block" style="text-align:center">
+				<p:button outcome="/admin/users.xhtml" value="OK">
+
+
+				</p:button>
+			</p:outputPanel>
+		</p:confirmDialog>
+
+		<h:form id="dialogForm">
+
+			<ui:insert name="dialog" />
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+</html>

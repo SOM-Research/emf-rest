@@ -13,14 +13,18 @@
 	<description>EMF-REST generated API</description>
 
 	<url>http://emf-rest.com</url>
-
 	<repositories>
-		<repository>
+	<repository>
 			<id>lgp-runtime</id>
 			<url>http://repo.openehealth.org/maven2/releases/releases/</url>
 		</repository>
 
-
+		<repository>
+			<id>prime-repo</id>
+			<name>PrimeFaces Maven Repository</name>
+			<url>http://repository.primefaces.org</url>
+			<layout>default</layout>
+		</repository>
 	</repositories>
 	<properties>
 
@@ -123,11 +127,16 @@
 			<artifactId>primefaces</artifactId>
 			<version>5.1</version>
 		</dependency>
-<dependency>
-        <groupId>org.primefaces.extensions</groupId>
-        <artifactId>primefaces-extensions</artifactId>
-        <version>3.0.0</version>
-    </dependency>
+		<dependency>
+			<groupId>org.primefaces.themes</groupId>
+			<artifactId>all-themes</artifactId>
+			<version>1.0.10</version>
+		</dependency>
+		<dependency>
+			<groupId>org.primefaces.extensions</groupId>
+			<artifactId>primefaces-extensions</artifactId>
+			<version>3.0.0</version>
+		</dependency>
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-jpamodelgen</artifactId>
@@ -263,7 +272,7 @@
 					<groupId>org.eclipse.emf</groupId>
 					<artifactId>ecore</artifactId>
 				</exclusion>
-				</exclusions>
+			</exclusions>
 		</dependency>
 
 

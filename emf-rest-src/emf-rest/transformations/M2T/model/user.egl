@@ -2,12 +2,18 @@
 package webmapi.model;
 
 import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @SuppressWarnings("serial")
 @Entity
@@ -16,7 +22,7 @@ public class User implements Serializable {
 
     
 	@Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
 	@Column(unique= true)
@@ -25,6 +31,8 @@ public class User implements Serializable {
     private String password;
     
 
+    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<UserRole> userRoles;
 
 	public String getUsername() {
 		return username;
