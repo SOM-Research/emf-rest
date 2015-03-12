@@ -22,20 +22,23 @@ public class ParamController {
     @Inject
     private EntityManager em;
 
+   @Inject
+   private ParameterRepository parameterRepository;
    
 private Parameter validation;
 
 
+
 	@PostConstruct
     public void init() {
-        validation = em.find(Parameter.class, new Long(1));
+        validation = parameterRepository.findById(new Long(1));
     }
 
     
 
     public String save() throws Exception {
         try {
-            em.persist(validation);
+        	parameterRepository.save(validation);
             FacesMessage m = new FacesMessage(FacesMessage.SEVERITY_INFO, "Saved", "update successful");
             facesContext.addMessage(null, m);
             init();

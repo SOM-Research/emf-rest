@@ -3,34 +3,34 @@
     xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/family.web/src" modelPluginID="family.web" modelName="Example"
     importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false">
   <foreignModel>Example.ecore</foreignModel>
-  <genPackages prefix="Example" disposableProviderFactory="true" ecorePackage="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#/">
-    <genClasses ecoreClass="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Family">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Family/parents"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Family/sons"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Family/daughters"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Family/pets"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Family/address"/>
+  <genPackages prefix="Example" disposableProviderFactory="true" ecorePackage="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#/">
+    <genClasses ecoreClass="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Family">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Family/parents"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Family/sons"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Family/daughters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Family/pets"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Family/address"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Member">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Member/firstName"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Member/lastName"/>
+    <genClasses image="false" ecoreClass="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Member">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Member/firstName"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Member/lastName"/>
     </genClasses>
-    <genClasses ecoreClass="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Parent">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Parent/family"/>
+    <genClasses ecoreClass="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Parent">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Parent/family"/>
     </genClasses>
-    <genClasses ecoreClass="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Son">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Son/family"/>
+    <genClasses ecoreClass="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Son">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Son/family"/>
     </genClasses>
-    <genClasses ecoreClass="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Daughter">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Daughter/family"/>
+    <genClasses ecoreClass="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Daughter">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Daughter/family"/>
     </genClasses>
-    <genClasses image="false" ecoreClass="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Pet">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Pet/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Pet/breed"/>
+    <genClasses image="false" ecoreClass="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Pet">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Pet/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Pet/breed"/>
     </genClasses>
-    <genClasses ecoreClass="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Dog"/>
-    <genClasses ecoreClass="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//Cat"/>
-    <genClasses ecoreClass="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//RaceDog"/>
-    <genClasses ecoreClass="Example.ecore?id=7bf3d56c-2de7-460d-b199-f350085111f4#//HuntingDog"/>
+    <genClasses ecoreClass="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Dog"/>
+    <genClasses ecoreClass="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//Cat"/>
+    <genClasses ecoreClass="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//RaceDog"/>
+    <genClasses ecoreClass="Example.ecore?id=8164554b-6ca4-464f-b89c-98b84797eb3b#//HuntingDog"/>
   </genPackages>
 </genmodel:GenModel>

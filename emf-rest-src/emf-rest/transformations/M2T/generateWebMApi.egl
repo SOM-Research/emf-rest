@@ -42,7 +42,8 @@ var paramController : Template = TemplateFactory.load("admin/ParamController.egl
     var userController : Template = TemplateFactory.load("admin/UserController.egl");
     userController.generate("webmapi/admin/UserController.java");
     
-    
+    var parameterRepository: Template = TemplateFactory.load("admin/ParameterRepository.egl");
+    parameterRepository.generate("webmapi/admin/ParameterRepository.java");
     
     var resources : Template = TemplateFactory.load("admin/Resources.egl");
     resources.generate("webmapi/util/Resources.java");
