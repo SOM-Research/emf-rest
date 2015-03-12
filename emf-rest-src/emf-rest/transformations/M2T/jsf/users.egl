@@ -139,7 +139,7 @@
             </script>
 
 	<p:growl id="msgs3" showDetail="false" />
-	<p:dialog header="Add a new user" widgetVar="addUserDialog"
+	<p:dialog header="Add user" widgetVar="addUserDialog"
 		showEffect="fade" hideEffect="fade" modal="true"
 		id="addIUserDlg" closable="false">
 

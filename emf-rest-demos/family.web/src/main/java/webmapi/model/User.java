@@ -31,9 +31,6 @@ public class User implements Serializable {
     private String password;
     
 
-    @OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<UserRole> userRoles;
-
 	public String getUsername() {
 		return username;
 	}

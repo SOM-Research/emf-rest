@@ -39,6 +39,9 @@ var paramController : Template = TemplateFactory.load("admin/ParamController.egl
     
     var roleController : Template = TemplateFactory.load("admin/RoleController.egl");
     roleController.generate("webmapi/admin/RoleController.java");
+    var userController : Template = TemplateFactory.load("admin/UserController.egl");
+    userController.generate("webmapi/admin/UserController.java");
+    
     
     
     var resources : Template = TemplateFactory.load("admin/Resources.egl");
@@ -50,11 +53,11 @@ var paramController : Template = TemplateFactory.load("admin/ParamController.egl
    parameters.generate("../webapp/admin/" + "parameters.xhtml");
     
      var header : Template = TemplateFactory.load("jsf/header.egl"); 
-   header.generate("../webapp/sections" + "header.xhtml");
+   header.generate("../webapp/sections/system/" + "header.xhtml");
     
     
      var footer : Template = TemplateFactory.load("jsf/footer.egl"); 
-   footer.generate("../webapp/sections/" + "footer.xhtml");
+   footer.generate("../webapp/sections/system/" + "footer.xhtml");
    
     var masterLayout : Template = TemplateFactory.load("jsf/masterLayout.egl"); 
    masterLayout.generate("../webapp/templates/" + "masterLayout.xhtml");
