@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/com.rest.emf_2.0.3.201503120454.jar" id="com.rest.emf" version="2.0.3.201503120454">
+   <feature url="features/com.rest.emf_2.0.3.201503121127.jar" id="com.rest.emf" version="2.0.3.201503121127">
       <category name="EMF REST"/>
    </feature>
    <category-def name="EMF REST" label="EMF REST"/>
