@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class MemberProxy {
 
 
-	String url;
+	String uri;
 }
 
 

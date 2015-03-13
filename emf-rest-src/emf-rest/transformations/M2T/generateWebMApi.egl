@@ -111,6 +111,9 @@ var paramController : Template = TemplateFactory.load("admin/ParamController.egl
    var sql : Template = TemplateFactory.load("config/import.egl"); 
    sql.generate("../resources/" + "import.sql");
     
+      var config: Template = TemplateFactory.load("config/config.egl"); 
+   config.generate("../resources/" + "config.properties");
+    
    var deployment : Template = TemplateFactory.load("config/jboss-deployment-structure.egl"); 
     deployment.generate("../webapp/WEB-INF/" + "jboss-deployment-structure.xml");
      var jboss : Template = TemplateFactory.load("config/jboss-web.egl"); 

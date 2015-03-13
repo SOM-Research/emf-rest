@@ -9,7 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class FamilyProxy {
 
 
-	String url;
+	String uri;
 }
 
 

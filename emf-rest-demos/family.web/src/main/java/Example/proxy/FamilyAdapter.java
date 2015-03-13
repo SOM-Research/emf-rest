@@ -10,7 +10,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-
+import java.io.InputStream;
+import java.io.IOException;
+import java.util.Properties;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.ecore.EObject;
@@ -20,7 +22,19 @@ import webmapi.service.IdentificationResolver;
 import Example.ExampleFactory;
 
 public class FamilyAdapter extends XmlAdapter<FamilyProxy,Family>{
-
+static 	Properties config ;
+	static	{
+		config = new Properties();
+		InputStream inputStream = ProxyFactory.class.getClassLoader().getResourceAsStream("config.properties");
+		if(inputStream != null)
+			try {
+				config.load(inputStream);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+		}
 	@Override
 	public FamilyProxy marshal(Family arg0) throws Exception {
 		
@@ -30,7 +44,7 @@ public class FamilyAdapter extends XmlAdapter<FamilyProxy,Family>{
 		
 		
 		
-		d.url = getURL(arg0);
+		d.uri = getURL(arg0);
 		return d;
 	}
 
@@ -55,10 +69,16 @@ public class FamilyAdapter extends XmlAdapter<FamilyProxy,Family>{
 		List<Entry<EObject, EReference>> list = new ArrayList<Map.Entry<EObject,EReference>>(set);
 		Collections.reverse(list);
 		StringBuffer sb = new StringBuffer();
+		sb.append(config.getProperty("url"));
+		sb.append("/rest/");
+		sb.append(config.getProperty("model"));
+		sb.append("/");
+		sb.append(config.getProperty("instance"));
+		sb.append("/");
 		for(Entry<EObject,EReference> entry : list){
 			sb.append(entry.getValue().getName()+"/");
 		}
-		sb.append(id);
+		if(!list.isEmpty())sb.append(id);
 		return sb.toString();
 	}	
 }

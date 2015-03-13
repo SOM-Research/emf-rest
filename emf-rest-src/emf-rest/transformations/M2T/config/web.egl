@@ -69,7 +69,6 @@
 		</web-resource-collection>
 		<auth-constraint>
 			<role-name>admin</role-name>
-			<role-name>user</role-name>
 		</auth-constraint>
 	</security-constraint>
 	
