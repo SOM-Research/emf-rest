@@ -16,7 +16,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Member" abstract="true">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
       <details key="constraints" value="validFirstName validLastName"/>
-      <details key="roles" value="admin"/>
+      <details key="roles" value="admin user"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
       <details key="validFirstName" value="not self.firstName.oclIsUndefined() and self.firstName &lt;> ''"/>
@@ -43,6 +43,9 @@
         lowerBound="1" eType="#//Family" eOpposite="#//Family/daughters"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Pet" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="roles" value="other admin"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="breed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>

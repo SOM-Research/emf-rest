@@ -10,10 +10,11 @@ import webmapi.service.configuration.Wrapper;
 import webmapi.util.ResourceSaver;
 import org.jboss.resteasy.annotations.providers.jaxb.json.Mapped;
 import org.jboss.resteasy.annotations.providers.jaxb.json.XmlNsMap;
+import javax.annotation.security.RolesAllowed;
+import javax.annotation.security.PermitAll;
 
 import Example.*;
 import Example.impl.*;
-
 public class PetResource{
 
     private Example.Pet instance;
@@ -25,6 +26,11 @@ public class PetResource{
     	resourceSaver = r;
     }
 
+	
+@RolesAllowed({
+"other",
+"admin",
+})
 	@GET
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	@Mapped(namespaceMap = {
@@ -33,7 +39,11 @@ public class PetResource{
 	public Example.Pet getPet(){
 		return instance;
 	}
-		
+
+@RolesAllowed({
+"other",
+"admin",
+})
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	@Mapped(namespaceMap = {
@@ -42,6 +52,11 @@ public class PetResource{
 	public void updatePet(PetImpl object){
 		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
 	}
+	
+@RolesAllowed({
+"other",
+"admin",
+})
 	@DELETE
 	@Mapped(namespaceMap = {
 	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")

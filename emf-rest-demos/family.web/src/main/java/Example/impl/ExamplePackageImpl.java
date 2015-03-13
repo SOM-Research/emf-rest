@@ -525,7 +525,13 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 		   source, 
 		   new String[] {
 			 "constraints", "validFirstName validLastName",
-			 "roles", "admin"
+			 "roles", "admin user"
+		   });	
+		addAnnotation
+		  (petEClass, 
+		   source, 
+		   new String[] {
+			 "roles", "other admin"
 		   });
 	}
 

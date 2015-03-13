@@ -19,7 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see Example.ExamplePackage#getMember()
  * @model abstract="true"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='validFirstName validLastName' roles='admin'"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='validFirstName validLastName' roles='admin user'"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL validFirstName='not self.firstName.oclIsUndefined() and self.firstName <> \'\'' validLastName='not self.lastName.oclIsUndefined() and self.lastName <> \'\''"
  *        annotation="http:emf-rest.com/ROLE admin='rw-'"
 

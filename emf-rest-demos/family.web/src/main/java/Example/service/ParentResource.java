@@ -10,10 +10,11 @@ import webmapi.service.configuration.Wrapper;
 import webmapi.util.ResourceSaver;
 import org.jboss.resteasy.annotations.providers.jaxb.json.Mapped;
 import org.jboss.resteasy.annotations.providers.jaxb.json.XmlNsMap;
+import javax.annotation.security.RolesAllowed;
+import javax.annotation.security.PermitAll;
 
 import Example.*;
 import Example.impl.*;
-
 public class ParentResource{
 
     private Example.Parent instance;
@@ -25,7 +26,8 @@ public class ParentResource{
     	resourceSaver = r;
     }
 
-	@GET
+	
+ @PermitAll	@GET
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	@Mapped(namespaceMap = {
 	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
@@ -33,8 +35,8 @@ public class ParentResource{
 	public Example.Parent getParent(){
 		return instance;
 	}
-		
-	@PUT
+
+ @PermitAll	@PUT
 	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	@Mapped(namespaceMap = {
 	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
@@ -42,7 +44,8 @@ public class ParentResource{
 	public void updateParent(ParentImpl object){
 		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
 	}
-	@DELETE
+	
+ @PermitAll	@DELETE
 	@Mapped(namespaceMap = {
 	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
 	})

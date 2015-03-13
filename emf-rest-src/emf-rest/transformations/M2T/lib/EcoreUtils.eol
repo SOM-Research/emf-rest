@@ -26,6 +26,40 @@ operation EReference getType() : String{
     
   }
   
+   @cached
+  operation EClass getRoleAnnotations() : List{
+  var list : List = new List;
+  for(ea in self.getEAnnotations){
+  	if(ea.getSource().endsWith("Ecore")){
+  		for(key in ea.getDetails().keySet()){
+  		if(key.equals("roles")){
+  			var val : String =  ea.getDetails().get(key);
+  			var roles = val.trim().split(" ");
+  			for(role in roles)
+  			list.add(role);
+  			}
+  		}	  	
+  	}
+  }
+   return list;
+    
+  }
+  
+   @cached
+  operation  getAllRoles() : List{
+  var list : List = new List;
+  for(eClass in EClass.all.clone() ){
+  	var roles = eClass.getRoleAnnotations();
+  	for(role in roles)
+  		if(not list.contains(role)){
+  			list.add(role);
+  		}
+  	}
+  	   return list;
+  }
+  
+
+  
   @cached
   operation EClass isStandAlone() : Boolean{
    for(ref in EReference.all){

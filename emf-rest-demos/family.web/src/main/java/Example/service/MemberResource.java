@@ -10,10 +10,11 @@ import webmapi.service.configuration.Wrapper;
 import webmapi.util.ResourceSaver;
 import org.jboss.resteasy.annotations.providers.jaxb.json.Mapped;
 import org.jboss.resteasy.annotations.providers.jaxb.json.XmlNsMap;
+import javax.annotation.security.RolesAllowed;
+import javax.annotation.security.PermitAll;
 
 import Example.*;
 import Example.impl.*;
-
 public class MemberResource{
 
     private Example.Member instance;
@@ -25,6 +26,11 @@ public class MemberResource{
     	resourceSaver = r;
     }
 
+	
+@RolesAllowed({
+"admin",
+"user",
+})
 	@GET
 	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	@Mapped(namespaceMap = {
@@ -33,7 +39,11 @@ public class MemberResource{
 	public Example.Member getMember(){
 		return instance;
 	}
-		
+
+@RolesAllowed({
+"admin",
+"user",
+})
 	@PUT
 	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
 	@Mapped(namespaceMap = {
@@ -42,6 +52,11 @@ public class MemberResource{
 	public void updateMember(MemberImpl object){
 		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
 	}
+	
+@RolesAllowed({
+"admin",
+"user",
+})
 	@DELETE
 	@Mapped(namespaceMap = {
 	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")

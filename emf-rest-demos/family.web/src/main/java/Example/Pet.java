@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see Example.ExamplePackage#getPet()
  * @model abstract="true"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore roles='other admin'"
 
  * @generated
  */

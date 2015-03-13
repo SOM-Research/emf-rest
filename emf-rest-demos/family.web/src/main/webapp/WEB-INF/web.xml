@@ -45,6 +45,10 @@
     <param-name>primefaces.THEME</param-name>  
     <param-value>bootstrap</param-value>  
 </context-param>  
+<context-param>
+      <param-name>resteasy.role.based.security</param-name>
+      <param-value>true</param-value>
+   </context-param>
 	<!-- Protected Areas -->
 	<security-constraint>
 		<web-resource-collection>
@@ -90,6 +94,9 @@
 	</security-role>
 	<security-role>
 		<role-name>user</role-name>
+	</security-role>
+	<security-role>
+		<role-name>other</role-name>
 	</security-role>
 
 
