@@ -34,8 +34,7 @@ Require-Bundle: org.eclipse.emf.codegen.ecore,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.ui,
  org.eclipse.emf.ecore.xmi,
- org.eclipse.ui.console,
- org.eclipse.ocl
+ org.eclipse.ui.console
 Bundle-ActivationPolicy: lazy
 Import-Package: org.eclipse.ui.handlers
 Export-Package: com.emf.rest
