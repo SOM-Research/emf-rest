@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EMF-REST Installation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-theme.css" rel="stylesheet" media="screen">
+    <link href="css/style.css" rel="stylesheet" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Roboto:700' rel='stylesheet' type='text/css'>
+  </head>
+  <!-- The embedded style is for fixing spaces with navbar -->
+  <body style="padding-top: 50px;">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-1.10.2.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <img style="float: left; padding-right: 10px; padding-top: 10px;" src="img/emf-restIconSmall.png"/>
+        <a class="navbar-brand" href="index.html">EMF-REST</a>
+      </div>
+      <div class="collapse navbar-collapse navbar-ex1-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="example.html">Example</a></li>
+          <li><a href="documentation.html">Documentation</a></li>
+          <li><a href="contact.html">Contact us</a></li>
+        </ul>
+        <ul class="pull-right">
+          <li>
+            <button type="button" class="btn btn-default btn-sm" onClick="location.href='https://github.com/emf-rest/emf-rest'">
+              <img src="img/glyphicons_social_21_github.png"> View on Github
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+    </nav>
+
+    <div class="container installation">
+    <div class="row">
+    <div class="col-md-9">
+
+    <h3>Installation</h3>
+    
+    <h4>How to install the Eclipse Plugin</h4>
+    
+ <div id="my-tab-content" class="tab-content">
+<div class="active tab-pane" id="ver2-tab">
+    <p>To install/use EMF-REST, you have to use the J2EE distribution of Eclipse, that can be found <a href="http://www.eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar">here</a>. EMF-REST has been tested with the Eclipse Luna version. </p>
+
+    <p>Once your Eclipse is ready, you can proceed with the installation of EMF-REST by</p>
+
+    <ol>
+    <li>Clicking on <em>Help / Install New Software...</em></li>
+    <li>Adding a new Software Site. Click on <em>Add...</em> and fill in the form as indicated: <br>(the update site is <a href="http://emf-rest.com/update/v2/site.xml">http://emf-rest.com/update/v2/site.xml</a>)</li>
+    <img class="img-round" src="img/site2.png" alt="Adding a new Software Site">
+    <li>You should now see the EMF-REST plugin in the list of components to be installed. Select it and click on <em>Next</em>:</li>
+    <img class="img-round" src="img/install2.png" alt="Installing the EMF-REST plugin">
+    <li>You can now quickly accept the rest of the steps (license, etc...) and reboot Eclipse</li>
+    </ol>
+
+    <h4>How to use the plugin</h4>
+
+    <p>To generate a REST API for your models simply: </p>
+
+    <ol>
+    <li>Create a new <em>Maven project</em></li>
+    <li>Copy your EMF model under the folder <em>/src/main/resources</em>(the file with extension <code>.ecore</code>, like the <a href="http://emf-rest.com/Example.ecore">Family model</a>) there </li>
+    <li>By default the generated code will search for your data (i.e., the instances of the classes in the model, like the <a href="http://emf-rest.com/Simpsons.xmi">Simpsons family</a>) in the <code>/src/main/resources</code> folder.
+    <li>Right click on the model and select the menu entrance <em>EMF-REST / Generate All</em></li>
+    <li>The generator will create all the needed infrastructure (REST API, JSON serializers and JavaScript library) in your project folder</li>
+    <li>Add EMF-REST security domain to JBOSS configuration file (standalone.xml) in order to provide a database to manage users (change <em>family.webDS</em> with your generated datasource)</i>
+    <xmp>
+   	<security-domain name="emf-rest">
+          <authentication>
+                 <login-module code="Database" flag="required">
+                       <module-option name="dsJndiName" value="java:jboss/datasources/family.webDS"/>
+                        <module-option name="principalsQuery" value="select password from users where username=?"/>
+                        <module-option name="rolesQuery" value="select rolename, 'Roles' from users u,user_role ur,
+                        roles r  where u.id = ur.user_id and r.id = ur.role_id and  u.username=?"/>
+                  </login-module>
+              </authentication>
+      </security-domain>
+       </xmp>
+     <li>Edit the .properties file (resources/config.properties) according to the URL of your application</li>
+    <li>Congrats! The project is ready to be deployed into your application server (JBOSS)</li>
+    </ol>
+
+    <h4>Running your generated application</h4>
+
+    <p>The fastest way to try your new application is to deploy it using an application server compatible with Eclipse. These steps will describe how to do it:
+
+    <ol>
+      <li>Download <a href="http://jbossas.jboss.org/downloads">JBOSS EAP 6.3.0</a> and unzip in your hard disk</li>
+      <li>Run the application by clicking on <em>Run As / Run On Server</em></li>
+      <li>Define a new server of type <em>JBOSS eap</em> and configure the runtime environment to use the previously downloaded server</li>
+      <li>Click on finish, the application will be deployed in your local server</li>
+    </ol>
+
+	To deploy in a production server you can create a .war file using maven command (mvn clean package).
+
+	If you'd like to use as well the JavaScript library created during the generation, you'll find it in <code>/WebContent/scripts</code> .
+</div>
+
+</div>
+ <script>
+        $(function () {
+            $('.tabs').tabs()
+        })
+        </script>
+    </div>
+
+
+    </div>
+    </div>
+  
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-43282342-2', 'emf-rest.com');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+  </body>
+</html>
