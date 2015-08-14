@@ -39,4 +39,4 @@ Absolutely!. EMF-REST is licensed under the EPL license so feel free to contribu
 How can I follow the latest news about EMF-REST?
 ------------------------------------------------
 
-All major announcements will be posted in the [modeling-languages.com](http://modeling-languages.com "modeling-languages.com") portal. You can also follow our [@softmodeling](https://twitter.com/softmodeling "@softmodeling") and [@jlcanovas](https://twitter.com/jlcanovas "@jlcanovas") twitter accounts for updates (or just [email us](mailto:emf-rest@modeling-languages.com "email us") whenever you want). And check also the [AtlanMod](http://www.emn.fr/z-info/atlanmod/index.php/Main_Page "AtlanMod") team page. 
+All major announcements will be posted in the [modeling-languages.com](http://modeling-languages.com "modeling-languages.com") portal. You can also follow our [@softmodeling](https://twitter.com/softmodeling "@softmodeling") and [@jlcanovas](https://twitter.com/jlcanovas "@jlcanovas") twitter accounts for updates (or just [email us](mailto:emf-rest@modeling-languages.com "email us") whenever you want). 
