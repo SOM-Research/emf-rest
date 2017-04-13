@@ -16,6 +16,7 @@ import java.io.InputStream;
 import java.net.URL;
 
 import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.common.util.URI;
@@ -185,6 +186,11 @@ public class PluginResourceLocator implements IResourceLocator {
 	public File getTarget(M2TTransformation resource) {
 		File f = new File(resource.getTarget());
 		if (!f.exists()) {
+			try {
+				project.refreshLocal(org.eclipse.core.resources.IResource.DEPTH_INFINITE, null);
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
 			return new File(project.findMember(resource.getTarget()).getLocation().toOSString());
 		} else {
 			return f;

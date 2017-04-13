@@ -28,8 +28,6 @@ import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
-import Example.impl.[%=root%]Impl;
-
 @XmlRootElement(name ="list")
 @XmlSeeAlso([%=root%]Impl.class)
 public class Wrapper<T> {

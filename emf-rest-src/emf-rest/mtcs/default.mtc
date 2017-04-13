@@ -24,7 +24,6 @@
   <outputModels modelAlias="GenModel" model="//@models.1" transformation="//@transformations.3"/>
   <configurations>
     <variables name="output" defaultValue="src-gen/" description=""/>
-    <variables name="ecore_file" defaultValue="Example.ecore" description=""/>
     <variables name="genModel_file" defaultValue="Families.genmodel"/>
     <variables name="output_js" defaultValue="src/main/webapp/scripts"/>
     <variables name="pluginName" defaultValue="emf-rest"/>
