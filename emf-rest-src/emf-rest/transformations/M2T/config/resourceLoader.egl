@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 
-
 import javax.annotation.PostConstruct;
 import javax.ejb.Startup;
 import javax.inject.Singleton;
@@ -21,6 +20,8 @@ import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.jboss.vfs.VirtualFile;
 
+import [%=pkg.name%].[%=(pkg.name).toUpperFirst()%]Package;
+
 @Startup
 @Singleton
 public class ResourceLoader {
@@ -30,11 +31,9 @@ public class ResourceLoader {
 	@PostConstruct
 	public void applicationStartup() {
 
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-				"ecore", new EcoreResourceFactoryImpl());
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-				"xmi", new XMIResourceFactoryImpl());
-		EPackage.Registry.INSTANCE.put("[%=pkg.nsURI%]",[%=pkg.name%].[%=(pkg.name).toUpperFirst()%]Package.eINSTANCE);
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
+		EPackage.Registry.INSTANCE.put("[%=pkg.nsURI%]", [%=(pkg.name).toUpperFirst()%]Package.eINSTANCE);
 		ResourceSet rst = new ResourceSetImpl();
 		try {
 			ClassLoader classLoader = getClass().getClassLoader();

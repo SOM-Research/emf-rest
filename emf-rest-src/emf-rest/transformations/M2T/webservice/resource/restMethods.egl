@@ -11,98 +11,86 @@
  
 [%
 function EReference generateGenericResource() {
- 
-  if(self.isMany()){%]
-   [* GENERATE A METHOD TO SELECT BY ID *]
-   @Path("[%=self.name%]/{id}")
-   public [%=self.eType.qualifiedRscClassName()%] getResource[%=self.name.toUpperFirst()%]
-   (@PathParam("id") String id)
-   {
-      return new [%=self.eType.qualifiedRscClassName()%](webmapi.service.IdentificationResolver.find[%=self.eType.name%]ById(instance.get[%=self.name.toUpperFirst()%](),id),id,resourceSaver);   
-   }  
-  [%} else{%]
-   [* GENERATE A METHOD TO SELECT REFERENCES OF SINGLE VALUE *]  
-   @Path("[%=self.name%]")
-   public [%=self.eType.qualifiedRscClassName()%] getResource[%=self.name.toUpperFirst()%]()
-   {
-      return new [%=self.eType.qualifiedRscClassName()%](instance.get[%=self.name.toUpperFirst()%](),id,resourceSaver);
-   }    
-  [%}}
+  if(self.isMany()){
+    %][* GENERATE A METHOD TO SELECT BY ID *]
+	@Path("[%=self.name%]/{id}")
+	public [%=self.eType.rscClassName()%] getResource[%=self.name.toUpperFirst()
+    %](@PathParam("id") String id) {
+		return new [%=self.eType.rscClassName()%](webmapi.service.IdentificationResolver.find[%=self.eType.name%]ById(instance.get[%=self.name.toUpperFirst()%](), id), id, resourceSaver);
+	}
 
-%]
+[%  } else {
+    %][* GENERATE A METHOD TO SELECT REFERENCES OF SINGLE VALUE *]
+	@Path("[%=self.name%]")
+	public [%=self.eType.rscClassName()%] getResource[%=self.name.toUpperFirst()%]() {
+		return new [%=self.eType.rscClassName()%](instance.get[%=self.name.toUpperFirst()%](), id, resourceSaver);
+	}
+
+[%
+  }
+}%]
 
 [%
 function EReference generateGET() {
   if(self.isMany()){%]
    [* GENERATE A METHOD TO GET THE LIST OR AN ELEMENT BY THEIR POSITION IN THE LIST*]
-   @GET
-   @Path("[%=self.name%]")
-   @Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-   public Response get[%=self.name.toUpperFirst()%](@QueryParam("index") @DefaultValue("-1") int index)
-   {
-  
-        if (index == -1) {
+	// REF [%=self.name %]
+
+	@GET
+	@Path("[%=self.name%]")
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	public Response get[%=self.name.toUpperFirst()%](@QueryParam("index") @DefaultValue("-1") int index) {
+		if (index == -1) {
 			Wrapper<[%=self.getType()%]> entity = new Wrapper<[%=self.getType()%]>(instance.[%=self.getMethod()%]());
 			return Response.ok(entity).build();
-		} else {
+		} else
 			return Response.ok(instance.[%=self.getMethod()%]().get(index)).build();
+	}
 
-		}  
-   }
-  [%} 
+[%  }
 }
 %]
 
 [%
 function EReference generateDELETE() {
-
 }
 %]
 
 [%
 function EReference generatePOST() {
   if(self.containment and self.isMany()){%]
-   @POST
-   @Path("[%=self.name%]")
-   [%--%]
-   public void [% if(self.isMany()) {out.print("add");} else {out.print("set");}%][%=self.name.toUpperFirst()%]
-   ([%=self.getType()%]Impl obj
-    [%
-    if(self.ordered){
-    %]
-      , @DefaultValue("-1") @QueryParam("index") int index
-    [%
-    }
-    %]
-   )
-   {
-     instance.get[%=self.name.toUpperFirst()%]().add(obj);
-     resourceSaver.save();
-   }
-  [%}
+	@POST
+	@Path("[%=self.name%]")
+    [%--%]
+	public void [%
+    if(self.isMany()) {
+      out.print("add");
+    } else {
+      out.print("set");
+    }%][%=self.name.toUpperFirst()%]([%=self.getType()%]Impl [%=self.name.toLowerFirst()%][%
+    if(self.ordered){ %], @DefaultValue("0") @QueryParam("index") int index[%
+    }%]) {
+		instance.get[%=self.name.toUpperFirst()%]().add(index, [%=self.name.toLowerFirst()%]);
+		resourceSaver.save();
+	}
+
+[%  }
 }
 %]
 
 [%
 function EReference generatePUT() {
   if(self.isMany()){%]
-   @POST
-   @Path("[%=self.name%]")
-   @Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-   [%--%]
-   public void set[%=self.name.toUpperFirst()%]
-   ([%=self.eType.name%] obj
-    [%
+	@POST
+	@Path("[%=self.name%]")
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+    [%--%]
+	public void set[%=self.name.toUpperFirst()%]([%=self.eType.name%] [%=self.name.toLowerFirst()%][%
     if(self.ordered){
-    %]
-      , @DefaultValue("-1") @QueryParam("index") int index
-    [%
-    }
-    %]
-   )
-   {
-     resourceSaver.put("[%=self.qualifiedName()%]", EcoreUtil.getIdentification(instance), object);
-   }
-  [%}
-}
-%]
+    %], @DefaultValue("-1") @QueryParam("index") int index[%
+    }%]) {
+		resourceSaver.put("[%=self.qualifiedName()%]", EcoreUtil.getIdentification(instance), [%=self.name.toLowerFirst()%]);
+	}
+
+[%  }
+}%]

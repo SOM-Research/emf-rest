@@ -10,18 +10,20 @@
  *     Hamza Ed-douibi (hamza.ed-douibi@inria.fr)  - Add support for boolean identifiers
  ******************************************************************************]
 [% import "../lib/EcoreUtils.eol"; %]
-
 package webmapi.service;
+
+import java.util.List;
+import java.util.Objects;
 
 [%for (cls in EClass.all) { %]
 import [%=cls.qualifiedName()%];
 [%}%]
 
 public class IdentificationResolver {
-	
+
 	[%for (cls in EClass.all) { %]
-	public static String get[%=cls.name%]Id([%=cls.qualifiedName()%] obj){
-		if(obj==null)
+	public static String get[%=cls.name%]Id([%=cls.name()%] [%=cls.name.toLowerFirst()%]) {
+		if ([%=cls.name.toLowerFirst()%] == null)
 			return null;
 	    [% var getById = false;
 	    var getByName = false;
@@ -57,24 +59,23 @@ public class IdentificationResolver {
 	    [%if (idFieldName == null){%]
 		return "";
 	    [%}else if(dataType == "EBoolean"){%]
-		return String.valueOf(obj.is[%=idFieldName%]());
+		return String.valueOf([%=cls.name.toLowerFirst()%].is[%=idFieldName%]());
 	    [%}else if(dataType == "ELong"){%]
-		return String.valueOf(obj.get[%=idFieldName%]());
+		return String.valueOf([%=cls.name.toLowerFirst()%].get[%=idFieldName%]());
 	    [%}else {%]
-		return obj.get[%=idFieldName%]().toString();
+		return [%=cls.name.toLowerFirst()%].get[%=idFieldName%]().toString();
 		[%}%]
 	}
-	[%}%]
 
+	[%}%]
 	[%for (cls in EClass.all) { %]
- 	public static [%=cls.qualifiedName()%] find[%=cls.name%]ById(java.util.List<[%=cls.qualifiedName()%]> list, String id){
- 	    for ([%=cls.name%] obji : list) {
-			if (get[%=cls.name%]Id(obji).equals(id))
-				return obji;
+	public static [%=cls.name%] find[%=cls.name%]ById(List<[%=cls.name%]> [%=cls.name.toLowerFirst()%]s, String id) {
+		for ([%=cls.name%] [%=cls.name.toLowerFirst()%] : [%=cls.name.toLowerFirst()%]s) {
+			if (Objects.equals(get[%=cls.name%]Id([%=cls.name.toLowerFirst()%]), id))
+				return [%=cls.name.toLowerFirst()%];
 		}
 		return null;
 	}
-	
+
 	[%}%]
-	
 }
