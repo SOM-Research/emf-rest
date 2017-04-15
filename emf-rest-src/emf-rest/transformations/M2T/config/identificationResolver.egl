@@ -20,16 +20,16 @@ import [%=cls.qualifiedName()%];
 public class IdentificationResolver {
 	
 	[%for (cls in EClass.all) { %]
- 	public static String get[%=cls.name%]Id([%=cls.qualifiedName()%] obj){
- 	    if(obj==null)
- 	     return null;
- 	    [% var getById = false;
- 	    var getByName = false;
- 	    var getByUnique = false;
- 	    var uniqueAttName = "";
- 	    var idFieldName = null;
- 	    var dataType ;
- 	    for (attr in cls.eAllAttributes) {
+	public static String get[%=cls.name%]Id([%=cls.qualifiedName()%] obj){
+		if(obj==null)
+			return null;
+	    [% var getById = false;
+	    var getByName = false;
+	    var getByUnique = false;
+	    var uniqueAttName = "";
+	    var idFieldName = null;
+	    var dataType ;
+	    for (attr in cls.eAllAttributes) {
 		   if (attr.name=='id'){ 
 		      getById = true;
 		      dataType = attr.getTypeName();
@@ -53,19 +53,19 @@ public class IdentificationResolver {
 	    } else if(cls.eAllAttributes.size()>0){
 	     idFieldName = cls.eAllAttributes.first().name.toUpperFirst(); 
 	      dataType = cls.eAllAttributes.first().getTypeName();
-	    }
-	    
-	    %] 
+	    }%]
 	    [%if (idFieldName == null){%]
-	    return "";
+		return "";
 	    [%}else if(dataType == "EBoolean"){%]
-	    return String.valueOf(obj.is[%=idFieldName%]());
+		return String.valueOf(obj.is[%=idFieldName%]());
+	    [%}else if(dataType == "ELong"){%]
+		return String.valueOf(obj.get[%=idFieldName%]());
 	    [%}else {%]
 		return obj.get[%=idFieldName%]().toString();
 		[%}%]
- 	}
+	}
 	[%}%]
-	
+
 	[%for (cls in EClass.all) { %]
  	public static [%=cls.qualifiedName()%] find[%=cls.name%]ById(java.util.List<[%=cls.qualifiedName()%]> list, String id){
  	    for ([%=cls.name%] obji : list) {

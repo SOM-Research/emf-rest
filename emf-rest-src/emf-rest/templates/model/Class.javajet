@@ -100,18 +100,18 @@ package <%=genPackage.getClassPackageName()%>;
 <%}%>
 <%if (isImplementation) {%>
 @<%=genModel.getImportedName("javax.xml.bind.annotation.XmlRootElement")%>
-	<%if (!genClass.isAbstract()) {%>(name="<%=genClass.getName().toLowerCase()%>")<%}%>
+<%if (!genClass.isAbstract()) {%>(name="<%=genClass.getName().toLowerCase()%>")<%}%>
 @<%=genModel.getImportedName("javax.xml.bind.annotation.XmlSeeAlso")%>({
 	<%=genModel.getImportedName(genPackage.getInterfacePackageName().concat(".proxy.").concat(genClass.getInterfaceName()).concat("Proxy"))%>.class,
 	<%=genModel.getImportedName("webmapi.service.configuration.Wrapper")%>.class
-	<%for( GenFeature gf : genClass.getAllGenFeatures()){
-		 if(gf.isReferenceType()){ %>
-			 ,<%=gf.getTypeGenClass().getClassName()%>.class
-	<%  	
-			}
-		}
-	%>
-<%for(GenClass gc : subClasses){%>,<%=gc.getClassName()%>.class<%}%>
+<%for( GenFeature gf : genClass.getAllGenFeatures()) {
+ if(gf.isReferenceType()){ %>,
+	<%=gf.getTypeGenClass().getClassName()%>.class
+ <%}%>
+<%}%>
+<%for(GenClass gc : subClasses){%>,
+	<%=gc.getClassName()%>.class
+ <%}%>
 })
 public<%if (genClass.isAbstract()) {%> abstract<%}%> class <%=genClass.getClassName()%><%=genClass.getTypeParameters().trim()%><%=genClass.getClassExtends()%><%=genClass.getClassImplements()%>
 <%} else {%>
