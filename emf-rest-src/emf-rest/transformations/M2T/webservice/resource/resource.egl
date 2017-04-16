@@ -13,7 +13,6 @@
  import "../../lib/StringUtils.eol"; 
  import "../../lib/EcoreUtils.eol"; 
 %]
-
 [% var pckName = clazz.package(); %]
 package [%=pckName%].service;
 
@@ -31,84 +30,74 @@ import javax.annotation.security.PermitAll;
 
 import [%=pckName%].*;
 import [%=pckName%].impl.*;
+
 [%var roles = clazz.getRoleAnnotations();%]
-public class [%=clazz.rscClassName()%]{
+[%var clsName = clazz.name;%]
+[%var clsVarName = clazz.name.toLowerFirst();%]
+[%var roles = clazz.getRoleAnnotations();%]
+public class [%=clazz.rscClassName()%] {
 
-    private [%=clazz.qualifiedName()%] instance;
-    private String id;
+	private [%=clsName%] instance;
+	private String id;
 	private ResourceSaver resourceSaver;
-    public [%=clazz.rscClassName()%]([%=clazz.qualifiedName()%] instance,String id, ResourceSaver r){
-    	this.instance = instance;
-    	this.id = id;
-    	resourceSaver = r;
-    }
 
-	
+	public [%=clazz.rscClassName()%]([%=clsName%] instance, String id, ResourceSaver r) {
+		this.instance = instance;
+		this.id = id;
+		resourceSaver = r;
+	}
+
 [%if (not roles.isEmpty()){%]
-@RolesAllowed({
+	@RolesAllowed({
 [%for(role in roles){%]
 "[%=role%]",
 [%}%]
 })
-[%}else {%]
- @PermitAll[%}%]
+[%} else {%]
+	@PermitAll
+[%}%]
 	@GET
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public [%=clazz.qualifiedName()%] get[%=clazz.name%](){
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public [%=clsName%] get[%=clsName%]() {
 		return instance;
 	}
 
 [%if (not roles.isEmpty()){%]
-@RolesAllowed({
+	@RolesAllowed({
 [%for(role in roles){%]
-"[%=role%]",
+"[%=role%]",[%}%]})
+[%} else {%]
+	@PermitAll
 [%}%]
-})
-[%}else {%]
- @PermitAll[%}%]
 	@PUT
-	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public void update[%=clazz.name%]([%=clazz.name%]Impl object){
-		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public void update[%=clsName%]([%=clsName%]Impl [%=clsVarName%]) {
+		resourceSaver.put(EcoreUtil.getIdentification(instance), [%=clsVarName%]);
 	}
-	
-	[%if (not roles.isEmpty()){%]
-@RolesAllowed({
+
+[%if (not roles.isEmpty()){%]
+	@RolesAllowed({
 [%for(role in roles){%]
-"[%=role%]",
+"[%=role%]",[%}%]})
+[%} else {%]
+	@PermitAll
 [%}%]
-})
-[%}else {%]
- @PermitAll[%}%]
 	@DELETE
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public void delete[%=clazz.name%]() {
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public void delete[%=clsName%]() {
 		resourceSaver.remove(EcoreUtil.getIdentification(instance));
 	}
 
-	[%
-		for(ref in clazz.eAllReferences){ %]
-		 [% ref.generateGenericResource(); %]
-		
-		 // REF [%=ref.name %]
-		
-		 [% ref.generateGET(); %]
-		 [% ref.generatePOST(); %]
-		 [% ref.generateDELETE(); %]
-		
-		 [* Look for all the concrete classses of the abstract reference *]
-		[%}%]
-	
+[% for(ref in clazz.eAllReferences){ %]
+  [% ref.generateGenericResource(); %]
+  [% ref.generateGET(); %]
+  [% ref.generatePOST(); %]
+  [% ref.generateDELETE(); %]
+  [* Look for all the concrete classes of the abstract reference *]
+[%}%]
 }
-
 [%
 function EClass idParam() : String{
  return self.name+"Id";

@@ -12,9 +12,11 @@
 [% import "../lib/EcoreUtils.eol"; %]
 [%
 var root = null;
-for (class in EClass.all) {
-	if(class.isStandAlone()) {
-		root = class.name();
+var class;
+for (cls in EClass.all) {
+	if(cls.isStandAlone()) {
+		root = cls.name();
+		class = cls;
 		break;
 	}
 }
@@ -28,7 +30,7 @@ import javax.xml.bind.annotation.XmlAnyElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlSeeAlso;
 
-import Example.impl.[%=root%]Impl;
+import [%=class.eContainer().name%].impl.[%=root%]Impl;
 
 @XmlRootElement(name ="list")
 @XmlSeeAlso([%=root%]Impl.class)

@@ -1,4 +1,4 @@
-<%@ jet package="org.eclipse.emf.codegen.ecore.templates.model" imports="java.util.* org.eclipse.emf.codegen.ecore.genmodel.*  org.eclipse.emf.codegen.util.CodeGenUtil" class="Class"%>
+<%@ jet package="org.eclipse.emf.codegen.ecore.templates.model" imports="java.util.* org.eclipse.emf.codegen.ecore.genmodel.* org.eclipse.emf.codegen.util.CodeGenUtil" class="Class"%>
 <%
 /**
  * Copyright (c) 2002-2011 IBM Corporation and others.
@@ -22,7 +22,6 @@
 <%final String negativeOperationOffsetCorrection = genClass.hasOffsetCorrection() ? " - EOPERATION_OFFSET_CORRECTION" : "";%>
 <%final String positiveOperationOffsetCorrection = genClass.hasOffsetCorrection() ? " + EOPERATION_OFFSET_CORRECTION" : "";%>
 <%final List<GenClass> subClasses = new ArrayList<GenClass>();
-		
 		for( GenPackage genP : genModel.getAllGenPackagesWithClassifiers())
 			for(GenClass gc :genP.getGenClasses())
 				if(gc.getAllBaseGenClasses().contains(genClass))
@@ -54,6 +53,7 @@ package <%=genPackage.getClassPackageName()%>;
 <%if (!genClass.getGenFeatures().isEmpty()) {%>
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
 <%for (GenFeature genFeature : genClass.getGenFeatures()) {%>
   <%if (!genFeature.isSuppressedGetVisibility()) {%>
@@ -61,7 +61,6 @@ package <%=genPackage.getClassPackageName()%>;
   <%}%>
 <%}%>
  * </ul>
- * </p>
 <%}%>
  *
 <%if (!genModel.isSuppressEMFMetaData()) {%>
@@ -74,7 +73,6 @@ package <%=genPackage.getClassPackageName()%>;
 <%}} if (first) {%>
  * @model
 <%}}%>
-
 <%if (genClass.needsRootExtendsInterfaceExtendsTag()) {%>
  * @extends <%=genModel.getImportedName(genModel.getRootExtendsInterface())%>
 <%}%>
@@ -86,33 +84,36 @@ package <%=genPackage.getClassPackageName()%>;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b><%=genClass.getFormattedName()%></b></em>'.
  * <!-- end-user-doc -->
- * <p>
 <%if (!genClass.getImplementedGenFeatures().isEmpty()) {%>
+ * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
 <%for (GenFeature genFeature : genClass.getImplementedGenFeatures()) {%>
  *   <li>{@link <%=genClass.getQualifiedClassName()%>#<%=genFeature.getGetAccessor()%> <em><%=genFeature.getFormattedName()%></em>}</li>
 <%}%>
  * </ul>
 <%}%>
- * </p>
  *
  * @generated
  */
 <%}%>
 <%if (isImplementation) {%>
-@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlRootElement")%> <%if (!genClass.isAbstract()) {%>(name="<%=genClass.getName().toLowerCase()%>")<%}%>
-@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlSeeAlso")%> ({<%=genModel.getImportedName(genPackage.getInterfacePackageName().concat(".proxy.").concat(genClass.getInterfaceName()).concat("Proxy"))%>.class,
-<%=genModel.getImportedName("webmapi.service.configuration.Wrapper")%>.class
-<%for( GenFeature gf : genClass.getAllGenFeatures()){
-	 if(gf.isReferenceType()){ %>
-		 ,<%=gf.getTypeGenClass().getClassName()%>.class	
-  <%  	
-    	}
-    }
-%><%for(GenClass gc : subClasses){%>,<%=gc.getClassName()%>.class<%}%>
+@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlRootElement")%>
+<%if (!genClass.isAbstract()) {%>(name="<%=genClass.getName().toLowerCase()%>")<%}%>
+@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlSeeAlso")%>({
+	<%=genModel.getImportedName(genPackage.getInterfacePackageName().concat(".proxy.").concat(genClass.getInterfaceName()).concat("Proxy"))%>.class,
+	<%=genModel.getImportedName("webmapi.service.configuration.Wrapper")%>.class
+<%for( GenFeature gf : genClass.getAllGenFeatures()) {
+ if(gf.isReferenceType()){ %>,
+	<%=gf.getTypeGenClass().getClassName()%>.class
+ <%}%>
+<%}%>
+<%for(GenClass gc : subClasses){%>,
+	<%=gc.getClassName()%>.class
+ <%}%>
 })
-public <%if (genClass.isAbstract()) {%> abstract<%}%> class <%=genClass.getClassName()%><%=genClass.getTypeParameters().trim()%><%=genClass.getClassExtends()%><%=genClass.getClassImplements()%>
+public<%if (genClass.isAbstract()) {%> abstract<%}%> class <%=genClass.getClassName()%><%=genClass.getTypeParameters().trim()%><%=genClass.getClassExtends()%><%=genClass.getClassImplements()%>
 <%} else {%>
 public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters().trim()%><%=genClass.getInterfaceExtends()%>
 <%}%>
@@ -132,7 +133,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	 
 	public static final <%=genModel.getImportedName("java.lang.String")%> mofDriverNumber = "<%=genModel.getDriverNumber()%>";<%=genModel.getNonNLS()%>
 
 <%}%>
@@ -484,7 +484,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
   <%if (genModel.isArrayAccessors() && genFeature.isListType() && !genFeature.isFeatureMapType() && !genFeature.isMapType()) { String arrayElementType = genFeature.getArrayItemType(genClass);%>
 	/**
 	 * <!-- begin-user-doc -->
-	 * XX1
 	 * <!-- end-user-doc -->
 	 * This is specialized for the more specific element type known in this context.
 	 * @generated
@@ -512,7 +511,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
   <%if (genFeature.isGet() && genFeature.isListType()) {%>
 	/**
 	 * <!-- begin-user-doc -->
-	 * XX2
 	 * <!-- end-user-doc -->
 	 * This is specialized for the more specific element type known in this context.
 	 * @generated
@@ -526,7 +524,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
     <%if (classExtendsAllGenFeatures.contains(genFeature)) {%>
 	@Override
     <%}%>
-
 	public <%=genFeature.getImportedType(genClass)%> <%=genFeature.getGetAccessor()%><%if (genClass.hasCollidingGetAccessorOperation(genFeature)) {%>_<%}%>()
 	{
 <%@ include file="Class/getGenFeature.pre.insert.javajetinc" fail="silent" %>
@@ -548,7 +545,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
   <%if (!genModel.isReflectiveDelegation() && genFeature.isBasicSet()) {%>
 	/**
 	 * <!-- begin-user-doc -->
-	 * XX3
 	 * <!-- end-user-doc -->
 	 * This is specialized for the more specific type known in this context.
 	 * @generated
@@ -568,7 +564,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
   <%if (genFeature.isSet() && !(!genModel.isReflectiveDelegation() && genFeature.isBasicSet())) {%>
 	/**
 	 * <!-- begin-user-doc -->
-	 * XX4
 	 * <!-- end-user-doc -->
 	 * This is specialized for the more specific type known in this context.
 	 * @generated
@@ -596,7 +591,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
   <%if (genModel.isArrayAccessors() && genFeature.isListType() && !genFeature.isFeatureMapType() && !genFeature.isMapType()) { String arrayElementType = genFeature.getArrayItemType(genClass);%>
 	/**
 	 * <!-- begin-user-doc -->
-	 * XX5
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -623,7 +617,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
     <%}%>
 	/**
 	 * <!-- begin-user-doc -->
-	 * XX6
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -639,7 +632,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
     <%}%>
 	/**
 	 * <!-- begin-user-doc -->
-	 * XX7
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -659,7 +651,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
     <%}%>
 	/**
 	 * <!-- begin-user-doc -->
-	 * XX8
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -675,7 +666,6 @@ public interface <%=genClass.getInterfaceName()%><%=genClass.getTypeParameters()
     <%}%>
 	/**
 	 * <!-- begin-user-doc -->
-	 * XX9
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -769,7 +759,6 @@ if (index != -1) { head = typeName.substring(0, index); tail = typeName.substrin
 <%} else {%>
 	/**
 	 * <!-- begin-user-doc -->
-	 * XX 10
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -781,24 +770,30 @@ if (index != -1) { head = typeName.substring(0, index); tail = typeName.substrin
 	<%=genFeature.getImportedType(genClass)%> <%=genFeature.getGetAccessor()%>();
 
 <%} else {%>
-/**
-	 * <!-- begin-user-doc -->
-	 * Z1
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 <% if (genFeature.isReferenceType() && genFeature.isListType() ){ %> 
-	@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlElementWrapper")%>(name =  "<%=genFeature.getName()%>")<%}%>	<% if (genFeature.isReferenceType() ){ %> 
+	@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlElementWrapper")%>(name = "<%=genFeature.getName()%>")
+<%}%>
+<% if (genFeature.isReferenceType() ){ %> 
 	@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlAnyElement")%>(lax=true)
-	@<%=genModel.getImportedName("javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter")%>(value=<%=genModel.getImportedName(genPackage.getInterfacePackageName().concat(".proxy.").concat(genFeature.getTypeGenClass().getInterfaceName()).concat("Adapter"))%>.class)<%} else {%>	
-	@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlElement")%> <%}%>
-	<% if (genFeature.isReferenceType()  ){ if(!subClasses.isEmpty()){ %>
-	@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlElementRefs")%>({<%java.util.Iterator<GenClass> it = subClasses.iterator(); while( it.hasNext()) { GenClass gc = it.next();%>@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlElementRef")%> (name = "<%=gc.getInterfaceName()%>", type = <%=gc.getClassName()%>.class )<%  if( it.hasNext()) { %>,<%}%><%}%><% String curlyClose = "}";%><%=curlyClose%>)<%}}%><%if (genModel.useGenerics() && ((genFeature.isContainer() || genFeature.isResolveProxies()) && !genFeature.isListType() && !(genModel.isReflectiveDelegation() && genModel.isDynamicDelegation()) && genFeature.isUncheckedCast(genClass) || genFeature.isListType() && !genFeature.isFeatureMapType() && (genModel.isReflectiveDelegation() || genModel.isVirtualDelegation() || genModel.isDynamicDelegation()) || genFeature.isListDataType() && genFeature.hasDelegateFeature() || genFeature.isListType() && genFeature.hasSettingDelegate())) {%>
-	@SuppressWarnings("unchecked")<%}%>
+	@<%=genModel.getImportedName("javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter")%>(value=<%=genModel.getImportedName(genPackage.getInterfacePackageName().concat(".proxy.").concat(genFeature.getTypeGenClass().getInterfaceName()).concat("Adapter"))%>.class)
+<%} else {%>	
+	@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlElement")%>
+<%}%>
+<% if (genFeature.isReferenceType()){ if(!subClasses.isEmpty()){ %>
+	@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlElementRefs")%>({
+	<%java.util.Iterator<GenClass> it = subClasses.iterator(); while( it.hasNext()) { GenClass gc = it.next();%>
+		@<%=genModel.getImportedName("javax.xml.bind.annotation.XmlElementRef")%>(name = "<%=gc.getInterfaceName()%>", type = <%=gc.getClassName()%>.class )
+		<% if( it.hasNext()) { %>, <%}%>
+	<%}%>
+	<% String curlyClose = "}";%><%=curlyClose%>)
+<%}}%>
+  <%if (genModel.useGenerics() && ((genFeature.isContainer() || genFeature.isResolveProxies()) && !genFeature.isListType() && genFeature.isUncheckedCast(genClass) || genFeature.isListType() && !genFeature.isFeatureMapType() && (genModel.isReflectiveDelegation() || genModel.isVirtualDelegation() || (genModel.isDynamicDelegation() && !genFeature.isVolatile())) || genFeature.isListDataType() && genFeature.hasDelegateFeature() || genFeature.isListType() && genFeature.hasSettingDelegate())) {%>
+	@SuppressWarnings("unchecked")
+  <%}%>
 	public <%=genFeature.getImportedType(genClass)%> <%=genFeature.getGetAccessor()%><%if (genClass.hasCollidingGetAccessorOperation(genFeature)) {%>_<%}%>()
 	{
 <%@ include file="Class/getGenFeature.pre.insert.javajetinc" fail="silent" %>
-    <%if (genModel.isDynamicDelegation()) {%>
+    <%if (genModel.isDynamicDelegation() && !genFeature.isVolatile()) {%>
 		return <%if (!isJDK50 && genFeature.isPrimitiveType()) {%>(<%}%>(<%=genFeature.getObjectType(genClass)%>)eDynamicGet(<%=genClass.getQualifiedFeatureID(genFeature)%><%if (genClass.hasStaticFeatures()){%> - ESTATIC_FEATURE_COUNT<%}%>, <%=genFeature.getQualifiedFeatureAccessor()%>, true, <%=!genFeature.isEffectiveSuppressEMFTypes()%>)<%if (!isJDK50 && genFeature.isPrimitiveType()) {%>).<%=genFeature.getPrimitiveValueFunction()%>()<%}%>;
     <%} else if (genModel.isReflectiveDelegation()) {%>
       <%if (genFeature.hasGetterBody()) {%>
@@ -932,11 +927,10 @@ if (index != -1) { head = typeName.substring(0, index); tail = typeName.substrin
 <%if (isJDK50) { //Class/basicGetGenFeature.annotations.insert.javajetinc%>
 <%@ include file="Class/basicGetGenFeature.annotations.insert.javajetinc" fail="silent" %>
 <%}%>
-//xx1
 	public <%=genFeature.getImportedType(genClass)%> basicGet<%=genFeature.getAccessorName()%>()
 	{
 <%@ include file="Class/basicGetGenFeature.pre.insert.javajetinc" fail="silent" %>
-    <%if (genModel.isDynamicDelegation()) {%>
+    <%if (genModel.isDynamicDelegation() && !genFeature.isVolatile()) {%>
 		return (<%=genFeature.getImportedType(genClass)%>)eDynamicGet(<%=genClass.getQualifiedFeatureID(genFeature)%><%if (genClass.hasStaticFeatures()){%> - ESTATIC_FEATURE_COUNT<%}%>, <%=genFeature.getQualifiedFeatureAccessor()%>, false, <%=!genFeature.isEffectiveSuppressEMFTypes()%>);
     <%} else if (genFeature.hasSettingDelegate()) {%>
 		return <%if (!isJDK50 && genFeature.isPrimitiveType()) {%>(<%}%>(<%=genFeature.getObjectType(genClass)%>)<%=genFeature.getUpperName()%>__ESETTING_DELEGATE.dynamicGet(this, null, 0, false, false)<%if (!isJDK50 && genFeature.isPrimitiveType()) {%>).<%=genFeature.getPrimitiveValueFunction()%>()<%}%>;
@@ -1096,7 +1090,7 @@ if (index != -1) { head = typeName.substring(0, index); tail = typeName.substrin
 	public void set<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingSetAccessorOperation(genFeature)) {%>_<%}%>(<%=genFeature.getImportedType(genClass)%> <%=setAccessorOperation == null ? "new" + genFeature.getCapName() : setAccessorOperation.getGenParameters().get(0).getName()%>)
 	{
 <%@ include file="Class/setGenFeature.pre.insert.javajetinc" fail="silent" %>
-    <%if (genModel.isDynamicDelegation()) {%>
+    <%if (genModel.isDynamicDelegation() && !genFeature.isVolatile()) {%>
 		eDynamicSet(<%=genClass.getQualifiedFeatureID(genFeature)%><%if (genClass.hasStaticFeatures()){%> - ESTATIC_FEATURE_COUNT<%}%>, <%=genFeature.getQualifiedFeatureAccessor()%>, <%if (!isJDK50 && genFeature.isPrimitiveType()) {%>new <%=genFeature.getObjectType(genClass)%>(<%}%>new<%=genFeature.getCapName()%><%if (!isJDK50 && genFeature.isPrimitiveType()) {%>)<%}%>);
     <%} else if (genModel.isReflectiveDelegation()) {%>
 		eSet(<%=genFeature.getQualifiedFeatureAccessor()%>, <%if (!isJDK50 && genFeature.isPrimitiveType()) {%>new <%=genFeature.getObjectType(genClass)%>(<%}%>new<%=genFeature.getCapName()%><%if (!isJDK50 && genFeature.isPrimitiveType()) {%>)<%}%>);
@@ -1351,7 +1345,7 @@ if (index != -1) { head = typeName.substring(0, index); tail = typeName.substrin
 <%} else {%>
 	public void unset<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingUnsetAccessorOperation(genFeature)) {%>_<%}%>()
 	{
-    <%if (genModel.isDynamicDelegation()) {%>
+    <%if (genModel.isDynamicDelegation() && !genFeature.isVolatile()) {%>
 		eDynamicUnset(<%=genClass.getQualifiedFeatureID(genFeature)%><%if (genClass.hasStaticFeatures()){%> - ESTATIC_FEATURE_COUNT<%}%>, <%=genFeature.getQualifiedFeatureAccessor()%>);
     <%} else if (genModel.isReflectiveDelegation()) {%>
 		eUnset(<%=genFeature.getQualifiedFeatureAccessor()%>);
@@ -1518,7 +1512,7 @@ if (index != -1) { head = typeName.substring(0, index); tail = typeName.substrin
 <%} else {%>
 	public boolean isSet<%=genFeature.getAccessorName()%><%if (genClass.hasCollidingIsSetAccessorOperation(genFeature)) {%>_<%}%>()
 	{
-    <%if (genModel.isDynamicDelegation()) {%>
+    <%if (genModel.isDynamicDelegation() && !genFeature.isVolatile()) {%>
 		return eDynamicIsSet(<%=genClass.getQualifiedFeatureID(genFeature)%><%if (genClass.hasStaticFeatures()){%> - ESTATIC_FEATURE_COUNT<%}%>, <%=genFeature.getQualifiedFeatureAccessor()%>);
     <%} else if (genModel.isReflectiveDelegation()) {%>
 		return eIsSet(<%=genFeature.getQualifiedFeatureAccessor()%>);
@@ -1643,7 +1637,6 @@ if (index != -1) { head = typeName.substring(0, index); tail = typeName.substrin
   <%if (genModel.useGenerics() && !genOperation.hasBody() && !genOperation.isInvariant() && genOperation.hasInvocationDelegate() && genOperation.isUncheckedCast(genClass)) {%>
 	@SuppressWarnings("unchecked")
   <%}%>
-  //xx2
 	public <%=genOperation.getTypeParameters(genClass)%><%=genOperation.getImportedType(genClass)%> <%=genOperation.getName()%>(<%=genOperation.getParameters(isImplementation, genClass)%>)<%=genOperation.getThrows(genClass)%>
 	{
   <%if (genOperation.hasBody()) {%>
@@ -2316,8 +2309,8 @@ if (index != -1) { head = typeName.substring(0, index); tail = typeName.substrin
 	{
 		switch (operationID<%=negativeOperationOffsetCorrection%>)
 		{
-<%for (GenOperation genOperation : (genModel.isMinimalReflectiveMethods() ? genClass.getImplementedGenOperations() : genClass.getAllGenOperations())) { List<GenParameter> genParameters = genOperation.getGenParameters(); int size = genParameters.size();  boolean hasCheckedException = genOperation.hasCheckedException(); String indent = hasCheckedException ? "\t" : "";%>
-			case <%=genClass.getQualifiedOperationID(genOperation)%>:
+<%for (GenOperation genOperation : (genModel.isMinimalReflectiveMethods() ? genClass.getImplementedGenOperations() : genClass.getAllGenOperations())) { List<GenParameter> genParameters = genOperation.getGenParameters(); int size = genParameters.size();  boolean hasCheckedException = genOperation.hasCheckedException(); String indent = hasCheckedException ? "\t" : ""; GenOperation overrideGenOperation = genClass.getOverrideGenOperation(genOperation);%>
+			case <%=genClass.getQualifiedOperationID(overrideGenOperation != null ? overrideGenOperation : genOperation)%>:
   <%if (hasCheckedException) {%>
 				try
 				{
