@@ -33,7 +33,7 @@ public class ResourceLoader {
 
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
 		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
-		EPackage.Registry.INSTANCE.put("[%=pkg.nsURI%]", [%=(pkg.name).toUpperFirst()%]Package.eINSTANCE);
+		EPackage.Registry.INSTANCE.put("[%=(pkg.name).toUpperFirst()%]Package.eINSTANCE.getNsURI()", [%=(pkg.name).toUpperFirst()%]Package.eINSTANCE);
 		ResourceSet rst = new ResourceSetImpl();
 		try {
 			ClassLoader classLoader = getClass().getClassLoader();
@@ -41,7 +41,7 @@ public class ResourceLoader {
 			VirtualFile vf = (VirtualFile)conn.getContent();
 			File contentsFile = vf.getPhysicalFile();
 			resource = rst.getResource(
-			URI.createURI(contentsFile.toString()),true);
+			URI.createFileURI(contentsFile.toString()),true);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
