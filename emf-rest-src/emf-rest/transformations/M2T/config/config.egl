@@ -9,6 +9,6 @@ for (class in EClass.all) {
 	}
 }
 %]
-url=https\://localhost\:8443/[%=pluginName%]
+url=http\://localhost\:8080/[%=pluginName%]
 model=[%=root%]
 instance=[%=modelName%]
