@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: emf-rest
 Bundle-SymbolicName: emf-rest;singleton:=true
-Bundle-Version: 1.0.3.qualifier
+Bundle-Version: 2.1.0.qualifier
 Bundle-ClassPath: .,
  lib/commons-lang3-3.1.jar,
  lib/org.antlr.runtime_3.1.b1_3.1.0.jar,

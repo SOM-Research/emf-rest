@@ -2,7 +2,7 @@
 <feature
       id="com.rest.emf"
       label="EMF-REST"
-      version="2.0.3.qualifier"
+      version="2.1.0.qualifier"
       provider-name="EMF-REST">
 
    <description url="http://www.emf-rest.com">
