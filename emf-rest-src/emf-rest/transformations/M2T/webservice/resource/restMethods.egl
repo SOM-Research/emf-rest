@@ -70,7 +70,7 @@ function EReference generatePOST() {
     }%][%=self.name.toUpperFirst()%]([%=self.getType()%]Impl [%=self.name.toLowerFirst()%][%
     if(self.ordered){ %], @DefaultValue("0") @QueryParam("index") int index[%
     }%]) {
-		instance.get[%=self.name.toUpperFirst()%]().add(index, [%=self.name.toLowerFirst()%]);
+		instance.get[%=self.name.toUpperFirst()%]().add([%=self.name.toLowerFirst()%]);
 		resourceSaver.save();
 	}
 
