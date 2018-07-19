@@ -4,13 +4,8 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@XmlRootElement(name="son",namespace="http://emf-rest.com/proxy")
+@XmlRootElement(name = "son", namespace = "http://emf-rest.com/proxy")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class SonProxy extends MemberProxy{
+public class SonProxy extends MemberProxy {
 
-
-	
 }
-
-
-

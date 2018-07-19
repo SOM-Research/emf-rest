@@ -1,4 +1,3 @@
-
 package Example.service;
 
 import java.util.List;
@@ -15,44 +14,40 @@ import javax.annotation.security.PermitAll;
 
 import Example.*;
 import Example.impl.*;
-public class HuntingDogResource{
 
-    private Example.HuntingDog instance;
-    private String id;
+public class HuntingDogResource {
+
+	private HuntingDog instance;
+	private String id;
 	private ResourceSaver resourceSaver;
-    public HuntingDogResource(Example.HuntingDog instance,String id, ResourceSaver r){
-    	this.instance = instance;
-    	this.id = id;
-    	resourceSaver = r;
-    }
 
-	
- @PermitAll	@GET
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public Example.HuntingDog getHuntingDog(){
+	public HuntingDogResource(HuntingDog instance, String id, ResourceSaver r) {
+		this.instance = instance;
+		this.id = id;
+		resourceSaver = r;
+	}
+
+	@PermitAll
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public HuntingDog getHuntingDog() {
 		return instance;
 	}
 
- @PermitAll	@PUT
-	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public void updateHuntingDog(HuntingDogImpl object){
-		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
+	@PermitAll
+	@PUT
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public void updateHuntingDog(HuntingDogImpl huntingDog) {
+		resourceSaver.put(EcoreUtil.getIdentification(instance), huntingDog);
 	}
-	
- @PermitAll	@DELETE
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
+
+	@PermitAll
+	@DELETE
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
 	public void deleteHuntingDog() {
 		resourceSaver.remove(EcoreUtil.getIdentification(instance));
 	}
 
-	
 }
-

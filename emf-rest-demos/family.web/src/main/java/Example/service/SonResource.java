@@ -1,4 +1,3 @@
-
 package Example.service;
 
 import java.util.List;
@@ -15,54 +14,45 @@ import javax.annotation.security.PermitAll;
 
 import Example.*;
 import Example.impl.*;
-public class SonResource{
 
-    private Example.Son instance;
-    private String id;
+public class SonResource {
+
+	private Son instance;
+	private String id;
 	private ResourceSaver resourceSaver;
-    public SonResource(Example.Son instance,String id, ResourceSaver r){
-    	this.instance = instance;
-    	this.id = id;
-    	resourceSaver = r;
-    }
 
-	
- @PermitAll	@GET
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public Example.Son getSon(){
+	public SonResource(Son instance, String id, ResourceSaver r) {
+		this.instance = instance;
+		this.id = id;
+		resourceSaver = r;
+	}
+
+	@PermitAll
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public Son getSon() {
 		return instance;
 	}
 
- @PermitAll	@PUT
-	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public void updateSon(SonImpl object){
-		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
+	@PermitAll
+	@PUT
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public void updateSon(SonImpl son) {
+		resourceSaver.put(EcoreUtil.getIdentification(instance), son);
 	}
-	
- @PermitAll	@DELETE
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
+
+	@PermitAll
+	@DELETE
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
 	public void deleteSon() {
 		resourceSaver.remove(EcoreUtil.getIdentification(instance));
 	}
 
-  
-   @Path("family")
-   public Example.service.FamilyResource getResourceFamily()
-   {
-      return new Example.service.FamilyResource(instance.getFamily(),id,resourceSaver);
-   }    
-		
-		 // REF family
-		
-		
-	
-}
+	@Path("family")
+	public FamilyResource getResourceFamily() {
+		return new FamilyResource(instance.getFamily(), id, resourceSaver);
+	}
 
+}

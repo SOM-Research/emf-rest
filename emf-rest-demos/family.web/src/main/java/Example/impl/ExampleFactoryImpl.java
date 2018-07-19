@@ -27,12 +27,12 @@ public class ExampleFactoryImpl extends EFactoryImpl implements ExampleFactory {
 	 */
 	public static ExampleFactory init() {
 		try {
-			ExampleFactory theExampleFactory = (ExampleFactory)EPackage.Registry.INSTANCE.getEFactory(ExamplePackage.eNS_URI);
+			ExampleFactory theExampleFactory = (ExampleFactory) EPackage.Registry.INSTANCE
+					.getEFactory(ExamplePackage.eNS_URI);
 			if (theExampleFactory != null) {
 				return theExampleFactory;
 			}
-		}
-		catch (Exception exception) {
+		} catch (Exception exception) {
 			EcorePlugin.INSTANCE.log(exception);
 		}
 		return new ExampleFactoryImpl();
@@ -56,16 +56,24 @@ public class ExampleFactoryImpl extends EFactoryImpl implements ExampleFactory {
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case ExamplePackage.FAMILY: return createFamily();
-			case ExamplePackage.PARENT: return createParent();
-			case ExamplePackage.SON: return createSon();
-			case ExamplePackage.DAUGHTER: return createDaughter();
-			case ExamplePackage.DOG: return createDog();
-			case ExamplePackage.CAT: return createCat();
-			case ExamplePackage.RACE_DOG: return createRaceDog();
-			case ExamplePackage.HUNTING_DOG: return createHuntingDog();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		case ExamplePackage.FAMILY:
+			return createFamily();
+		case ExamplePackage.PARENT:
+			return createParent();
+		case ExamplePackage.SON:
+			return createSon();
+		case ExamplePackage.DAUGHTER:
+			return createDaughter();
+		case ExamplePackage.DOG:
+			return createDog();
+		case ExamplePackage.CAT:
+			return createCat();
+		case ExamplePackage.RACE_DOG:
+			return createRaceDog();
+		case ExamplePackage.HUNTING_DOG:
+			return createHuntingDog();
+		default:
+			throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
 	}
 
@@ -155,7 +163,7 @@ public class ExampleFactoryImpl extends EFactoryImpl implements ExampleFactory {
 	 * @generated
 	 */
 	public ExamplePackage getExamplePackage() {
-		return (ExamplePackage)getEPackage();
+		return (ExamplePackage) getEPackage();
 	}
 
 	/**

@@ -1,4 +1,3 @@
-
 package Example.service;
 
 import java.util.List;
@@ -15,56 +14,45 @@ import javax.annotation.security.PermitAll;
 
 import Example.*;
 import Example.impl.*;
-public class MemberResource{
 
-    private Example.Member instance;
-    private String id;
+public class MemberResource {
+
+	private Member instance;
+	private String id;
 	private ResourceSaver resourceSaver;
-    public MemberResource(Example.Member instance,String id, ResourceSaver r){
-    	this.instance = instance;
-    	this.id = id;
-    	resourceSaver = r;
-    }
 
-	
-@RolesAllowed({
+	public MemberResource(Member instance, String id, ResourceSaver r) {
+		this.instance = instance;
+		this.id = id;
+		resourceSaver = r;
+	}
+
+	@RolesAllowed({
 "admin",
 "user",
 })
 	@GET
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public Example.Member getMember(){
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public Member getMember() {
 		return instance;
 	}
 
-@RolesAllowed({
-"admin",
-"user",
-})
+	@RolesAllowed({
+"admin","user",})
 	@PUT
-	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public void updateMember(MemberImpl object){
-		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public void updateMember(MemberImpl member) {
+		resourceSaver.put(EcoreUtil.getIdentification(instance), member);
 	}
-	
-@RolesAllowed({
-"admin",
-"user",
-})
+
+	@RolesAllowed({
+"admin","user",})
 	@DELETE
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
 	public void deleteMember() {
 		resourceSaver.remove(EcoreUtil.getIdentification(instance));
 	}
 
-	
 }
-

@@ -11,18 +11,17 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link Example.Member#getFirstName <em>First Name</em>}</li>
  *   <li>{@link Example.Member#getLastName <em>Last Name</em>}</li>
  * </ul>
- * </p>
  *
  * @see Example.ExamplePackage#getMember()
  * @model abstract="true"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore constraints='validFirstName validLastName' roles='admin user'"
- *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL validFirstName='not self.firstName.oclIsUndefined() and self.firstName <> \'\'' validLastName='not self.lastName.oclIsUndefined() and self.lastName <> \'\''"
+ *        annotation="http://www.eclipse.org/emf/2002/Ecore/OCL validFirstName='not self.firstName.oclIsUndefined() and self.firstName &lt;&gt; \'\'' validLastName='not self.lastName.oclIsUndefined() and self.lastName &lt;&gt; \'\''"
  *        annotation="http:emf-rest.com/ROLE admin='rw-'"
-
  * @generated
  */
 public interface Member extends EObject {

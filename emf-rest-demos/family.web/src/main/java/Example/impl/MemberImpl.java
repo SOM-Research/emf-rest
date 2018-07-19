@@ -26,19 +26,17 @@ import webmapi.service.configuration.Wrapper;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link Example.impl.MemberImpl#getFirstName <em>First Name</em>}</li>
  *   <li>{@link Example.impl.MemberImpl#getLastName <em>Last Name</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-@XmlRootElement 
-@XmlSeeAlso ({MemberProxy.class,
-Wrapper.class,ParentImpl.class,SonImpl.class,DaughterImpl.class
-})
-public  abstract class MemberImpl extends EObjectImpl implements Member {
+@XmlRootElement
+@XmlSeeAlso({ MemberProxy.class, Wrapper.class, ParentImpl.class, SonImpl.class, DaughterImpl.class })
+public abstract class MemberImpl extends EObjectImpl implements Member {
 	/**
 	 * The default value of the '{@link #getFirstName() <em>First Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -104,14 +102,14 @@ public  abstract class MemberImpl extends EObjectImpl implements Member {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-/**
-	 * <!-- begin-user-doc -->
-	 * Z1
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */		
-	@XmlElement 
-	
+	/**
+		 * <!-- begin-user-doc -->
+		 * Z1
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+	@XmlElement
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -125,7 +123,8 @@ public  abstract class MemberImpl extends EObjectImpl implements Member {
 		String oldFirstName = firstName;
 		firstName = newFirstName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExamplePackage.MEMBER__FIRST_NAME, oldFirstName, firstName));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExamplePackage.MEMBER__FIRST_NAME, oldFirstName,
+					firstName));
 	}
 
 	/**
@@ -134,14 +133,14 @@ public  abstract class MemberImpl extends EObjectImpl implements Member {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-/**
-	 * <!-- begin-user-doc -->
-	 * Z1
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */		
-	@XmlElement 
-	
+	/**
+		 * <!-- begin-user-doc -->
+		 * Z1
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+	@XmlElement
+
 	public String getLastName() {
 		return lastName;
 	}
@@ -155,7 +154,8 @@ public  abstract class MemberImpl extends EObjectImpl implements Member {
 		String oldLastName = lastName;
 		lastName = newLastName;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExamplePackage.MEMBER__LAST_NAME, oldLastName, lastName));
+			eNotify(new ENotificationImpl(this, Notification.SET, ExamplePackage.MEMBER__LAST_NAME, oldLastName,
+					lastName));
 	}
 
 	/**
@@ -166,10 +166,10 @@ public  abstract class MemberImpl extends EObjectImpl implements Member {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExamplePackage.MEMBER__FIRST_NAME:
-				return getFirstName();
-			case ExamplePackage.MEMBER__LAST_NAME:
-				return getLastName();
+		case ExamplePackage.MEMBER__FIRST_NAME:
+			return getFirstName();
+		case ExamplePackage.MEMBER__LAST_NAME:
+			return getLastName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,12 +182,12 @@ public  abstract class MemberImpl extends EObjectImpl implements Member {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExamplePackage.MEMBER__FIRST_NAME:
-				setFirstName((String)newValue);
-				return;
-			case ExamplePackage.MEMBER__LAST_NAME:
-				setLastName((String)newValue);
-				return;
+		case ExamplePackage.MEMBER__FIRST_NAME:
+			setFirstName((String) newValue);
+			return;
+		case ExamplePackage.MEMBER__LAST_NAME:
+			setLastName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -200,12 +200,12 @@ public  abstract class MemberImpl extends EObjectImpl implements Member {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExamplePackage.MEMBER__FIRST_NAME:
-				setFirstName(FIRST_NAME_EDEFAULT);
-				return;
-			case ExamplePackage.MEMBER__LAST_NAME:
-				setLastName(LAST_NAME_EDEFAULT);
-				return;
+		case ExamplePackage.MEMBER__FIRST_NAME:
+			setFirstName(FIRST_NAME_EDEFAULT);
+			return;
+		case ExamplePackage.MEMBER__LAST_NAME:
+			setLastName(LAST_NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -218,10 +218,10 @@ public  abstract class MemberImpl extends EObjectImpl implements Member {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExamplePackage.MEMBER__FIRST_NAME:
-				return FIRST_NAME_EDEFAULT == null ? firstName != null : !FIRST_NAME_EDEFAULT.equals(firstName);
-			case ExamplePackage.MEMBER__LAST_NAME:
-				return LAST_NAME_EDEFAULT == null ? lastName != null : !LAST_NAME_EDEFAULT.equals(lastName);
+		case ExamplePackage.MEMBER__FIRST_NAME:
+			return FIRST_NAME_EDEFAULT == null ? firstName != null : !FIRST_NAME_EDEFAULT.equals(firstName);
+		case ExamplePackage.MEMBER__LAST_NAME:
+			return LAST_NAME_EDEFAULT == null ? lastName != null : !LAST_NAME_EDEFAULT.equals(lastName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -233,7 +233,8 @@ public  abstract class MemberImpl extends EObjectImpl implements Member {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (firstName: ");

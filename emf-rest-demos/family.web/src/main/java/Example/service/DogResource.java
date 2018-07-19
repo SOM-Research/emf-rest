@@ -1,4 +1,3 @@
-
 package Example.service;
 
 import java.util.List;
@@ -15,44 +14,40 @@ import javax.annotation.security.PermitAll;
 
 import Example.*;
 import Example.impl.*;
-public class DogResource{
 
-    private Example.Dog instance;
-    private String id;
+public class DogResource {
+
+	private Dog instance;
+	private String id;
 	private ResourceSaver resourceSaver;
-    public DogResource(Example.Dog instance,String id, ResourceSaver r){
-    	this.instance = instance;
-    	this.id = id;
-    	resourceSaver = r;
-    }
 
-	
- @PermitAll	@GET
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public Example.Dog getDog(){
+	public DogResource(Dog instance, String id, ResourceSaver r) {
+		this.instance = instance;
+		this.id = id;
+		resourceSaver = r;
+	}
+
+	@PermitAll
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public Dog getDog() {
 		return instance;
 	}
 
- @PermitAll	@PUT
-	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public void updateDog(DogImpl object){
-		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
+	@PermitAll
+	@PUT
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public void updateDog(DogImpl dog) {
+		resourceSaver.put(EcoreUtil.getIdentification(instance), dog);
 	}
-	
- @PermitAll	@DELETE
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
+
+	@PermitAll
+	@DELETE
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
 	public void deleteDog() {
 		resourceSaver.remove(EcoreUtil.getIdentification(instance));
 	}
 
-	
 }
-

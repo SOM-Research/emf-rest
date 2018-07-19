@@ -18,16 +18,12 @@ import webmapi.service.configuration.Wrapper;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Cat</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */
-@XmlRootElement (name="cat")
-@XmlSeeAlso ({CatProxy.class,
-Wrapper.class
-})
-public  class CatImpl extends PetImpl implements Cat {
+@XmlRootElement(name = "cat")
+@XmlSeeAlso({ CatProxy.class, Wrapper.class })
+public class CatImpl extends PetImpl implements Cat {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

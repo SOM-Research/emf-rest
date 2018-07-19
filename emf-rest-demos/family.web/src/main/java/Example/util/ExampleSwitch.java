@@ -47,7 +47,7 @@ public class ExampleSwitch<T> extends Switch<T> {
 	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @parameter ePackage the package in question.
+	 * @param ePackage the package in question.
 	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
@@ -66,76 +66,96 @@ public class ExampleSwitch<T> extends Switch<T> {
 	@Override
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case ExamplePackage.FAMILY: {
-				Family family = (Family)theEObject;
-				T result = caseFamily(family);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExamplePackage.MEMBER: {
-				Member member = (Member)theEObject;
-				T result = caseMember(member);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExamplePackage.PARENT: {
-				Parent parent = (Parent)theEObject;
-				T result = caseParent(parent);
-				if (result == null) result = caseMember(parent);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExamplePackage.SON: {
-				Son son = (Son)theEObject;
-				T result = caseSon(son);
-				if (result == null) result = caseMember(son);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExamplePackage.DAUGHTER: {
-				Daughter daughter = (Daughter)theEObject;
-				T result = caseDaughter(daughter);
-				if (result == null) result = caseMember(daughter);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExamplePackage.PET: {
-				Pet pet = (Pet)theEObject;
-				T result = casePet(pet);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExamplePackage.DOG: {
-				Dog dog = (Dog)theEObject;
-				T result = caseDog(dog);
-				if (result == null) result = casePet(dog);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExamplePackage.CAT: {
-				Cat cat = (Cat)theEObject;
-				T result = caseCat(cat);
-				if (result == null) result = casePet(cat);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExamplePackage.RACE_DOG: {
-				RaceDog raceDog = (RaceDog)theEObject;
-				T result = caseRaceDog(raceDog);
-				if (result == null) result = caseDog(raceDog);
-				if (result == null) result = casePet(raceDog);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ExamplePackage.HUNTING_DOG: {
-				HuntingDog huntingDog = (HuntingDog)theEObject;
-				T result = caseHuntingDog(huntingDog);
-				if (result == null) result = caseDog(huntingDog);
-				if (result == null) result = casePet(huntingDog);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
+		case ExamplePackage.FAMILY: {
+			Family family = (Family) theEObject;
+			T result = caseFamily(family);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExamplePackage.MEMBER: {
+			Member member = (Member) theEObject;
+			T result = caseMember(member);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExamplePackage.PARENT: {
+			Parent parent = (Parent) theEObject;
+			T result = caseParent(parent);
+			if (result == null)
+				result = caseMember(parent);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExamplePackage.SON: {
+			Son son = (Son) theEObject;
+			T result = caseSon(son);
+			if (result == null)
+				result = caseMember(son);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExamplePackage.DAUGHTER: {
+			Daughter daughter = (Daughter) theEObject;
+			T result = caseDaughter(daughter);
+			if (result == null)
+				result = caseMember(daughter);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExamplePackage.PET: {
+			Pet pet = (Pet) theEObject;
+			T result = casePet(pet);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExamplePackage.DOG: {
+			Dog dog = (Dog) theEObject;
+			T result = caseDog(dog);
+			if (result == null)
+				result = casePet(dog);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExamplePackage.CAT: {
+			Cat cat = (Cat) theEObject;
+			T result = caseCat(cat);
+			if (result == null)
+				result = casePet(cat);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExamplePackage.RACE_DOG: {
+			RaceDog raceDog = (RaceDog) theEObject;
+			T result = caseRaceDog(raceDog);
+			if (result == null)
+				result = caseDog(raceDog);
+			if (result == null)
+				result = casePet(raceDog);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		case ExamplePackage.HUNTING_DOG: {
+			HuntingDog huntingDog = (HuntingDog) theEObject;
+			T result = caseHuntingDog(huntingDog);
+			if (result == null)
+				result = caseDog(huntingDog);
+			if (result == null)
+				result = casePet(huntingDog);
+			if (result == null)
+				result = defaultCase(theEObject);
+			return result;
+		}
+		default:
+			return defaultCase(theEObject);
 		}
 	}
 

@@ -479,7 +479,6 @@ public interface ExamplePackage extends EPackage {
 	 */
 	int HUNTING_DOG_FEATURE_COUNT = DOG_FEATURE_COUNT + 0;
 
-
 	/**
 	 * Returns the meta object for class '{@link Example.Family <em>Family</em>}'.
 	 * <!-- begin-user-doc -->

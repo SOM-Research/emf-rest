@@ -5,7 +5,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.net.URLConnection;
 
-
 import javax.annotation.PostConstruct;
 import javax.ejb.Startup;
 import javax.inject.Singleton;
@@ -19,6 +18,8 @@ import org.eclipse.emf.ecore.xmi.impl.EcoreResourceFactoryImpl;
 import org.eclipse.emf.ecore.xmi.impl.XMIResourceFactoryImpl;
 import org.jboss.vfs.VirtualFile;
 
+import Example.ExamplePackage;
+
 @Startup
 @Singleton
 public class ResourceLoader {
@@ -28,11 +29,9 @@ public class ResourceLoader {
 	@PostConstruct
 	public void applicationStartup() {
 
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-				"ecore", new EcoreResourceFactoryImpl());
-		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put(
-				"xmi", new XMIResourceFactoryImpl());
-		EPackage.Registry.INSTANCE.put("http://emf-rest.com/Example",Example.ExamplePackage.eINSTANCE);
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("ecore", new EcoreResourceFactoryImpl());
+		Resource.Factory.Registry.INSTANCE.getExtensionToFactoryMap().put("xmi", new XMIResourceFactoryImpl());
+		EPackage.Registry.INSTANCE.put("ExamplePackage.eINSTANCE.getNsURI()", ExamplePackage.eINSTANCE);
 		ResourceSet rst = new ResourceSetImpl();
 		try {
 			ClassLoader classLoader = getClass().getClassLoader();
@@ -40,7 +39,7 @@ public class ResourceLoader {
 			VirtualFile vf = (VirtualFile)conn.getContent();
 			File contentsFile = vf.getPhysicalFile();
 			resource = rst.getResource(
-			URI.createURI(contentsFile.toString()),true);
+			URI.createFileURI(contentsFile.toString()),true);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

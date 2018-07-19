@@ -54,7 +54,7 @@ public class ExampleAdapterFactory extends AdapterFactoryImpl {
 			return true;
 		}
 		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
+			return ((EObject) object).eClass().getEPackage() == modelPackage;
 		}
 		return false;
 	}
@@ -65,53 +65,62 @@ public class ExampleAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected ExampleSwitch<Adapter> modelSwitch =
-		new ExampleSwitch<Adapter>() {
-			@Override
-			public Adapter caseFamily(Family object) {
-				return createFamilyAdapter();
-			}
-			@Override
-			public Adapter caseMember(Member object) {
-				return createMemberAdapter();
-			}
-			@Override
-			public Adapter caseParent(Parent object) {
-				return createParentAdapter();
-			}
-			@Override
-			public Adapter caseSon(Son object) {
-				return createSonAdapter();
-			}
-			@Override
-			public Adapter caseDaughter(Daughter object) {
-				return createDaughterAdapter();
-			}
-			@Override
-			public Adapter casePet(Pet object) {
-				return createPetAdapter();
-			}
-			@Override
-			public Adapter caseDog(Dog object) {
-				return createDogAdapter();
-			}
-			@Override
-			public Adapter caseCat(Cat object) {
-				return createCatAdapter();
-			}
-			@Override
-			public Adapter caseRaceDog(RaceDog object) {
-				return createRaceDogAdapter();
-			}
-			@Override
-			public Adapter caseHuntingDog(HuntingDog object) {
-				return createHuntingDogAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+	protected ExampleSwitch<Adapter> modelSwitch = new ExampleSwitch<Adapter>() {
+		@Override
+		public Adapter caseFamily(Family object) {
+			return createFamilyAdapter();
+		}
+
+		@Override
+		public Adapter caseMember(Member object) {
+			return createMemberAdapter();
+		}
+
+		@Override
+		public Adapter caseParent(Parent object) {
+			return createParentAdapter();
+		}
+
+		@Override
+		public Adapter caseSon(Son object) {
+			return createSonAdapter();
+		}
+
+		@Override
+		public Adapter caseDaughter(Daughter object) {
+			return createDaughterAdapter();
+		}
+
+		@Override
+		public Adapter casePet(Pet object) {
+			return createPetAdapter();
+		}
+
+		@Override
+		public Adapter caseDog(Dog object) {
+			return createDogAdapter();
+		}
+
+		@Override
+		public Adapter caseCat(Cat object) {
+			return createCatAdapter();
+		}
+
+		@Override
+		public Adapter caseRaceDog(RaceDog object) {
+			return createRaceDogAdapter();
+		}
+
+		@Override
+		public Adapter caseHuntingDog(HuntingDog object) {
+			return createHuntingDogAdapter();
+		}
+
+		@Override
+		public Adapter defaultCase(EObject object) {
+			return createEObjectAdapter();
+		}
+	};
 
 	/**
 	 * Creates an adapter for the <code>target</code>.
@@ -123,9 +132,8 @@ public class ExampleAdapterFactory extends AdapterFactoryImpl {
 	 */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject) target);
 	}
-
 
 	/**
 	 * Creates a new adapter for an object of class '{@link Example.Family <em>Family</em>}'.

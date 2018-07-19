@@ -1,4 +1,3 @@
-
 package Example.service;
 
 import java.util.List;
@@ -15,44 +14,40 @@ import javax.annotation.security.PermitAll;
 
 import Example.*;
 import Example.impl.*;
-public class RaceDogResource{
 
-    private Example.RaceDog instance;
-    private String id;
+public class RaceDogResource {
+
+	private RaceDog instance;
+	private String id;
 	private ResourceSaver resourceSaver;
-    public RaceDogResource(Example.RaceDog instance,String id, ResourceSaver r){
-    	this.instance = instance;
-    	this.id = id;
-    	resourceSaver = r;
-    }
 
-	
- @PermitAll	@GET
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public Example.RaceDog getRaceDog(){
+	public RaceDogResource(RaceDog instance, String id, ResourceSaver r) {
+		this.instance = instance;
+		this.id = id;
+		resourceSaver = r;
+	}
+
+	@PermitAll
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public RaceDog getRaceDog() {
 		return instance;
 	}
 
- @PermitAll	@PUT
-	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public void updateRaceDog(RaceDogImpl object){
-		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
+	@PermitAll
+	@PUT
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public void updateRaceDog(RaceDogImpl raceDog) {
+		resourceSaver.put(EcoreUtil.getIdentification(instance), raceDog);
 	}
-	
- @PermitAll	@DELETE
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
+
+	@PermitAll
+	@DELETE
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
 	public void deleteRaceDog() {
 		resourceSaver.remove(EcoreUtil.getIdentification(instance));
 	}
 
-	
 }
-

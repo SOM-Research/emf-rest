@@ -11,16 +11,15 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link Example.Pet#getName <em>Name</em>}</li>
  *   <li>{@link Example.Pet#getBreed <em>Breed</em>}</li>
  * </ul>
- * </p>
  *
  * @see Example.ExamplePackage#getPet()
  * @model abstract="true"
  *        annotation="http://www.eclipse.org/emf/2002/Ecore roles='other admin'"
-
  * @generated
  */
 public interface Pet extends EObject {

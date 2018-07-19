@@ -18,16 +18,12 @@ import webmapi.service.configuration.Wrapper;
  * <!-- begin-user-doc -->
  * An implementation of the model object '<em><b>Dog</b></em>'.
  * <!-- end-user-doc -->
- * <p>
- * </p>
  *
  * @generated
  */
-@XmlRootElement (name="dog")
-@XmlSeeAlso ({DogProxy.class,
-Wrapper.class,RaceDogImpl.class,HuntingDogImpl.class
-})
-public  class DogImpl extends PetImpl implements Dog {
+@XmlRootElement(name = "dog")
+@XmlSeeAlso({ DogProxy.class, Wrapper.class, RaceDogImpl.class, HuntingDogImpl.class })
+public class DogImpl extends PetImpl implements Dog {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

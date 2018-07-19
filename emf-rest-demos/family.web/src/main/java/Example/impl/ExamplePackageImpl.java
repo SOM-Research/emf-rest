@@ -130,7 +130,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 
 	/**
 	 * Creates, registers, and initializes the <b>Package</b> for this model, and for any others upon which it depends.
-	 * 
+	 *
 	 * <p>This method is used to initialize {@link ExamplePackage#eINSTANCE} when that field is accessed.
 	 * Clients should not invoke it directly. Instead, they should simply access that field to obtain the package.
 	 * <!-- begin-user-doc -->
@@ -141,10 +141,14 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public static ExamplePackage init() {
-		if (isInited) return (ExamplePackage)EPackage.Registry.INSTANCE.getEPackage(ExamplePackage.eNS_URI);
+		if (isInited)
+			return (ExamplePackage) EPackage.Registry.INSTANCE.getEPackage(ExamplePackage.eNS_URI);
 
 		// Obtain or create and register package
-		ExamplePackageImpl theExamplePackage = (ExamplePackageImpl)(EPackage.Registry.INSTANCE.get(eNS_URI) instanceof ExamplePackageImpl ? EPackage.Registry.INSTANCE.get(eNS_URI) : new ExamplePackageImpl());
+		Object registeredExamplePackage = EPackage.Registry.INSTANCE.get(eNS_URI);
+		ExamplePackageImpl theExamplePackage = registeredExamplePackage instanceof ExamplePackageImpl
+				? (ExamplePackageImpl) registeredExamplePackage
+				: new ExamplePackageImpl();
 
 		isInited = true;
 
@@ -155,18 +159,15 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 		theExamplePackage.initializePackageContents();
 
 		// Register package validator
-		EValidator.Registry.INSTANCE.put
-			(theExamplePackage, 
-			 new EValidator.Descriptor() {
-				 public EValidator getEValidator() {
-					 return ExampleValidator.INSTANCE;
-				 }
-			 });
+		EValidator.Registry.INSTANCE.put(theExamplePackage, new EValidator.Descriptor() {
+			public EValidator getEValidator() {
+				return ExampleValidator.INSTANCE;
+			}
+		});
 
 		// Mark meta-data to indicate it can't be changed
 		theExamplePackage.freeze();
 
-  
 		// Update the registry and return the package
 		EPackage.Registry.INSTANCE.put(ExamplePackage.eNS_URI, theExamplePackage);
 		return theExamplePackage;
@@ -187,7 +188,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EReference getFamily_Parents() {
-		return (EReference)familyEClass.getEStructuralFeatures().get(0);
+		return (EReference) familyEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -196,7 +197,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EReference getFamily_Sons() {
-		return (EReference)familyEClass.getEStructuralFeatures().get(1);
+		return (EReference) familyEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -205,7 +206,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EReference getFamily_Daughters() {
-		return (EReference)familyEClass.getEStructuralFeatures().get(2);
+		return (EReference) familyEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -214,7 +215,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EReference getFamily_Pets() {
-		return (EReference)familyEClass.getEStructuralFeatures().get(3);
+		return (EReference) familyEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -223,7 +224,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EAttribute getFamily_Address() {
-		return (EAttribute)familyEClass.getEStructuralFeatures().get(4);
+		return (EAttribute) familyEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -241,7 +242,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EAttribute getMember_FirstName() {
-		return (EAttribute)memberEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) memberEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -250,7 +251,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EAttribute getMember_LastName() {
-		return (EAttribute)memberEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) memberEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -268,7 +269,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EReference getParent_Family() {
-		return (EReference)parentEClass.getEStructuralFeatures().get(0);
+		return (EReference) parentEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -286,7 +287,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EReference getSon_Family() {
-		return (EReference)sonEClass.getEStructuralFeatures().get(0);
+		return (EReference) sonEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -304,7 +305,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EReference getDaughter_Family() {
-		return (EReference)daughterEClass.getEStructuralFeatures().get(0);
+		return (EReference) daughterEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -322,7 +323,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EAttribute getPet_Name() {
-		return (EAttribute)petEClass.getEStructuralFeatures().get(0);
+		return (EAttribute) petEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -331,7 +332,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public EAttribute getPet_Breed() {
-		return (EAttribute)petEClass.getEStructuralFeatures().get(1);
+		return (EAttribute) petEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -376,7 +377,7 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public ExampleFactory getExampleFactory() {
-		return (ExampleFactory)getEFactoryInstance();
+		return (ExampleFactory) getEFactoryInstance();
 	}
 
 	/**
@@ -394,7 +395,8 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public void createPackageContents() {
-		if (isCreated) return;
+		if (isCreated)
+			return;
 		isCreated = true;
 
 		// Create classes and their features
@@ -446,7 +448,8 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	public void initializePackageContents() {
-		if (isInitialized) return;
+		if (isInitialized)
+			return;
 		isInitialized = true;
 
 		// Initialize package
@@ -469,28 +472,50 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(familyEClass, Family.class, "Family", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getFamily_Parents(), this.getParent(), this.getParent_Family(), "parents", null, 0, 2, Family.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getFamily_Sons(), this.getSon(), this.getSon_Family(), "sons", null, 0, -1, Family.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getFamily_Daughters(), this.getDaughter(), this.getDaughter_Family(), "daughters", null, 0, -1, Family.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getFamily_Pets(), this.getPet(), null, "pets", null, 0, -1, Family.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getFamily_Address(), ecorePackage.getEString(), "address", null, 0, 1, Family.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFamily_Parents(), this.getParent(), this.getParent_Family(), "parents", null, 0, 2,
+				Family.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFamily_Sons(), this.getSon(), this.getSon_Family(), "sons", null, 0, -1, Family.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getFamily_Daughters(), this.getDaughter(), this.getDaughter_Family(), "daughters", null, 0, -1,
+				Family.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getFamily_Pets(), this.getPet(), null, "pets", null, 0, -1, Family.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
+		initEAttribute(getFamily_Address(), ecorePackage.getEString(), "address", null, 0, 1, Family.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				!IS_ORDERED);
 
 		initEClass(memberEClass, Member.class, "Member", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getMember_FirstName(), ecorePackage.getEString(), "firstName", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getMember_LastName(), ecorePackage.getEString(), "lastName", null, 0, 1, Member.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getMember_FirstName(), ecorePackage.getEString(), "firstName", null, 0, 1, Member.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getMember_LastName(), ecorePackage.getEString(), "lastName", null, 0, 1, Member.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED,
+				IS_ORDERED);
 
 		initEClass(parentEClass, Parent.class, "Parent", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParent_Family(), this.getFamily(), this.getFamily_Parents(), "family", null, 1, 1, Parent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParent_Family(), this.getFamily(), this.getFamily_Parents(), "family", null, 1, 1,
+				Parent.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(sonEClass, Son.class, "Son", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSon_Family(), this.getFamily(), this.getFamily_Sons(), "family", null, 1, 1, Son.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getSon_Family(), this.getFamily(), this.getFamily_Sons(), "family", null, 1, 1, Son.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(daughterEClass, Daughter.class, "Daughter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getDaughter_Family(), this.getFamily(), this.getFamily_Daughters(), "family", null, 1, 1, Daughter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(daughterEClass, Daughter.class, "Daughter", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getDaughter_Family(), this.getFamily(), this.getFamily_Daughters(), "family", null, 1, 1,
+				Daughter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES,
+				!IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(petEClass, Pet.class, "Pet", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPet_Name(), ecorePackage.getEString(), "name", null, 0, 1, Pet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getPet_Breed(), ecorePackage.getEString(), "breed", null, 0, 1, Pet.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPet_Name(), ecorePackage.getEString(), "name", null, 0, 1, Pet.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPet_Breed(), ecorePackage.getEString(), "breed", null, 0, 1, Pet.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dogEClass, Dog.class, "Dog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -498,7 +523,8 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 
 		initEClass(raceDogEClass, RaceDog.class, "RaceDog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-		initEClass(huntingDogEClass, HuntingDog.class, "HuntingDog", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEClass(huntingDogEClass, HuntingDog.class, "HuntingDog", !IS_ABSTRACT, !IS_INTERFACE,
+				IS_GENERATED_INSTANCE_CLASS);
 
 		// Create resource
 		createResource(eNS_URI);
@@ -519,20 +545,10 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	protected void createEcoreAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore";	
-		addAnnotation
-		  (memberEClass, 
-		   source, 
-		   new String[] {
-			 "constraints", "validFirstName validLastName",
-			 "roles", "admin user"
-		   });	
-		addAnnotation
-		  (petEClass, 
-		   source, 
-		   new String[] {
-			 "roles", "other admin"
-		   });
+		String source = "http://www.eclipse.org/emf/2002/Ecore";
+		addAnnotation(memberEClass, source,
+				new String[] { "constraints", "validFirstName validLastName", "roles", "admin user" });
+		addAnnotation(petEClass, source, new String[] { "roles", "other admin" });
 	}
 
 	/**
@@ -542,14 +558,10 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	protected void createOCLAnnotations() {
-		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";	
-		addAnnotation
-		  (memberEClass, 
-		   source, 
-		   new String[] {
-			 "validFirstName", "not self.firstName.oclIsUndefined() and self.firstName <> \'\'",
-			 "validLastName", "not self.lastName.oclIsUndefined() and self.lastName <> \'\'"
-		   });
+		String source = "http://www.eclipse.org/emf/2002/Ecore/OCL";
+		addAnnotation(memberEClass, source,
+				new String[] { "validFirstName", "not self.firstName.oclIsUndefined() and self.firstName <> \'\'",
+						"validLastName", "not self.lastName.oclIsUndefined() and self.lastName <> \'\'" });
 	}
 
 	/**
@@ -559,13 +571,8 @@ public class ExamplePackageImpl extends EPackageImpl implements ExamplePackage {
 	 * @generated
 	 */
 	protected void createROLEAnnotations() {
-		String source = "http:emf-rest.com/ROLE";	
-		addAnnotation
-		  (memberEClass, 
-		   source, 
-		   new String[] {
-			 "admin", "rw-"
-		   });
+		String source = "http:emf-rest.com/ROLE";
+		addAnnotation(memberEClass, source, new String[] { "admin", "rw-" });
 	}
 
 } //ExamplePackageImpl

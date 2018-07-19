@@ -1,4 +1,3 @@
-
 package Example.service;
 
 import java.util.List;
@@ -15,44 +14,40 @@ import javax.annotation.security.PermitAll;
 
 import Example.*;
 import Example.impl.*;
-public class CatResource{
 
-    private Example.Cat instance;
-    private String id;
+public class CatResource {
+
+	private Cat instance;
+	private String id;
 	private ResourceSaver resourceSaver;
-    public CatResource(Example.Cat instance,String id, ResourceSaver r){
-    	this.instance = instance;
-    	this.id = id;
-    	resourceSaver = r;
-    }
 
-	
- @PermitAll	@GET
-	@Produces({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public Example.Cat getCat(){
+	public CatResource(Cat instance, String id, ResourceSaver r) {
+		this.instance = instance;
+		this.id = id;
+		resourceSaver = r;
+	}
+
+	@PermitAll
+	@GET
+	@Produces({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public Cat getCat() {
 		return instance;
 	}
 
- @PermitAll	@PUT
-	@Consumes({MediaType.APPLICATION_JSON,MediaType.APPLICATION_XML})
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
-	public void updateCat(CatImpl object){
-		resourceSaver.put(EcoreUtil.getIdentification(instance), object);
+	@PermitAll
+	@PUT
+	@Consumes({ MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML })
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
+	public void updateCat(CatImpl cat) {
+		resourceSaver.put(EcoreUtil.getIdentification(instance), cat);
 	}
-	
- @PermitAll	@DELETE
-	@Mapped(namespaceMap = {
-	        @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy")
-	})
+
+	@PermitAll
+	@DELETE
+	@Mapped(namespaceMap = { @XmlNsMap(namespace = "http://emf-rest.com/proxy", jsonName = "proxy") })
 	public void deleteCat() {
 		resourceSaver.remove(EcoreUtil.getIdentification(instance));
 	}
 
-	
 }
-

@@ -26,19 +26,17 @@ import webmapi.service.configuration.Wrapper;
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
+ * </p>
  * <ul>
  *   <li>{@link Example.impl.PetImpl#getName <em>Name</em>}</li>
  *   <li>{@link Example.impl.PetImpl#getBreed <em>Breed</em>}</li>
  * </ul>
- * </p>
  *
  * @generated
  */
-@XmlRootElement 
-@XmlSeeAlso ({PetProxy.class,
-Wrapper.class,DogImpl.class,CatImpl.class,RaceDogImpl.class,HuntingDogImpl.class
-})
-public  abstract class PetImpl extends EObjectImpl implements Pet {
+@XmlRootElement
+@XmlSeeAlso({ PetProxy.class, Wrapper.class, DogImpl.class, CatImpl.class, RaceDogImpl.class, HuntingDogImpl.class })
+public abstract class PetImpl extends EObjectImpl implements Pet {
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
 	 * <!-- begin-user-doc -->
@@ -104,14 +102,14 @@ public  abstract class PetImpl extends EObjectImpl implements Pet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-/**
-	 * <!-- begin-user-doc -->
-	 * Z1
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */		
-	@XmlElement 
-	
+	/**
+		 * <!-- begin-user-doc -->
+		 * Z1
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+	@XmlElement
+
 	public String getName() {
 		return name;
 	}
@@ -134,14 +132,14 @@ public  abstract class PetImpl extends EObjectImpl implements Pet {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-/**
-	 * <!-- begin-user-doc -->
-	 * Z1
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */		
-	@XmlElement 
-	
+	/**
+		 * <!-- begin-user-doc -->
+		 * Z1
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+	@XmlElement
+
 	public String getBreed() {
 		return breed;
 	}
@@ -166,10 +164,10 @@ public  abstract class PetImpl extends EObjectImpl implements Pet {
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ExamplePackage.PET__NAME:
-				return getName();
-			case ExamplePackage.PET__BREED:
-				return getBreed();
+		case ExamplePackage.PET__NAME:
+			return getName();
+		case ExamplePackage.PET__BREED:
+			return getBreed();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -182,12 +180,12 @@ public  abstract class PetImpl extends EObjectImpl implements Pet {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ExamplePackage.PET__NAME:
-				setName((String)newValue);
-				return;
-			case ExamplePackage.PET__BREED:
-				setBreed((String)newValue);
-				return;
+		case ExamplePackage.PET__NAME:
+			setName((String) newValue);
+			return;
+		case ExamplePackage.PET__BREED:
+			setBreed((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -200,12 +198,12 @@ public  abstract class PetImpl extends EObjectImpl implements Pet {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ExamplePackage.PET__NAME:
-				setName(NAME_EDEFAULT);
-				return;
-			case ExamplePackage.PET__BREED:
-				setBreed(BREED_EDEFAULT);
-				return;
+		case ExamplePackage.PET__NAME:
+			setName(NAME_EDEFAULT);
+			return;
+		case ExamplePackage.PET__BREED:
+			setBreed(BREED_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -218,10 +216,10 @@ public  abstract class PetImpl extends EObjectImpl implements Pet {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ExamplePackage.PET__NAME:
-				return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
-			case ExamplePackage.PET__BREED:
-				return BREED_EDEFAULT == null ? breed != null : !BREED_EDEFAULT.equals(breed);
+		case ExamplePackage.PET__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+		case ExamplePackage.PET__BREED:
+			return BREED_EDEFAULT == null ? breed != null : !BREED_EDEFAULT.equals(breed);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -233,7 +231,8 @@ public  abstract class PetImpl extends EObjectImpl implements Pet {
 	 */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+		if (eIsProxy())
+			return super.toString();
 
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (name: ");

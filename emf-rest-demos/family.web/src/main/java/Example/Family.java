@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link Example.Family#getParents <em>Parents</em>}</li>
  *   <li>{@link Example.Family#getSons <em>Sons</em>}</li>
@@ -20,11 +21,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link Example.Family#getPets <em>Pets</em>}</li>
  *   <li>{@link Example.Family#getAddress <em>Address</em>}</li>
  * </ul>
- * </p>
  *
  * @see Example.ExamplePackage#getFamily()
  * @model
-
  * @generated
  */
 public interface Family extends EObject {

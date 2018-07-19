@@ -2,7 +2,6 @@
  */
 package Example;
 
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parent</b></em>'.
@@ -10,14 +9,13 @@ package Example;
  *
  * <p>
  * The following features are supported:
+ * </p>
  * <ul>
  *   <li>{@link Example.Parent#getFamily <em>Family</em>}</li>
  * </ul>
- * </p>
  *
  * @see Example.ExamplePackage#getParent()
  * @model
-
  * @generated
  */
 public interface Parent extends Member {

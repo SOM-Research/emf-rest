@@ -81,8 +81,9 @@ public class ExampleValidator extends EObjectValidator {
 	 */
 	private static Constraint member_validLastNameInvOCL;
 	private static final String OCL_ANNOTATION_SOURCE = "http://www.eclipse.org/emf/2002/Ecore/OCL";
-	
+
 	private static final OCL OCL_ENV = OCL.newInstance();
+
 	/**
 	 * Creates an instance of the switch.
 	 * <!-- begin-user-doc -->
@@ -101,7 +102,7 @@ public class ExampleValidator extends EObjectValidator {
 	 */
 	@Override
 	protected EPackage getEPackage() {
-	  return ExamplePackage.eINSTANCE;
+		return ExamplePackage.eINSTANCE;
 	}
 
 	/**
@@ -111,30 +112,31 @@ public class ExampleValidator extends EObjectValidator {
 	 * @generated
 	 */
 	@Override
-	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
+	protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
 		switch (classifierID) {
-			case ExamplePackage.FAMILY:
-				return validateFamily((Family)value, diagnostics, context);
-			case ExamplePackage.MEMBER:
-				return validateMember((Member)value, diagnostics, context);
-			case ExamplePackage.PARENT:
-				return validateParent((Parent)value, diagnostics, context);
-			case ExamplePackage.SON:
-				return validateSon((Son)value, diagnostics, context);
-			case ExamplePackage.DAUGHTER:
-				return validateDaughter((Daughter)value, diagnostics, context);
-			case ExamplePackage.PET:
-				return validatePet((Pet)value, diagnostics, context);
-			case ExamplePackage.DOG:
-				return validateDog((Dog)value, diagnostics, context);
-			case ExamplePackage.CAT:
-				return validateCat((Cat)value, diagnostics, context);
-			case ExamplePackage.RACE_DOG:
-				return validateRaceDog((RaceDog)value, diagnostics, context);
-			case ExamplePackage.HUNTING_DOG:
-				return validateHuntingDog((HuntingDog)value, diagnostics, context);
-			default: 
-				return true;
+		case ExamplePackage.FAMILY:
+			return validateFamily((Family) value, diagnostics, context);
+		case ExamplePackage.MEMBER:
+			return validateMember((Member) value, diagnostics, context);
+		case ExamplePackage.PARENT:
+			return validateParent((Parent) value, diagnostics, context);
+		case ExamplePackage.SON:
+			return validateSon((Son) value, diagnostics, context);
+		case ExamplePackage.DAUGHTER:
+			return validateDaughter((Daughter) value, diagnostics, context);
+		case ExamplePackage.PET:
+			return validatePet((Pet) value, diagnostics, context);
+		case ExamplePackage.DOG:
+			return validateDog((Dog) value, diagnostics, context);
+		case ExamplePackage.CAT:
+			return validateCat((Cat) value, diagnostics, context);
+		case ExamplePackage.RACE_DOG:
+			return validateRaceDog((RaceDog) value, diagnostics, context);
+		case ExamplePackage.HUNTING_DOG:
+			return validateHuntingDog((HuntingDog) value, diagnostics, context);
+		default:
+			return true;
 		}
 	}
 
@@ -154,16 +156,26 @@ public class ExampleValidator extends EObjectValidator {
 	 */
 	public boolean validateMember(Member member, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_NoCircularContainment(member, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(member, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(member, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(member, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(member, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(member, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(member, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(member, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(member, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMember_validFirstName(member, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMember_validLastName(member, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMultiplicityConforms(member, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(member, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(member, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(member, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(member, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(member, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(member, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(member, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateMember_validFirstName(member, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateMember_validLastName(member, diagnostics, context);
 		return result;
 	}
 
@@ -173,33 +185,30 @@ public class ExampleValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMember_validFirstName(Member member, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (member_validFirstNameInvOCL == null) {
+	public boolean validateMember_validFirstName(Member member, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (member_validFirstNameInvOCL == null) {
 			OCL.Helper helper = OCL_ENV.createOCLHelper();
 			helper.setContext(ExamplePackage.Literals.MEMBER);
-			
+
 			EAnnotation ocl = ExamplePackage.Literals.MEMBER.getEAnnotation(OCL_ANNOTATION_SOURCE);
 			String expr = ocl.getDetails().get("validFirstName");
-			
+
 			try {
 				member_validFirstNameInvOCL = helper.createInvariant(expr);
-			}
-			catch (ParserException e) {
+			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
-		
+
 		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(member_validFirstNameInvOCL);
-		
+
 		if (!query.check(member)) {
 			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "validFirstName", getObjectLabel(member, context) }),
-						 new Object[] { member }));
+				diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic",
+								new Object[] { "validFirstName", getObjectLabel(member, context) }),
+						new Object[] { member }));
 			}
 			return false;
 		}
@@ -212,33 +221,30 @@ public class ExampleValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateMember_validLastName(Member member, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (member_validLastNameInvOCL == null) {
+	public boolean validateMember_validLastName(Member member, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		if (member_validLastNameInvOCL == null) {
 			OCL.Helper helper = OCL_ENV.createOCLHelper();
 			helper.setContext(ExamplePackage.Literals.MEMBER);
-			
+
 			EAnnotation ocl = ExamplePackage.Literals.MEMBER.getEAnnotation(OCL_ANNOTATION_SOURCE);
 			String expr = ocl.getDetails().get("validLastName");
-			
+
 			try {
 				member_validLastNameInvOCL = helper.createInvariant(expr);
-			}
-			catch (ParserException e) {
+			} catch (ParserException e) {
 				throw new UnsupportedOperationException(e.getLocalizedMessage());
 			}
 		}
-		
+
 		Query<EClassifier, ?, ?> query = OCL_ENV.createQuery(member_validLastNameInvOCL);
-		
+
 		if (!query.check(member)) {
 			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 DIAGNOSTIC_SOURCE,
-						 0,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic", new Object[] { "validLastName", getObjectLabel(member, context) }),
-						 new Object[] { member }));
+				diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, DIAGNOSTIC_SOURCE, 0,
+						EcorePlugin.INSTANCE.getString("_UI_GenericConstraint_diagnostic",
+								new Object[] { "validLastName", getObjectLabel(member, context) }),
+						new Object[] { member }));
 			}
 			return false;
 		}
@@ -252,16 +258,26 @@ public class ExampleValidator extends EObjectValidator {
 	 */
 	public boolean validateParent(Parent parent, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_NoCircularContainment(parent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(parent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(parent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(parent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(parent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(parent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(parent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(parent, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parent, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMember_validFirstName(parent, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMember_validLastName(parent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMultiplicityConforms(parent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(parent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(parent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(parent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(parent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(parent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(parent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(parent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateMember_validFirstName(parent, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateMember_validLastName(parent, diagnostics, context);
 		return result;
 	}
 
@@ -272,16 +288,26 @@ public class ExampleValidator extends EObjectValidator {
 	 */
 	public boolean validateSon(Son son, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_NoCircularContainment(son, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(son, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(son, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(son, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(son, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(son, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(son, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(son, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(son, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMember_validFirstName(son, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMember_validLastName(son, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMultiplicityConforms(son, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(son, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(son, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(son, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(son, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(son, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(son, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(son, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateMember_validFirstName(son, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateMember_validLastName(son, diagnostics, context);
 		return result;
 	}
 
@@ -292,16 +318,26 @@ public class ExampleValidator extends EObjectValidator {
 	 */
 	public boolean validateDaughter(Daughter daughter, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		boolean result = validate_NoCircularContainment(daughter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMultiplicityConforms(daughter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(daughter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(daughter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryBidirectionalReferenceIsPaired(daughter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(daughter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(daughter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(daughter, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(daughter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMember_validFirstName(daughter, diagnostics, context);
-		if (result || diagnostics != null) result &= validateMember_validLastName(daughter, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMultiplicityConforms(daughter, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryDataValueConforms(daughter, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryReferenceIsContained(daughter, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryBidirectionalReferenceIsPaired(daughter, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryProxyResolves(daughter, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_UniqueID(daughter, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryKeyUnique(daughter, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validate_EveryMapEntryUnique(daughter, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateMember_validFirstName(daughter, diagnostics, context);
+		if (result || diagnostics != null)
+			result &= validateMember_validLastName(daughter, diagnostics, context);
 		return result;
 	}
 
