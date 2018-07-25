@@ -26,13 +26,16 @@ package <%= genPackage.getInterfacePackageName()+".proxy"%>;
 public class ProxyFactory{
 
 <%for (GenClassifier eClassifier : listClasses) {%>
+<% if (eClassifier instanceof GenClass) { %>
 	public static <%=eClassifier.getName()%>Proxy create<%=eClassifier.getName()%>Proxy(String name){
   <%for (GenClassifier temp : listClasses) {%>
+  <% if (temp instanceof GenClass) { %>
     <%if (((EClass)eClassifier.getEcoreClassifier()).isSuperTypeOf(((EClass)temp.getEcoreClassifier()))) {%>
 		if (name.equals("<%=temp.getName()%>"))
 			return new <%=temp.getName()%>Proxy();
     <%}%>
   <%}%>
+    <%}%>
 		return null;
 	}
 
@@ -40,6 +43,7 @@ public class ProxyFactory{
 	public static <%=genModel.getImportedName(eClassifier.getName())%> create<%=eClassifier.getName()%>(<%=eClassifier.getName()%>Proxy type){
 		<%=genPackage.getFactoryName()%> factory = <%=genPackage.getFactoryName()%>.eINSTANCE;
   <%for (GenClassifier temp : listClasses) {%>
+   <% if (temp instanceof GenClass) { %>
     <%if(((EClass)eClassifier.getEcoreClassifier()).isSuperTypeOf(((EClass)temp.getEcoreClassifier()))) {%>
       <%if(!((EClass)eClassifier.getEcoreClassifier()).isAbstract()){%>
 		if (type.getClass().getAnnotation(XmlRootElement.class).equals("<%=temp.getName().toLowerCase()%>"))
@@ -47,10 +51,11 @@ public class ProxyFactory{
       <%}%>
     <%}%>
   <%}%>
+  <%}%>
 		return null;
 	}
 
-<%}%>
+<%}}%>
 }
 <%@ include file="Class/insert.javajetinc" fail="silent" %>
 <% genModel.emitSortedImports(); %>
