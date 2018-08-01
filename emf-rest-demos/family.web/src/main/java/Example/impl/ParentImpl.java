@@ -69,11 +69,11 @@ public class ParentImpl extends MemberImpl implements Parent {
 	 * @generated
 	 */
 	/**
-		 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 		 * Z1
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
+	 * @generated
+	 */
 	@XmlAnyElement(lax = true)
 	@XmlJavaTypeAdapter(value = FamilyAdapter.class)
 

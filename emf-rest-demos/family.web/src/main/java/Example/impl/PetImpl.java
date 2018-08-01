@@ -103,11 +103,11 @@ public abstract class PetImpl extends EObjectImpl implements Pet {
 	 * @generated
 	 */
 	/**
-		 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 		 * Z1
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
+	 * @generated
+	 */
 	@XmlElement
 
 	public String getName() {
@@ -133,11 +133,11 @@ public abstract class PetImpl extends EObjectImpl implements Pet {
 	 * @generated
 	 */
 	/**
-		 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 		 * Z1
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
+	 * @generated
+	 */
 	@XmlElement
 
 	public String getBreed() {

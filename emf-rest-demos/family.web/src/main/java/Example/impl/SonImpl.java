@@ -69,11 +69,11 @@ public class SonImpl extends MemberImpl implements Son {
 	 * @generated
 	 */
 	/**
-		 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 		 * Z1
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
+	 * @generated
+	 */
 	@XmlAnyElement(lax = true)
 	@XmlJavaTypeAdapter(value = FamilyAdapter.class)
 

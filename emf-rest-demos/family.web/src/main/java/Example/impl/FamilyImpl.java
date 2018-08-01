@@ -148,11 +148,11 @@ public class FamilyImpl extends EObjectImpl implements Family {
 	 * @generated
 	 */
 	/**
-		 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 		 * Z1
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
+	 * @generated
+	 */
 	@XmlElementWrapper(name = "parents")
 	@XmlAnyElement(lax = true)
 	@XmlJavaTypeAdapter(value = ParentAdapter.class)
@@ -172,11 +172,11 @@ public class FamilyImpl extends EObjectImpl implements Family {
 	 * @generated
 	 */
 	/**
-		 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 		 * Z1
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
+	 * @generated
+	 */
 	@XmlElementWrapper(name = "sons")
 	@XmlAnyElement(lax = true)
 	@XmlJavaTypeAdapter(value = SonAdapter.class)
@@ -196,11 +196,11 @@ public class FamilyImpl extends EObjectImpl implements Family {
 	 * @generated
 	 */
 	/**
-		 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 		 * Z1
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
+	 * @generated
+	 */
 	@XmlElementWrapper(name = "daughters")
 	@XmlAnyElement(lax = true)
 	@XmlJavaTypeAdapter(value = DaughterAdapter.class)
@@ -220,11 +220,11 @@ public class FamilyImpl extends EObjectImpl implements Family {
 	 * @generated
 	 */
 	/**
-		 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 		 * Z1
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
+	 * @generated
+	 */
 	@XmlElementWrapper(name = "pets")
 	@XmlAnyElement(lax = true)
 	@XmlJavaTypeAdapter(value = PetAdapter.class)
@@ -243,11 +243,11 @@ public class FamilyImpl extends EObjectImpl implements Family {
 	 * @generated
 	 */
 	/**
-		 * <!-- begin-user-doc -->
+	 * <!-- begin-user-doc -->
 		 * Z1
 		 * <!-- end-user-doc -->
-		 * @generated
-		 */
+	 * @generated
+	 */
 	@XmlElement
 
 	public String getAddress() {
