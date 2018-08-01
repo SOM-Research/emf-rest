@@ -25,19 +25,28 @@ public class IdentificationResolver {
 	public static String get[%=cls.name%]Id([%=cls.name()%] [%=cls.name.toLowerFirst()%]) {
 		if ([%=cls.name.toLowerFirst()%] == null)
 			return null;
-	    [% var getById = false;
-	    var getByName = false;
+	    [% var getByIdAttribute = false;
+	    var getByIdFlag = false;
+	    var getByNameAttribute = false;
 	    var getByUnique = false;
 	    var uniqueAttName = "";
 	    var idFieldName = null;
-	    var dataType ;
+	    var dataType;
+	    for (attr in cls.eAllAttributes) {
+	    if(attr.isID()){
+	    	getByIdFlag = true;
+	    	dataType = attr.getTypeName();
+	    	idFieldName = attr.name;
+	    }
+	    }
+	    if(getByIdFlag == false){
 	    for (attr in cls.eAllAttributes) {
 		   if (attr.name=='id'){ 
-		      getById = true;
+		      getByIdAttribute = true;
 		      dataType = attr.getTypeName();
 		      break;
 		   } else if (attr.name=='name'){ 
-		      getByName = true;
+		      getByNameAttribute = true;
 		       dataType = attr.getTypeName();
 		      break;
 		   } else if (attr.unique){ 
@@ -45,11 +54,14 @@ public class IdentificationResolver {
 		      uniqueAttName = attr.name;
 		       dataType = attr.getTypeName();
 		   }
-	    }
-	    if(getById){
+	    }}
+	    
+	    if(getByIdAttribute){
 	     idFieldName = "Id";
-	    } else if(getByName){
-	     idFieldName = "Name"; 
+	    } else if(getByNameAttribute){
+	     idFieldName = "Name"; }
+	      else if(getByIdFlag){
+	     idFieldName = idFieldName.toUpperFirst(); 
 	    } else if(getByUnique){
 	     idFieldName = uniqueAttName.toUpperFirst(); 
 	    } else if(cls.eAllAttributes.size()>0){
