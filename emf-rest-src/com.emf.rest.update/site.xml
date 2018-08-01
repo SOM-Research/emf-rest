@@ -6,5 +6,8 @@
    <feature url="features/com.rest.emf_2.1.0.201807200013.jar" id="com.rest.emf" version="2.1.0.201807200013">
       <category name="EMF REST"/>
    </feature>
+   <feature url="features/com.rest.emf_2.1.0.201808010815.jar" id="com.rest.emf" version="2.1.0.201808010815">
+      <category name="EMF REST"/>
+   </feature>
    <category-def name="EMF REST" label="EMF REST"/>
 </site>
